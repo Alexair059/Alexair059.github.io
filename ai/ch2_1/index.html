@@ -1072,7 +1072,7 @@
 
 
 <h1 id="slic">基于SLIC算法的像素化风格生成器<a class="headerlink" href="#slic" title="Permanent link">&para;</a></h1>
-<p>实现超像素领域简单算法SLIC，并基于其创建一个<a href="http://124.223.68.212/slic/">图片像素化风格生成器</a></p>
+<p>实现超像素领域简单算法SLIC，并基于其创建一个<a href="https://alexair059.github.io/SLIC-Pixelation/">图片像素化风格生成器</a></p>
 <h2 id="superpixel">超像素（SuperPixel）<a class="headerlink" href="#superpixel" title="Permanent link">&para;</a></h2>
 <p>超像素是 2003 年 Xiaofeng Ren 提出和发展起来的图像分割技术，是指具有相似纹理、颜色、亮度等特征的相邻像素构成的有一定视觉意义的不规则像素块</p>
 <blockquote>
@@ -1134,7 +1134,7 @@ D^{\prime} &amp;=\sqrt{\left(\frac{\mathrm{d}_c}{m}\right)^2+\left(\frac{\mathrm
 <p>在本文中，由于应用场景是图片像素化，会对像素进行下取样，并不会细化到每个像素，因此不做聚类优化处理</p>
 <p>在对图片进行SLIC分割后，我们已经获得每个像素对应的超像素标记，设定一定步长<code>stride</code>，每隔<code>stride</code>个像素，将像素赋值为其聚类中心的颜色，即得到最终的像素化结果</p>
 <h2 id="_3">项目部署：图片像素化风格生成器<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>应用部署在<a href="http://124.223.68.212/slic/">个人站点</a>，相关参数如下：</p>
+<p>应用部署在<a href="https://alexair059.github.io/SLIC-Pixelation/">个人站点</a>，相关参数如下：</p>
 <ul>
 <li>迭代次数<code>iters</code>；<code>iters</code>越大，分割结果更精准，计算时间越长</li>
 <li>超像素点大小<code>blocksize</code>；<code>blocksize</code>越小，超像素点分割越细腻</li>
