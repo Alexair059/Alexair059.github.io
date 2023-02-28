@@ -5,6 +5,10 @@ hide:
 
 # Welcome To My Blog
 
+### 2022-12
+
+- Nginx
+
 ### 2022-11
 
 - SLIC Pixelation & [图片像素化风格生成器](https://alexair059.github.io/SLIC-Pixelation/)
