@@ -48,13 +48,11 @@ nav:
       - 乱数假文&LSB隐写: ctf/ch1.md
       - FGSM攻击: ctf/ch2.md
   - Web:
-      - 云服务:
+      - 网络服务:
           - 腾讯云: web/todo.md
-      - 反向代理:
-          - Nginx: web/todo1.md
-      - Web服务器:
+          - Nginx: web/ch2.md
           - uWSGI: web/todo2.md
-      - 后端微框架:
+      - 后端:
           - Flask: web/todo3.md
       - 前端:
           - Vue2&3: web/todo4.md
