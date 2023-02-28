@@ -1,0 +1,103 @@
+site_name: 美汁源的备忘录
+
+theme:
+  name: material
+  language: zh
+  logo: assets/logo.png
+  favicon: assets/favicon.png
+  palette: 
+    - scheme: default
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        name: Switch to light mode
+        icon: material/brightness-7
+    - scheme: slate
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        name: Switch to dark mode
+        icon: material/brightness-4
+  
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.top
+    # - header.autohide
+
+repo_url: https://gitee.com/Alexair059/blog
+repo_name: Alexair059/blog
+
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Alexair059
+      name: My Github
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:alexair059@gmail.com
+      name: My Email
+
+copyright: Copyright &copy; 2020 - 2022 Alexair
+    
+
+nav:
+  - Home: index.md
+  - CTF:
+      - 乱数假文&LSB隐写: ctf/ch1.md
+      - FGSM攻击: ctf/ch2.md
+  - Web:
+      - 云服务:
+          - 腾讯云: web/todo.md
+      - 反向代理:
+          - Nginx: web/todo1.md
+      - Web服务器:
+          - uWSGI: web/todo2.md
+      - 后端微框架:
+          - Flask: web/todo3.md
+      - 前端:
+          - Vue2&3: web/todo4.md
+  - AI:
+      - ML: ai/todo.md
+      - CV: 
+          - SLIC Pixelation: ai/ch2_1.md
+      - NLP: ai/todo2.md
+      - KG: ai/todo3.md
+      - DL: ai/todo4.md
+      - RL: ai/todo5.md
+
+markdown_extensions:
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
