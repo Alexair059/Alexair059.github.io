@@ -13,7 +13,7 @@
     
     
       
-        <title>uWSGI - 美汁源的备忘录</title>
+        <title>Nginx - 美汁源的备忘录</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#todo" class="md-skip">
+        <a href="#nginx" class="md-skip">
           跳转至
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              uWSGI
+              Nginx
             
           </span>
         </div>
@@ -235,7 +235,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../todo/" class="md-tabs__link md-tabs__link--active">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
         Web
       </a>
     </li>
@@ -442,11 +442,72 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../todo/" class="md-nav__link">
-        腾讯云
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Nginx
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Nginx
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    基本设置
+  </a>
+  
+    <nav class="md-nav" aria-label="基本设置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conf" class="md-nav__link">
+    conf 文件的配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nginx_1" class="md-nav__link">
+    nginx的重启
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -459,7 +520,7 @@
   
     <li class="md-nav__item">
       <a href="../ch2/" class="md-nav__link">
-        Nginx
+        uWSGI
       </a>
     </li>
   
@@ -470,48 +531,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          uWSGI
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        uWSGI
+    <li class="md-nav__item">
+      <a href="../todo/" class="md-nav__link">
+        TencentCloud
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#todo" class="md-nav__link">
-    Todo
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -792,6 +816,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -800,9 +826,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#todo" class="md-nav__link">
-    Todo
+  <a href="#_1" class="md-nav__link">
+    基本设置
   </a>
+  
+    <nav class="md-nav" aria-label="基本设置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conf" class="md-nav__link">
+    conf 文件的配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nginx_1" class="md-nav__link">
+    nginx的重启
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -820,15 +866,70 @@
                 
                   
 
-  <a href="https://github.com/Alexair059/Alexair059.github.io/edit/master/docs/web/todo2.md" title="编辑此页" class="md-content__button md-icon">
+  <a href="https://github.com/Alexair059/Alexair059.github.io/edit/master/docs/web/ch1.md" title="编辑此页" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-  <h1>uWSGI</h1>
+<h1 id="nginx">Nginx<a class="headerlink" href="#nginx" title="Permanent link">&para;</a></h1>
+<p>Nginx主要工作流涉及 conf 文件的配置，nginx的重启，实现反向代理</p>
+<h2 id="_1">基本设置<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="conf">conf 文件的配置<a class="headerlink" href="#conf" title="Permanent link">&para;</a></h3>
+<p>Nginx配置文件路径：<code>/usr/local/nginx/conf</code>，文件名：<code>nginx.conf</code></p>
+<p>多余配置自行查找，此处给出server块的具体设置：</p>
+<p>单纯静态资源代理</p>
+<div class="highlight"><pre><span></span><code>   server {
+        listen       80;
+        server_name  localhost;
 
-<h3 id="todo">Todo<a class="headerlink" href="#todo" title="Permanent link">&para;</a></h3>
+        location / {
+            root    html;
+            index   river.pdf index.html;
+       }
+        location /Echo_of_Starsong/introduction {
+            root    /home/myweb;
+            index   introduction.html;
+        }
+            location /AI/Disco_Diffusion/Official_Guide/CH {
+            root    /home/myweb;
+            index   DD_CH_Basic.pdf;
+        }
+        location /AI/Disco_Diffusion/Official_Guide/EN {
+            root    /home/myweb;
+            index   DD_EN.pdf;
+        }
+
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+    }
+</code></pre></div>
+<p>反向代理至uWSGI，公网端口为8000，内部端口为5000
+<div class="highlight"><pre><span></span><code>    server {
+        listen       8000;
+        server_name  localhost;
+        location / {
+            include uwsgi_params;
+            uwsgi_pass  127.0.0.1:5000;
+            }
+    }
+</code></pre></div></p>
+<h3 id="nginx_1">nginx的重启<a class="headerlink" href="#nginx_1" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>https://blog.csdn.net/m290345792/article/details/78518360</p>
+</blockquote>
+<p>首先建立一个软链接，以便在项目根目录直接执行nginx的bin文件:</p>
+<p>当前根目录为：<code>/home</code>，nginx的bin文件路径为：<code>/usr/local/nginx/sbin</code></p>
+<div class="highlight"><pre><span></span><code>ln -s /usr/local/nginx/sbin/nginx nginx
+</code></pre></div>
+<p>更改 conf 文件后，对语法进行检查：</p>
+<div class="highlight"><pre><span></span><code>./nginx -t
+</code></pre></div>
+<p>重启：</p>
+<div class="highlight"><pre><span></span><code>./nginx -s reload
+</code></pre></div>
 
 
 
@@ -854,7 +955,7 @@
     <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
-        <a href="../ch2/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Nginx" rel="prev">
+        <a href="../../ctf/ch2/" class="md-footer__link md-footer__link--prev" aria-label="上一页: FGSM攻击" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -863,20 +964,20 @@
               <span class="md-footer__direction">
                 上一页
               </span>
-              Nginx
+              FGSM攻击
             </div>
           </div>
         </a>
       
       
         
-        <a href="../todo3/" class="md-footer__link md-footer__link--next" aria-label="下一页: Flask" rel="next">
+        <a href="../ch2/" class="md-footer__link md-footer__link--next" aria-label="下一页: uWSGI" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              Flask
+              uWSGI
             </div>
           </div>
           <div class="md-footer__button md-icon">

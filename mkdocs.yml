@@ -49,9 +49,9 @@ nav:
       - FGSM攻击: ctf/ch2.md
   - Web:
       - 网络服务:
-          - 腾讯云: web/todo.md
-          - Nginx: web/ch2.md
-          - uWSGI: web/todo2.md
+          - Nginx: web/ch1.md
+          - uWSGI: web/ch2.md
+          - TencentCloud: web/todo.md
       - 后端:
           - Flask: web/todo3.md
       - 前端:
