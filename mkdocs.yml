@@ -1,4 +1,4 @@
-site_name: 美汁源的备忘录
+site_name: MZY Blog
 
 theme:
   name: material
@@ -57,7 +57,8 @@ nav:
       - 前端:
           - Vue2&3: web/todo4.md
   - AI:
-      - ML: ai/todo.md
+      - ML:
+          - 朴素贝叶斯(Updating): ai/ch1_4.md
       - CV: 
           - SLIC Pixelation: ai/ch2_1.md
       - NLP: ai/todo2.md

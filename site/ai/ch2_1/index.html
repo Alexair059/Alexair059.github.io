@@ -13,7 +13,7 @@
     
     
       
-        <title>SLIC Pixelation - 美汁源的备忘录</title>
+        <title>SLIC Pixelation - MZY Blog</title>
       
     
     
@@ -80,7 +80,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="美汁源的备忘录" class="md-header__button md-logo" aria-label="美汁源的备忘录" data-md-component="logo">
+    <a href="../.." title="MZY Blog" class="md-header__button md-logo" aria-label="MZY Blog" data-md-component="logo">
       
   <img src="../../assets/logo.png" alt="logo">
 
@@ -92,7 +92,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            美汁源的备忘录
+            MZY Blog
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -252,11 +252,18 @@
   
   
   
+    
+
+  
+  
+  
     <li class="md-tabs__item">
-      <a href="../todo/" class="md-tabs__link md-tabs__link--active">
+      <a href="../ch1_4/" class="md-tabs__link md-tabs__link--active">
         AI
       </a>
     </li>
+  
+
   
 
       
@@ -281,12 +288,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="美汁源的备忘录" class="md-nav__button md-logo" aria-label="美汁源的备忘录" data-md-component="logo">
+    <a href="../.." title="MZY Blog" class="md-nav__button md-logo" aria-label="MZY Blog" data-md-component="logo">
       
   <img src="../../assets/logo.png" alt="logo">
 
     </a>
-    美汁源的备忘录
+    MZY Blog
   </label>
   
     <div class="md-nav__source">
@@ -618,10 +625,43 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          ML
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ML" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          ML
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../todo/" class="md-nav__link">
-        ML
+      <a href="../ch1_4/" class="md-nav__link">
+        朴素贝叶斯(Updating)
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1033,26 +1073,22 @@
 <p>把图像看成二维离散函数，梯度也就是这个函数的求导，当相邻像素值有变化就会存在梯度，而在边缘上的像素点的梯度最大。将聚类中心挪到梯度最小的地方可以避免其落到边缘轮廓上，影响聚类效果</p>
 <p>离散梯度的梯度计算考虑到计算量，一般会简化为用绝对值来近似平方和平方根的操作</p>
 <h3 id="4">4. 计算像素点与聚类中心的距离<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
-<p>在聚类中心距离S的区域内 <span class="arithmatex">\(2S\times2S\)</span>的邻域内计算像素点与每个聚类中心的距离</p>
+<p>在聚类中心距离S的区域内<span class="arithmatex">\(2S\times2S\)</span>的邻域内计算像素点与每个聚类中心的距离</p>
 <p>使用的是欧式距离，总距离<span class="arithmatex">\(D\)</span>由<span class="arithmatex">\(d_c\)</span>颜色距离与<span class="arithmatex">\(d_s\)</span>空间距离两部分组成：</p>
 <div class="arithmatex">\[
-\begin{equation}
 \begin{aligned}
 \mathrm{d}_c &amp;=\sqrt{\left(l_j-l_i\right)^2+\left(a_j-a_i\right)^2+\left(b_j-b_i\right)^2} \\
 \mathrm{~d}_s &amp;=\sqrt{\left(x_j-x_k\right)^2+\left(y_j-y_k\right)^2} \\
 D &amp;=\sqrt{\left(\frac{\mathrm{d}_c}{N_c}\right)^2+\left(\frac{\mathrm{d}_s}{N_s}\right)^2}
 \end{aligned}
-\end{equation}
 \]</div>
 <p>如果直接将<span class="arithmatex">\(l\)</span>，<span class="arithmatex">\(a\)</span>，<span class="arithmatex">\(b\)</span>，<span class="arithmatex">\(x\)</span>，<span class="arithmatex">\(y\)</span>拼接成一个矢量计算距离，当超像素的大小变化时，<span class="arithmatex">\(x\)</span>，<span class="arithmatex">\(y\)</span>的值可以取到非常大 ，比如一张<span class="arithmatex">\(1000\times1000\)</span>的图，空间距离可以达到<span class="arithmatex">\(1000\times Sqr(2)\)</span>，而颜色距离最大仅<span class="arithmatex">\(10\times Sqr(2)\)</span>，导致最终计算得到的距离值中，空间距离<span class="arithmatex">\(d_s\)</span>权重占比过大</p>
 <p>所以需要进行归一化，除以最大值即超像素点的初始宽度<span class="arithmatex">\(S\)</span>，将值映射到<span class="arithmatex">\([0,1]\)</span></p>
 <p>而颜色空间距离也会由一个固定的值<span class="arithmatex">\(m\)</span>来调节颜色距离与空间距离的影响权重，<span class="arithmatex">\(m\)</span>取值范围为<span class="arithmatex">\([1,40]\)</span></p>
 <div class="arithmatex">\[
-\begin{equation}
 \begin{aligned}
 D^{\prime} &amp;=\sqrt{\left(\frac{\mathrm{d}_c}{m}\right)^2+\left(\frac{\mathrm{d}_s}{S}\right)^2}
 \end{aligned}
-\end{equation}
 \]</div>
 <p>当<span class="arithmatex">\(m\)</span>越大，颜色空间除以<span class="arithmatex">\(m\)</span>后的值越小，即空间距离的权重越大，生成的像素会更为形状规则，当<span class="arithmatex">\(m\)</span>越小，颜色距离权重更大，超像素会在边缘更为紧凑，而形状大小较为不规则</p>
 <h4 id="_1">总结<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
@@ -1105,7 +1141,7 @@ D^{\prime} &amp;=\sqrt{\left(\frac{\mathrm{d}_c}{m}\right)^2+\left(\frac{\mathrm
     <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
-        <a href="../todo/" class="md-footer__link md-footer__link--prev" aria-label="上一页: ML" rel="prev">
+        <a href="../ch1_4/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 朴素贝叶斯(Updating)" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1114,7 +1150,7 @@ D^{\prime} &amp;=\sqrt{\left(\frac{\mathrm{d}_c}{m}\right)^2+\left(\frac{\mathrm
               <span class="md-footer__direction">
                 上一页
               </span>
-              ML
+              朴素贝叶斯(Updating)
             </div>
           </div>
         </a>

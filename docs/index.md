@@ -5,6 +5,10 @@ hide:
 
 # Welcome To My Blog
 
+### 2023-1
+
+- 朴素贝叶斯（Updating)
+
 ### 2022-12
 
 - uWSGI

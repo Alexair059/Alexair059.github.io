@@ -13,7 +13,7 @@
     
     
       
-        <title>ML - 美汁源的备忘录</title>
+        <title>朴素贝叶斯(Updating) - MZY Blog</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#todo" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -80,7 +80,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="美汁源的备忘录" class="md-header__button md-logo" aria-label="美汁源的备忘录" data-md-component="logo">
+    <a href="../.." title="MZY Blog" class="md-header__button md-logo" aria-label="MZY Blog" data-md-component="logo">
       
   <img src="../../assets/logo.png" alt="logo">
 
@@ -92,13 +92,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            美汁源的备忘录
+            MZY Blog
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ML
+              朴素贝叶斯(Updating)
             
           </span>
         </div>
@@ -252,11 +252,18 @@
   
   
   
+    
+
+  
+  
+  
     <li class="md-tabs__item">
       <a href="./" class="md-tabs__link md-tabs__link--active">
         AI
       </a>
     </li>
+  
+
   
 
       
@@ -281,12 +288,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="美汁源的备忘录" class="md-nav__button md-logo" aria-label="美汁源的备忘录" data-md-component="logo">
+    <a href="../.." title="MZY Blog" class="md-nav__button md-logo" aria-label="MZY Blog" data-md-component="logo">
       
   <img src="../../assets/logo.png" alt="logo">
 
     </a>
-    美汁源的备忘录
+    MZY Blog
   </label>
   
     <div class="md-nav__source">
@@ -620,19 +627,49 @@
     
   
   
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          ML
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ML" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          ML
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          ML
+          朴素贝叶斯(Updating)
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        ML
+        朴素贝叶斯(Updating)
       </a>
       
         
@@ -640,6 +677,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -649,8 +688,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#todo" class="md-nav__link">
-    Todo
+  <a href="#_2" class="md-nav__link">
+    分类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    基本方法
   </a>
   
 </li>
@@ -659,6 +705,13 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -790,6 +843,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -798,8 +853,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#todo" class="md-nav__link">
-    Todo
+  <a href="#_2" class="md-nav__link">
+    分类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    基本方法
   </a>
   
 </li>
@@ -818,15 +880,46 @@
                 
                   
 
-  <a href="https://github.com/Alexair059/Alexair059.github.io/edit/master/docs/ai/todo.md" title="编辑此页" class="md-content__button md-icon">
+  <a href="https://github.com/Alexair059/Alexair059.github.io/edit/master/docs/ai/ch1_4.md" title="编辑此页" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-  <h1>ML</h1>
-
-<h3 id="todo">Todo<a class="headerlink" href="#todo" title="Permanent link">&para;</a></h3>
+<h1 id="_1">朴素贝叶斯<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>朴素贝叶斯（Naive Bayes）法是基于贝叶斯定理和特征条件独立假设的分类方法，实现简单，学习与预测的效率都很高，是一种常用的生成学习方法</p>
+<h2 id="_2">分类<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>监督学习方法</li>
+<li>概率模型</li>
+<li>参数化模型</li>
+<li>贝叶斯学习</li>
+<li>生成学习方法</li>
+</ul>
+<h2 id="_3">基本方法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>设训练数据集为
+$$
+T={(x_1,y_1),(x_2,y_2),···,(x_N,y_N)},\quad x\in \mathcal{X},y\in \mathcal{Y}
+$$
+其中输入空间 <span class="arithmatex">\(\mathcal{X}\subseteq R^n\)</span> 为 <span class="arithmatex">\(n\)</span> 维空间向量的集合，输出空间为类标记集合 <span class="arithmatex">\(\mathcal{Y}=\{c_1,c_2,···,c_K\}\)</span></p>
+<p>令 <span class="arithmatex">\(X\)</span> 和 <span class="arithmatex">\(Y\)</span> 分别为定义在输入、输出空间上的随机变量，朴素贝叶斯法基于贝叶斯定理首先将最终目标，即条件概率分布 <span class="arithmatex">\(P(Y=c_k \mid X=x)\)</span> 转化为求解联合概率分布 <span class="arithmatex">\(P(X=x,Y=c_k)\)</span>
+$$
+\begin{aligned}
+P(Y=c_k \mid X = x) &amp;= \frac{P(X=x,Y=c_k)}{P(X=x)}\
+&amp;=\frac{P(Y=c_k)P(X=x \mid Y=c_k)}{\sum_{Y}P(Y)P(X = x \mid Y)}
+\end{aligned}
+$$
+为此，朴素贝叶斯需要首先学习到先验概率
+$$
+P(Y=c_k),\quad k=1,2,···,K
+$$
+以及相应条件概率分布
+$$
+\begin{aligned}
+P(X=x \mid Y=c_k)=&amp;(X<sup _1_="(1)">{(1)}=x</sup>,···,X<sup _n_="(n)">{(n)}=x</sup>\mid Y=c_k)\
+&amp;k=1,2,···,K
+\end{aligned}
+$$</p>
 
 
 
