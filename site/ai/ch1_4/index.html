@@ -13,7 +13,7 @@
     
     
       
-        <title>朴素贝叶斯(Updating) - MZY Blog</title>
+        <title>朴素贝叶斯 - MZY Blog</title>
       
     
     
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              朴素贝叶斯(Updating)
+              朴素贝叶斯
             
           </span>
         </div>
@@ -664,12 +664,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          朴素贝叶斯(Updating)
+          朴素贝叶斯
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        朴素贝叶斯(Updating)
+        朴素贝叶斯
       </a>
       
         
@@ -946,11 +946,11 @@ P(X=x \mid Y=c_k)&amp;=(X^{(1)}=x^{(1)},···,X^{(n)}=x^{(n)}\mid Y=c_k)\\
 <p>具体而言，该假设认为用于分类的特征在类确定的前提下是条件独立的。这一假设使参数学习变得简单（参数个数变为了 <span class="arithmatex">\(K\sum_{i=1}^{n}S_i\)</span> ），但会牺牲一定的准确率</p>
 <p>于是，在学习到参数模型后，朴素贝叶斯分类器可表示为：</p>
 <div class="arithmatex">\[
-y = f(x) = \mathop{\argmax}\limits_{c_k}\frac{P(Y=c_k)\prod_{i}P(X^{(i)}=x^{(i)} \mid Y=c_k)}{\sum_{k}P(Y)\prod_{i}P(X^{(i)} = x^{(i)} \mid Y=c_k)}
+y = f(x) = \mathop{\arg\max}\limits_{c_k}\frac{P(Y=c_k)\prod_{i}P(X^{(i)}=x^{(i)} \mid Y=c_k)}{\sum_{k}P(Y)\prod_{i}P(X^{(i)} = x^{(i)} \mid Y=c_k)}
 \]</div>
 <p>因为对所有 <span class="arithmatex">\(c_k\)</span> 上式分母都相同，所以只需：</p>
 <div class="arithmatex">\[
-y = f(x) = \mathop{\argmax}\limits_{c_k}P(Y=c_k)\prod_{i}P(X^{(i)}=x^{(i)} \mid Y=c_k)
+y = f(x) = \mathop{\arg\max}\limits_{c_k}P(Y=c_k)\prod_{i}P(X^{(i)}=x^{(i)} \mid Y=c_k)
 \]</div>
 <h2 id="_4">参考资料<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
