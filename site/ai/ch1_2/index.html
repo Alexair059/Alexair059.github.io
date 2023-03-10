@@ -1120,13 +1120,15 @@ b &amp;\gets b + \eta y_i
 <li>在训练集中选取数据 <span class="arithmatex">\((x_i,y_i)\)</span> ;</li>
 <li>
 <p>如果 <span class="arithmatex">\(y_i(w \cdot x_i +b) \leq 0\)</span> :</p>
-<p>$$
+<div class="arithmatex">\[
 \begin{aligned}
-w &amp;\gets w + \eta y_ix_i \
+w &amp;\gets w + \eta y_ix_i \\
 b &amp;\gets b + \eta y_i
 \end{aligned}
-$$
-4. 转至 2 ，直至训练集中没有误分类点</p>
+\]</div>
+</li>
+<li>
+<p>转至 2 ，直至训练集中没有误分类点</p>
 </li>
 </ol>
 <p>在实际学习中感知机学习算法由于采取不同的初值或选取不同的误分类点，最后得到的模型，即参数 <span class="arithmatex">\(w,b\)</span> 可能不同</p>
@@ -1155,15 +1157,9 @@ b &amp;=\sum_{i=1}^{N}\alpha_i y_i
 <p>学习率 <span class="arithmatex">\(\eta\)</span></p>
 </li>
 </ul>
-<p>输出：</p>
-<ul>
-<li>感知机模型 <span class="arithmatex">\(f(x)=sgn\left(\sum_{j=1}^{N}\alpha_j y_j x_j \cdot x +b\right)\)</span></li>
-<li>
-<p>感知机参数 <span class="arithmatex">\(\alpha, b\)</span> ；<span class="arithmatex">\(\alpha = (\alpha_1, \alpha_2,···,\alpha_N)^T\)</span></p>
-</li>
-<li>
-<p><span class="arithmatex">\(\alpha \gets 0, b \gets 0\)</span> ；</p>
-</li>
+<p>输出：感知机模型 <span class="arithmatex">\(f(x)=sgn\left(\sum_{j=1}^{N}\alpha_j y_j x_j \cdot x +b\right)\)</span>；感知机参数 <span class="arithmatex">\(\alpha, b\)</span> ；<span class="arithmatex">\(\alpha = (\alpha_1, \alpha_2,···,\alpha_N)^T\)</span></p>
+<ol>
+<li><span class="arithmatex">\(\alpha \gets 0, b \gets 0\)</span> ；</li>
 <li>在训练集中选取数据 <span class="arithmatex">\((x_i, y_i)\)</span> ；</li>
 <li>
 <p>如果 <span class="arithmatex">\(\left(\sum_{j=1}^{N}\alpha_j y_j x_j \cdot x +b\right)\leq 0\)</span> ：</p>
@@ -1177,7 +1173,7 @@ b &amp;\gets b + \eta y_i
 <li>
 <p>转至 2 直到没有误分类数据</p>
 </li>
-</ul>
+</ol>
 <p>在对偶形式中训练实例仅以内积的形式出现，为了方便我们可以提前计算出样本实例间的内积并以矩阵的形式存储，即为 Gram 矩阵（Gram matrix）</p>
 <div class="arithmatex">\[
 G=[x_i \cdot x_j]_{N \times N}
