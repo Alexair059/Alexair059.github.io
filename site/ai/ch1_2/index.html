@@ -715,6 +715,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    感知机学习算法
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -908,6 +915,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    感知机学习算法
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -953,7 +967,44 @@ f(x)=sgn(w \cdot x +b)
 <h2 id="_4">数据集的线性可分性<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>如果对于一个数据集 <span class="arithmatex">\(T=\{(x_1,y_1),(x_2,y_2),···,(x_N,y_N)\}\)</span>，如果存在某个超平面 <span class="arithmatex">\(S:w \cdot x +b=0\)</span> ,使得所有 <span class="arithmatex">\(y_i=+1\)</span> 的实例 <span class="arithmatex">\(i\)</span> ，有 <span class="arithmatex">\(w\cdot x_i +b &gt; 0\)</span> （反之亦然），则称该数据集为线性可分的</p>
 <h2 id="_5">感知机学习策略<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>假设训练数据集是线性可分的，感知机学习的目标即是求得一个能够将训练集正负实例点完全正确分开的分离超平面</p>
+<p>假设训练数据集是线性可分的，感知机学习的目标即是求得一个能够将训练集正负实例点完全正确分开的分离超平面，即感知机参数 <span class="arithmatex">\(w,b\)</span></p>
+<p>为此需要定义（经验）损失函数并将损失函数极小化</p>
+<p>损失函数的一个直观选择即是误分类点的总数，但这样的损失函数不是参数 <span class="arithmatex">\(w,b\)</span> 的连续可导函数，不易优化，因此我们选择误分类点到超平面 <span class="arithmatex">\(S\)</span> 的总距离</p>
+<p>对于任一误分类点 <span class="arithmatex">\(x_0\)</span> 到超平面的距离：</p>
+<div class="arithmatex">\[
+\frac{1}{\Vert w\Vert _2}\vert w \cdot x_0 + b\vert
+\]</div>
+<p>对于误分类点 <span class="arithmatex">\((x_i,y_i)\)</span> ,有</p>
+<div class="arithmatex">\[
+-y_i(w \cdot x_i +b) &gt; 0
+\]</div>
+<p>故所有误分类点到超平面 <span class="arithmatex">\(S\)</span> 的总距离为：</p>
+<div class="arithmatex">\[
+-\frac{1}{\Vert w\Vert}\sum_{x_i \in M}y_i(w \cdot x_i +b)
+\]</div>
+<p>于是我们将感知机学习的损失函数定义为：</p>
+<div class="arithmatex">\[
+L(w,b) = - \sum_{x_i \in M}y_i(w \cdot x_i +b)
+\]</div>
+<p>其中 <span class="arithmatex">\(M\)</span> 为误分类点的集合，<span class="arithmatex">\(y_i(w \cdot x_i +b)\)</span> 称为样本点的函数间隔</p>
+<p>可以看出，损失函数 <span class="arithmatex">\(L(w,b)\)</span> 是非负的，对于一个特定的样本点，在误分类时是参数 <span class="arithmatex">\(w,b\)</span> 的线性函数，在正确分类时是0。因此，<span class="arithmatex">\(L(w,b)\)</span> 是 <span class="arithmatex">\(w,b\)</span> 的连续可导函数</p>
+<h2 id="_6">感知机学习算法<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>感知机的学习算法采用随机梯度下降实现（SGD）：</p>
+<p>首先随机初始化感知机参数 <span class="arithmatex">\(w_0,b_0\)</span> ，然后用梯度下降法不断极小化目标函数</p>
+<div class="arithmatex">\[
+L(w,b)=-\sum_{x_i \in M}y_i(w \cdot x_i +b)
+\]</div>
+<p>在极小化过程中，不是一次使 <span class="arithmatex">\(M\)</span> 的所有误分类点的梯度下降，而是一次随机选取一个误分类点使其梯度下降，其中 <span class="arithmatex">\(L(w,b)\)</span> 的梯度为</p>
+<div class="arithmatex">\[
+\nabla_{w}L(w,b)=-\sum_{x_i \in M}y_ix_i \\
+\nabla_{b}L(w,b)=-\sum_{x_i \in M}y_i
+\]</div>
+<p>随机选取一个误分类点 <span class="arithmatex">\((x_i,y_i)\)</span> ，对参数进行更新</p>
+<div class="arithmatex">\[
+w\gets w + \eta y_ix_i \\
+b \gets b + \eta y_i
+\]</div>
+<p>其中 <span class="arithmatex">\(\eta\)</span> 称为学习率（learning rate）</p>
 
 
 
