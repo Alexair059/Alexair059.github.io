@@ -720,6 +720,53 @@
     感知机学习算法
   </a>
   
+    <nav class="md-nav" aria-label="感知机学习算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    感知机学习算法（原始形式）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#novikoff" class="md-nav__link">
+    算法收敛性（Novikoff定理）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    感知机学习算法的对偶形式
+  </a>
+  
+    <nav class="md-nav" aria-label="感知机学习算法的对偶形式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    感知机学习算法（对偶形式）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    参考资料
+  </a>
+  
 </li>
       
     </ul>
@@ -920,6 +967,53 @@
     感知机学习算法
   </a>
   
+    <nav class="md-nav" aria-label="感知机学习算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    感知机学习算法（原始形式）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#novikoff" class="md-nav__link">
+    算法收敛性（Novikoff定理）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    感知机学习算法的对偶形式
+  </a>
+  
+    <nav class="md-nav" aria-label="感知机学习算法的对偶形式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    感知机学习算法（对偶形式）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    参考资料
+  </a>
+  
 </li>
       
     </ul>
@@ -996,15 +1090,102 @@ L(w,b)=-\sum_{x_i \in M}y_i(w \cdot x_i +b)
 \]</div>
 <p>在极小化过程中，不是一次使 <span class="arithmatex">\(M\)</span> 的所有误分类点的梯度下降，而是一次随机选取一个误分类点使其梯度下降，其中 <span class="arithmatex">\(L(w,b)\)</span> 的梯度为</p>
 <div class="arithmatex">\[
-\nabla_{w}L(w,b)=-\sum_{x_i \in M}y_ix_i \\
-\nabla_{b}L(w,b)=-\sum_{x_i \in M}y_i
+\begin{aligned}
+\nabla_{w}L(w,b)&amp;=-\sum_{x_i \in M}y_ix_i \\
+\nabla_{b}L(w,b)&amp;=-\sum_{x_i \in M}y_i
+\end{aligned}
 \]</div>
 <p>随机选取一个误分类点 <span class="arithmatex">\((x_i,y_i)\)</span> ，对参数进行更新</p>
 <div class="arithmatex">\[
-w\gets w + \eta y_ix_i \\
-b \gets b + \eta y_i
+\begin{aligned}
+w &amp;\gets w + \eta y_ix_i \\
+b &amp;\gets b + \eta y_i
+\end{aligned}
 \]</div>
 <p>其中 <span class="arithmatex">\(\eta\)</span> 称为学习率（learning rate）</p>
+<h3 id="_7">感知机学习算法（原始形式）<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>输入：</p>
+<ul>
+<li>
+<p>训练数据集</p>
+<p><span class="arithmatex">\(T=\{(x_1,y_1),(x_2,y_2),···,(x_N,y_N)\}\)</span></p>
+</li>
+<li>
+<p>学习率 <span class="arithmatex">\(\eta\)</span></p>
+</li>
+</ul>
+<p>输出：感知机模型 <span class="arithmatex">\(f(x)=sgn(w \cdot x +b)\)</span> ；感知机参数 <span class="arithmatex">\(w, b\)</span></p>
+<ol>
+<li>选取初值 <span class="arithmatex">\(w_0,b_0\)</span> ;</li>
+<li>在训练集中选取数据 <span class="arithmatex">\((x_i,y_i)\)</span> ;</li>
+<li>
+<p>如果 <span class="arithmatex">\(y_i(w \cdot x_i +b) \leq 0\)</span> :</p>
+<p>$$
+\begin{aligned}
+w &amp;\gets w + \eta y_ix_i \
+b &amp;\gets b + \eta y_i
+\end{aligned}
+$$
+4. 转至 2 ，直至训练集中没有误分类点</p>
+</li>
+</ol>
+<p>在实际学习中感知机学习算法由于采取不同的初值或选取不同的误分类点，最后得到的模型，即参数 <span class="arithmatex">\(w,b\)</span> 可能不同</p>
+<h2 id="novikoff">算法收敛性（Novikoff定理）<a class="headerlink" href="#novikoff" title="Permanent link">&para;</a></h2>
+<p>由Novikoff定理可知，对于线性可分数据集，感知机学习算法收敛，即经过有限次迭代可以得到一个将其完全正确划分的感知机模型</p>
+<p>定理表明，感知机学习算法在线性可分数据集上学习时，误分类的次数 <span class="arithmatex">\(k\)</span> 是有上界的，经过有限次搜索可以找到将训练数据完全正确分开的分离超平面</p>
+<p>当训练集线性不可分时，感知机学习算法不收敛，迭代结果会发生震荡</p>
+<h2 id="_8">感知机学习算法的对偶形式<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>对偶形式的基本想法在于，将 <span class="arithmatex">\(w\)</span> 和 <span class="arithmatex">\(b\)</span> 表示为实例 <span class="arithmatex">\(x_i\)</span> 和 标记 <span class="arithmatex">\(y_i\)</span> 的线性组合形式，通过求解其系数从而求得 <span class="arithmatex">\(w\)</span> 和 <span class="arithmatex">\(b\)</span> ：</p>
+<p>设初始值 <span class="arithmatex">\(w_0, b_0\)</span> 均为0，经过随机梯度下降后，迭代过的参数可表示为</p>
+<div class="arithmatex">\[
+\begin{aligned}
+w &amp;=\sum_{i=1}^{N}\alpha_i y_i x_i\\
+b &amp;=\sum_{i=1}^{N}\alpha_i y_i
+\end{aligned}
+\]</div>
+<p>其中，<span class="arithmatex">\(\alpha_i=n_i\eta \geq 0, i=1,2,···,N\)</span>，其中 <span class="arithmatex">\(n_i\)</span> 表示第 <span class="arithmatex">\(i\)</span> 个实例点由于误分而进行更新的次数。实例点更新次数越多，意味着它距离分离超平面越近，也就越难正确分类，这样的实例对学习结果影响最大</p>
+<h3 id="_9">感知机学习算法（对偶形式）<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>输入：</p>
+<ul>
+<li>
+<p>训练数据集</p>
+<p><span class="arithmatex">\(T=\{(x_1,y_1),(x_2,y_2),···,(x_N,y_N)\}\)</span></p>
+</li>
+<li>
+<p>学习率 <span class="arithmatex">\(\eta\)</span></p>
+</li>
+</ul>
+<p>输出：</p>
+<ul>
+<li>感知机模型 <span class="arithmatex">\(f(x)=sgn\left(\sum_{j=1}^{N}\alpha_j y_j x_j \cdot x +b\right)\)</span></li>
+<li>
+<p>感知机参数 <span class="arithmatex">\(\alpha, b\)</span> ；<span class="arithmatex">\(\alpha = (\alpha_1, \alpha_2,···,\alpha_N)^T\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\(\alpha \gets 0, b \gets 0\)</span> ；</p>
+</li>
+<li>在训练集中选取数据 <span class="arithmatex">\((x_i, y_i)\)</span> ；</li>
+<li>
+<p>如果 <span class="arithmatex">\(\left(\sum_{j=1}^{N}\alpha_j y_j x_j \cdot x +b\right)\leq 0\)</span> ：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\alpha &amp;\gets \alpha + \eta\\
+b &amp;\gets b + \eta y_i
+\end{aligned}
+\]</div>
+</li>
+<li>
+<p>转至 2 直到没有误分类数据</p>
+</li>
+</ul>
+<p>在对偶形式中训练实例仅以内积的形式出现，为了方便我们可以提前计算出样本实例间的内积并以矩阵的形式存储，即为 Gram 矩阵（Gram matrix）</p>
+<div class="arithmatex">\[
+G=[x_i \cdot x_j]_{N \cdot N}
+\]</div>
+<h2 id="_10">参考资料<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<ul>
+<li>《统计学习方法（第二版）》李航</li>
+</ul>
 
 
 
