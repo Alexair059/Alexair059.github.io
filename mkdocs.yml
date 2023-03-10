@@ -58,6 +58,7 @@ nav:
           - Vue2&3: web/todo4.md
   - AI:
       - ML:
+          - 感知机: ai/ch1_2.md
           - 朴素贝叶斯: ai/ch1_4.md
       - CV: 
           - SLIC Pixelation: ai/ch2_1.md
