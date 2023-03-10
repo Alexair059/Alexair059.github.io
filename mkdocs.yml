@@ -44,6 +44,16 @@ copyright: Copyright &copy; 2020 - 2023 Alexair
 
 nav:
   - Home: index.md
+  - AI:
+      - ML:
+          - 感知机: ai/ch1_2.md
+          - 朴素贝叶斯: ai/ch1_4.md
+      - CV: 
+          - SLIC Pixelation: ai/ch2_1.md
+      - NLP: ai/todo2.md
+      - KG: ai/todo3.md
+      - DL: ai/todo4.md
+      - RL: ai/todo5.md
   - CTF:
       - 乱数假文&LSB隐写: ctf/ch1.md
       - FGSM攻击: ctf/ch2.md
@@ -56,16 +66,6 @@ nav:
           - Flask: web/todo3.md
       - 前端:
           - Vue2&3: web/todo4.md
-  - AI:
-      - ML:
-          - 感知机: ai/ch1_2.md
-          - 朴素贝叶斯: ai/ch1_4.md
-      - CV: 
-          - SLIC Pixelation: ai/ch2_1.md
-      - NLP: ai/todo2.md
-      - KG: ai/todo3.md
-      - DL: ai/todo4.md
-      - RL: ai/todo5.md
 
 markdown_extensions:
   # Python Markdown
