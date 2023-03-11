@@ -5,6 +5,10 @@ hide:
 
 # Welcome To My Blog
 
+### 2023-3
+
+- SVM（Updating）
+
 ### 2023-1
 
 - 感知机

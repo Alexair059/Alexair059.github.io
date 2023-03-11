@@ -527,6 +527,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch1_7/" class="md-nav__link">
+        SVM
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1083,7 +1097,7 @@ L(w,b) = - \sum_{x_i \in M}y_i(w \cdot x_i +b)
 <p>其中 <span class="arithmatex">\(M\)</span> 为误分类点的集合，<span class="arithmatex">\(y_i(w \cdot x_i +b)\)</span> 称为样本点的函数间隔</p>
 <p>可以看出，损失函数 <span class="arithmatex">\(L(w,b)\)</span> 是非负的，对于一个特定的样本点，在误分类时是参数 <span class="arithmatex">\(w,b\)</span> 的线性函数，在正确分类时是0。因此，<span class="arithmatex">\(L(w,b)\)</span> 是 <span class="arithmatex">\(w,b\)</span> 的连续可导函数</p>
 <h2 id="_6">感知机学习算法<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<p>感知机的学习算法采用随机梯度下降实现（SGD）：</p>
+<p>感知机的学习算法采用随机梯度下降（SGD）实现：</p>
 <p>首先随机初始化感知机参数 <span class="arithmatex">\(w_0,b_0\)</span> ，然后用梯度下降法不断极小化目标函数</p>
 <div class="arithmatex">\[
 L(w,b)=-\sum_{x_i \in M}y_i(w \cdot x_i +b)
