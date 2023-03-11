@@ -48,7 +48,7 @@ nav:
       - ML:
           - 感知机: ai/ch1_2.md
           - 朴素贝叶斯: ai/ch1_4.md
-          - SVM: ai/ch1_7.md
+          - SVM(updating): ai/ch1_7.md
       - CV: 
           - SLIC Pixelation: ai/ch2_1.md
       - NLP: ai/todo2.md
@@ -67,6 +67,8 @@ nav:
           - Flask: web/todo3.md
       - 前端:
           - Vue2&3: web/todo4.md
+  - Other:
+      - Blog: other/blog.md
 
 markdown_extensions:
   # Python Markdown

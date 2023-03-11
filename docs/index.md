@@ -7,7 +7,8 @@ hide:
 
 ### 2023-3
 
-- SVM（Updating）
+- SVM（未完成）
+- 基于 [mkdocs-material](https://squidfunk.github.io/mkdocs-material/) 的 Blog 工作流
 
 ### 2023-1
 
