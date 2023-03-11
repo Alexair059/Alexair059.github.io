@@ -67,8 +67,8 @@ nav:
           - Flask: web/todo3.md
       - 前端:
           - Vue2&3: web/todo4.md
-  - Other:
-      - Blog: other/blog.md
+  - Others:
+      - Blog: others/blog.md
 
 markdown_extensions:
   # Python Markdown
