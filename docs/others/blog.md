@@ -10,30 +10,28 @@
 
 但我很喜欢，因为我写字很慢，打字尚可。配合 latex 与 markdown ，我能一点点把自己在现实与网络的收获记录下来，这样在很久很久之后，我想拿点东西装逼时，好歹还有个这个
 
- 人生不能少了装逼，很多人对此有个高级说法，叫做实现人生价值
+人生不能少了装逼，很多人对此有个高级说法，叫做实现人生价值
 
- ## 前置知识
+## 前置知识
 
- 本文需要如下前置知识
+- 基本的命令行操作
+- git使用
+- 任意代码编辑器的使用
+- Github基本使用
 
- - 基本的命令行操作
- - git使用
- - 任意代码编辑器的使用
- - Github基本使用
+## mkdocs-material 安装
 
- ## mkdocs-material 安装
+具体参考官网Installation介绍
 
- 具体参考官网Installation介绍
+> https://squidfunk.github.io/mkdocs-material/getting-started/
 
- > https://squidfunk.github.io/mkdocs-material/getting-started/
+## 创建仓库
 
- ## 创建仓库
+在GitHub上创建一个repository
 
- 在GitHub上创建一个repository
+![](pre.assets/1.jpg)
 
- ![](pre.assets/1.jpg)
-
- 在Repository name一栏写上 `<你的用户名>.github.io` ，此时它应该会提醒你自动启动了github-pages服务
+在Repository name一栏写上 `<你的用户名>.github.io` ，此时它应该会提醒你自动启动了github-pages服务
 
 ## Git同步仓库并创建mkdocs项目
 
