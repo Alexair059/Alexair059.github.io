@@ -107,4 +107,9 @@ extra_javascript:
 
 plugins:
   - search: {}
-  - encryptcontent: {}
+  - encryptcontent: 
+      title_prefix: '[LOCK]'
+      placeholder: 'Input password and press ENTER'
+      decryption_failure_message: 'Invalid password'
+      encryption_info_message: 'Contact the administrator for access to this page'
+      
