@@ -115,7 +115,7 @@ plugins:
       title_prefix: '[限制]'
       summary: '[该内容已被加密保护]'
       encryption_info_message: '联系博主以获得权限'
-      placeholder: '输入密码'
+      placeholder: 'Password'
       decryption_failure_message: '密码错误'
       # password_button: True
       # password_button_text: 'unlock'
