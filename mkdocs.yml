@@ -112,4 +112,5 @@ plugins:
       placeholder: 'Input password and press ENTER'
       decryption_failure_message: 'Invalid password'
       encryption_info_message: 'Contact the administrator for access to this page'
-      
+      input_class: 'md-search__form md-search__input'
+      button_class: 'md-search__icon'
