@@ -1,0 +1,23 @@
+.input-form {
+    border: none;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+    flex: 1;
+}
+
+.confirm-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 30px;
+    margin: 10px 0 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.confirm-button:hover {
+    background-color: #3e8e41;
+  }
