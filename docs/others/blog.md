@@ -50,7 +50,7 @@ theme:
 有相当多的设置可以自行调节，下为个人Blog的 `mkdocs.yml` 部分界面设置：
 
 ```
-ite_name: MZY Blog
+site_name: MZY Blog
 
 theme:
   name: material
