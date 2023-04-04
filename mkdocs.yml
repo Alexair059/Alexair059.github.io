@@ -69,6 +69,7 @@ nav:
           - Vue2&3: web/todo4.md
   - Others:
       - Blog: others/blog.md
+      - mkdocs加密: others/mkdocs_encrypt.md
 
 markdown_extensions:
   # Python Markdown

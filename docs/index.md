@@ -5,6 +5,10 @@ hide:
 
 # Welcome To My Blog
 
+### 2023-4
+
+- mkdocs加密
+
 ### 2023-3
 
 - SVM（未完成）
