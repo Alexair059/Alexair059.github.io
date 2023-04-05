@@ -30,5 +30,56 @@ plugins:
 
 ## 基本设置
 
-Todo
+在 `mkdocs.yml` 的 plugins 配置项中添加
+
+```
+- search: {}
+  - encryptcontent: 
+      title_prefix: '[限制]'
+      summary: '[该内容已被加密保护]'
+      encryption_info_message: '联系博主以获得权限'
+      placeholder: 'Password'
+      decryption_failure_message: '密码错误'
+      # password_button: True
+      # password_button_text: 'unlock'
+      input_class: input-form
+      # button_class: confirm-button
+```
+
+其中 input_class 配置项如果设置需自行引入CSS类，用以设定密码输入框样式，为此我们在 `docs/css` 下创建 `custom.css`
+
+```css
+.input-form {
+    border: none;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+    flex: 1;
+}
+
+.confirm-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 30px;
+    margin: 10px 0 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.confirm-button:hover {
+    background-color: #3e8e41;
+  }
+```
+
+原本是同时设定了确认按钮的，但因为太丑就放弃了
+
+同时在 `mkdocs.yml` 中添加额外 css 类
+
+```
+extra_css:
+  - css/custom.css
+```
 

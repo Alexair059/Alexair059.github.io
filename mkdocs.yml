@@ -70,6 +70,7 @@ nav:
   - Others:
       - Blog: others/blog.md
       - mkdocs加密: others/mkdocs_encrypt.md
+      - 琐碎: others/time.md
 
 markdown_extensions:
   # Python Markdown
