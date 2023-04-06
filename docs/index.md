@@ -1,7 +1,6 @@
-<!-- ---
-hide:
-  - toc
---- -->
+---
+comments: true
+---
 
 # Welcome To My Blog
 

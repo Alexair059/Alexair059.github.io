@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # uWSGI
 
 uWSGI是 Python 语言定义的 Web 服务器和 Web 应用程序或框架之间的一种简单而通用的接口，常用来配合nginx实现客户端响应

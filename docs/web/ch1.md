@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # Nginx
 
 Nginx主要工作流涉及 conf 文件的配置，nginx的重启，实现反向代理

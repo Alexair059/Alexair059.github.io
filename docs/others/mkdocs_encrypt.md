@@ -1,5 +1,6 @@
 ---
 password: mk4crypto
+comments: true
 ---
 
 # mkdocs-encryptcontent-plugin：相当简单的mkdocs加密插件

@@ -2,6 +2,7 @@ site_name: MZY Blog
 
 theme:
   name: material
+  custom_dir: overrides
   language: zh
   logo: assets/logo.png
   favicon: assets/favicon.png
