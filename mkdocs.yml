@@ -90,21 +90,21 @@ markdown_extensions:
   # Python Markdown Extensions
   - pymdownx.arithmatex:
       generic: true
-  - pymdownx.betterem:
-      smart_enable: all
+  - pymdownx.betterem
   - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
   - pymdownx.details
-  - pymdownx.highlight
+  - pymdownx.highlight:
+      auto_title: true
+  - pymdownx.superfences
   - pymdownx.inlinehilite
   - pymdownx.keys
-  - pymdownx.mark
   - pymdownx.smartsymbols
-  - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
-  - pymdownx.tilde
 
 extra_javascript:
   - javascripts/mathjax.js

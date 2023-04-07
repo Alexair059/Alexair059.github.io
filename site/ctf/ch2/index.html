@@ -1130,18 +1130,15 @@
 <li>错误分类（misclassification）：只希望输出分类错误，而不在乎新的分类是什么</li>
 <li>源/目标错误分类（source/target misclassification）：希望更改最初属于特定源类别的图像，从而将其分类为特定目标类别</li>
 </ul>
-<p>基于对抗攻击领域，个人认为也能分成多类，较为普遍的是图对抗攻击</p>
+<p>基于对抗攻击领域，个人认为也能分成多类，较为普遍的是<strong>图对抗攻击</strong></p>
 <h2 id="fgsmfast-gradient-sign-attack">FGSM（Fast Gradient Sign Attack）<a class="headerlink" href="#fgsmfast-gradient-sign-attack" title="Permanent link">&para;</a></h2>
-<p>快速梯度符号攻击（Fast Gradient Sign Attack）是最早且最流行的对抗攻击方式之一</p>
-<blockquote>
-<p>Goodfellow I J, Shlens J, Szegedy C. Explaining and harnessing adversarial examples[J]. arXiv preprint arXiv:1412.6572, 2014</p>
-</blockquote>
+<p>快速梯度符号攻击（Fast Gradient Sign Attack）<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> 是最早且最流行的对抗攻击方式之一</p>
 <p>FGSM的思想十分直观且有效：利用神经网络的学习方式，即梯度来进行攻击，利用模型的反向传播梯度，调整样本数据以最大化损失</p>
 <p><img alt="" src="../pre.assets/fgsm_panda_image.png" /></p>
 <p>从图中可以看出，<span class="arithmatex">\(x\)</span>是被正确分类为“panda”的原始输入图像，<span class="arithmatex">\(y\)</span>是<span class="arithmatex">\(x\)</span>的真实标签，<span class="arithmatex">\(\mathbf θ\)</span>代表模型参数，<span class="arithmatex">\(J（\mathbfθ ，x，y）\)</span>是用于训练网络的损失。攻击将梯度反投影到输入数据，以计算<span class="arithmatex">\(\nabla_{x}J（\mathbf θ，x，y）\)</span>。然后，它在方向（即<span class="arithmatex">\(\nabla_{x}J（\mathbf θ，x ，y）\)</span>符号）上调整输入数据<span class="arithmatex">\(x\)</span>一定步幅（ε或图中的0.007）。结果得到的扰动图像<span class="arithmatex">\(x^{\prime}\)</span>然后被目标网络误分类为“gibbon”</p>
 <h2 id="pytorch-mnist">代码实现（基于Pytorch &amp; MNIST）<a class="headerlink" href="#pytorch-mnist" title="Permanent link">&para;</a></h2>
 <h3 id="_1">训练集与模型准备<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<div class="highlight"><span class="filename">import modules</span><pre><span></span><code><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 <span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
@@ -1157,11 +1154,11 @@
 <span class="n">opener</span><span class="o">.</span><span class="n">addheaders</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;User-agent&#39;</span><span class="p">,</span> <span class="s1">&#39;Mozilla/5.0&#39;</span><span class="p">)]</span>
 <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">install_opener</span><span class="p">(</span><span class="n">opener</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="n">epsilons</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">.05</span><span class="p">,</span> <span class="mf">.1</span><span class="p">,</span> <span class="mf">.15</span><span class="p">,</span> <span class="mf">.2</span><span class="p">,</span> <span class="mf">.25</span><span class="p">,</span> <span class="mf">.3</span><span class="p">]</span>
+<div class="highlight"><span class="filename">constant</span><pre><span></span><code><span class="n">epsilons</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">.05</span><span class="p">,</span> <span class="mf">.1</span><span class="p">,</span> <span class="mf">.15</span><span class="p">,</span> <span class="mf">.2</span><span class="p">,</span> <span class="mf">.25</span><span class="p">,</span> <span class="mf">.3</span><span class="p">]</span>
 <span class="n">pretrained_model</span> <span class="o">=</span> <span class="s2">&quot;data/lenet_mnist_model.pth&quot;</span>
 <span class="n">use_cuda</span><span class="o">=</span><span class="kc">True</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1"># LeNet Model definition</span>
+<div class="highlight"><span class="filename">Network</span><pre><span></span><code><span class="c1"># LeNet Model definition</span>
 <span class="k">class</span> <span class="nc">Net</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Net</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
@@ -1201,7 +1198,7 @@
 <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
 </code></pre></div>
 <h3 id="fgsm">FGSM实现<a class="headerlink" href="#fgsm" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># FGSM attack code</span>
+<div class="highlight"><span class="filename">FGSM attack</span><pre><span></span><code><span class="c1"># FGSM attack code</span>
 <span class="k">def</span> <span class="nf">fgsm_attack</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">,</span> <span class="n">data_grad</span><span class="p">):</span>
     <span class="c1"># Collect the element-wise sign of the data gradient</span>
     <span class="n">sign_data_grad</span> <span class="o">=</span> <span class="n">data_grad</span><span class="o">.</span><span class="n">sign</span><span class="p">()</span>
@@ -1213,7 +1210,7 @@
     <span class="k">return</span> <span class="n">perturbed_image</span>
 </code></pre></div>
 <h3 id="_2">测试函数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test</span><span class="p">(</span> <span class="n">model</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">test_loader</span><span class="p">,</span> <span class="n">epsilon</span> <span class="p">):</span>
+<div class="highlight"><span class="filename">measurements</span><pre><span></span><code><span class="k">def</span> <span class="nf">test</span><span class="p">(</span> <span class="n">model</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">test_loader</span><span class="p">,</span> <span class="n">epsilon</span> <span class="p">):</span>
 
     <span class="c1"># Accuracy counter</span>
     <span class="n">correct</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1276,7 +1273,7 @@
     <span class="k">return</span> <span class="n">final_acc</span><span class="p">,</span> <span class="n">adv_examples</span>
 </code></pre></div>
 <h3 id="_3">测试<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="n">accuracies</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight"><span class="filename">test</span><pre><span></span><code><span class="n">accuracies</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">examples</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="c1"># Run test for each epsilon</span>
@@ -1286,7 +1283,7 @@
     <span class="n">examples</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="_4">可视化<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<div class="highlight"><span class="filename">visualization</span><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epsilons</span><span class="p">,</span> <span class="n">accuracies</span><span class="p">,</span> <span class="s2">&quot;*-&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">.35</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.05</span><span class="p">))</span>
@@ -1297,7 +1294,7 @@
 </code></pre></div>
 <p><img alt="" src="../pre.assets/fgsm_visual.png" /></p>
 <h3 id="_5">对抗样本部分展示<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Plot several examples of adversarial samples at each epsilon</span>
+<div class="highlight"><span class="filename">Python</span><pre><span></span><code><span class="c1"># Plot several examples of adversarial samples at each epsilon</span>
 <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">epsilons</span><span class="p">)):</span>
@@ -1315,6 +1312,14 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 <p><img alt="" src="../pre.assets/fgsm_sample.png" /></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Goodfellow I J, Shlens J, Szegedy C. Explaining and harnessing adversarial examples[J]. arXiv preprint arXiv:1412.6572, 2014&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
   <hr>
 <div class="md-source-file">

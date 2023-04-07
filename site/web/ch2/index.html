@@ -1054,13 +1054,13 @@
 <p>uWSGI是 Python 语言定义的 Web 服务器和 Web 应用程序或框架之间的一种简单而通用的接口，常用来配合nginx实现客户端响应</p>
 <h2 id="_1">安装<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>pip 安装：</p>
-<div class="highlight"><pre><span></span><code>pip install uwsgi
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code>pip install uwsgi
 </code></pre></div>
 <h2 id="_2">基本设置<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="ini">ini 文件的配置<a class="headerlink" href="#ini" title="Permanent link">&para;</a></h3>
 <p>以我的一个flask项目为例，项目路径为<code>/home/flask</code>，入口文件为<code>app.py</code></p>
 <p>需要在项目根目录下创建 uwsgi_conf.ini 文件：</p>
-<div class="highlight"><pre><span></span><code>[uwsgi]
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code>[uwsgi]
 #监听端口
 socket = 127.0.0.1:5000
 #进程
@@ -1073,13 +1073,13 @@ wsgi-file = app.py
 callable = app
 </code></pre></div>
 <p>对 app.py 的入口函数进行修改：</p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<div class="highlight"><span class="filename">Python</span><pre><span></span><code><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span><span class="n">port</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span><span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 <p>注意flask接收的是内部端口5000</p>
 <h3 id="uwsgi_1">uWSGI启动<a class="headerlink" href="#uwsgi_1" title="Permanent link">&para;</a></h3>
 <p>个人习惯使用tmux直接挂起会话：</p>
-<div class="highlight"><pre><span></span><code>uwsgi uwsgi_conf.ini
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code>uwsgi uwsgi_conf.ini
 </code></pre></div>
 <p>CTRL + C 即可退出</p>
 

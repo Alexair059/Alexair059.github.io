@@ -1043,7 +1043,7 @@
 <p>Nginx配置文件路径：<code>/usr/local/nginx/conf</code>，文件名：<code>nginx.conf</code></p>
 <p>多余配置自行查找，此处给出server块的具体设置：</p>
 <p>单纯静态资源代理</p>
-<div class="highlight"><pre><span></span><code>   server {
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code>   server {
         listen       80;
         server_name  localhost;
 
@@ -1071,7 +1071,7 @@
     }
 </code></pre></div>
 <p>反向代理至uWSGI，公网端口为8000，内部端口为5000
-<div class="highlight"><pre><span></span><code>    server {
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code>    server {
         listen       8000;
         server_name  localhost;
         location / {
@@ -1086,13 +1086,13 @@
 </blockquote>
 <p>首先建立一个软链接，以便在项目根目录直接执行nginx的bin文件:</p>
 <p>当前根目录为：<code>/home</code>，nginx的bin文件路径为：<code>/usr/local/nginx/sbin</code></p>
-<div class="highlight"><pre><span></span><code>ln -s /usr/local/nginx/sbin/nginx nginx
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code>ln -s /usr/local/nginx/sbin/nginx nginx
 </code></pre></div>
 <p>更改 conf 文件后，对语法进行检查：</p>
-<div class="highlight"><pre><span></span><code>./nginx -t
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code>./nginx -t
 </code></pre></div>
 <p>重启：</p>
-<div class="highlight"><pre><span></span><code>./nginx -s reload
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code>./nginx -s reload
 </code></pre></div>
 
   <hr>

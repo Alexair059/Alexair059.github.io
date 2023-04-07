@@ -19,13 +19,13 @@ comments: true
 - 错误分类（misclassification）：只希望输出分类错误，而不在乎新的分类是什么
 - 源/目标错误分类（source/target misclassification）：希望更改最初属于特定源类别的图像，从而将其分类为特定目标类别
 
-基于对抗攻击领域，个人认为也能分成多类，较为普遍的是图对抗攻击
+基于对抗攻击领域，个人认为也能分成多类，较为普遍的是**图对抗攻击**
 
 ## FGSM（Fast Gradient Sign Attack）
 
-快速梯度符号攻击（Fast Gradient Sign Attack）是最早且最流行的对抗攻击方式之一
+快速梯度符号攻击（Fast Gradient Sign Attack）[^1] 是最早且最流行的对抗攻击方式之一
 
-> Goodfellow I J, Shlens J, Szegedy C. Explaining and harnessing adversarial examples[J]. arXiv preprint arXiv:1412.6572, 2014
+[^1]: Goodfellow I J, Shlens J, Szegedy C. Explaining and harnessing adversarial examples[J]. arXiv preprint arXiv:1412.6572, 2014
 
 FGSM的思想十分直观且有效：利用神经网络的学习方式，即梯度来进行攻击，利用模型的反向传播梯度，调整样本数据以最大化损失
 
@@ -37,7 +37,7 @@ FGSM的思想十分直观且有效：利用神经网络的学习方式，即梯�
 
 ### 训练集与模型准备
 
-```python
+```python title="import modules"
 from __future__ import print_function
 import torch
 import torch.nn as nn
@@ -55,13 +55,13 @@ opener.addheaders = [('User-agent', 'Mozilla/5.0')]
 urllib.request.install_opener(opener)
 ```
 
-```python
+```python title="constant"
 epsilons = [0, .05, .1, .15, .2, .25, .3]
 pretrained_model = "data/lenet_mnist_model.pth"
 use_cuda=True
 ```
 
-```python
+```python title="Network"
 # LeNet Model definition
 class Net(nn.Module):
     def __init__(self):
@@ -104,7 +104,7 @@ model.eval()
 
 ### FGSM实现
 
-```python
+```python title="FGSM attack"
 # FGSM attack code
 def fgsm_attack(image, epsilon, data_grad):
     # Collect the element-wise sign of the data gradient
@@ -119,7 +119,7 @@ def fgsm_attack(image, epsilon, data_grad):
 
 ### 测试函数
 
-```python
+```python title="measurements"
 def test( model, device, test_loader, epsilon ):
 
     # Accuracy counter
@@ -185,7 +185,7 @@ def test( model, device, test_loader, epsilon ):
 
 ### 测试
 
-```python
+```python title="test"
 accuracies = []
 examples = []
 
@@ -198,7 +198,7 @@ for eps in epsilons:
 
 ### 可视化
 
-```python
+```python title="visualization"
 plt.figure(figsize=(5,5))
 plt.plot(epsilons, accuracies, "*-")
 plt.yticks(np.arange(0, 1.1, step=0.1))

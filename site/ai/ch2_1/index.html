@@ -1177,17 +1177,11 @@
 <h1 id="slic">基于SLIC算法的像素化风格生成器<a class="headerlink" href="#slic" title="Permanent link">&para;</a></h1>
 <p>实现超像素领域经典算法SLIC，项目已放至<a href="https://alexair059.github.io/SLIC-Pixelation/">Github</a></p>
 <h2 id="superpixel">超像素（SuperPixel）<a class="headerlink" href="#superpixel" title="Permanent link">&para;</a></h2>
-<p>超像素是 2003 年 Xiaofeng Ren 提出和发展起来的图像分割技术，是指具有相似纹理、颜色、亮度等特征的相邻像素构成的有一定视觉意义的不规则像素块</p>
-<blockquote>
-<p>Ren, Malik. Learning a classification model for segmentation[C]. international conference on computer vision, 2003: 10-17.</p>
-</blockquote>
+<p>超像素是 2003 年 Xiaofeng Ren<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> 提出和发展起来的图像分割技术，是指具有相似纹理、颜色、亮度等特征的相邻像素构成的有一定视觉意义的不规则像素块</p>
 <p>它利用像素之间特征的相似性将像素分组，用少量的超像素代替大量的像素来表达图片特征，很大程度上降低了图像后处理的复杂度，所以通常作为分割算法的预处理步骤</p>
 <h2 id="slic_1">简单线性迭代聚类（SLIC）<a class="headerlink" href="#slic_1" title="Permanent link">&para;</a></h2>
 <p>超像素点分割的方法包括了提取轮廓、聚类、梯度上升等多种</p>
-<p>SLIC是基于K-means聚类的超像素分割算法，具有简单灵活、效果好、处理速度快等优势</p>
-<blockquote>
-<p>Achanta R, Shaji A, Smith K, et al. SLIC superpixels compared to state-of-the-art superpixel methods[J]. IEEE transactions on pattern analysis and machine intelligence, 2012, 34(11): 2274-2282</p>
-</blockquote>
+<p>SLIC<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> 是基于K-means聚类的超像素分割算法，具有简单灵活、效果好、处理速度快等优势</p>
 <h3 id="1">1. 图像预处理<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>将图像从 RGB 颜色空间转换到 CIE-Lab 颜色空间，Lab 颜色空间更符合人类对颜色的视觉感知。这个空间里的距离能反映人感觉到的颜色差别，相关计算更为准确</p>
 <h3 id="2">2. 初始化聚类中心<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
@@ -1240,13 +1234,24 @@ D^{\prime} &amp;=\sqrt{\left(\frac{\mathrm{d}_c}{m}\right)^2+\left(\frac{\mathrm
 <li>取像素点步长<code>stride</code>；<code>stride</code>越小，生成的像素图越接近超像素点，也就越细腻</li>
 <li>颜色空间权重<code>weight</code>；<code>weight</code>越大，颜色对于分割结果的影响越大</li>
 </ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Ren, Malik. Learning a classification model for segmentation[C]. international conference on computer vision, 2003: 10-17.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Achanta R, Shaji A, Smith K, et al. SLIC superpixels compared to state-of-the-art superpixel methods[J]. IEEE transactions on pattern analysis and machine intelligence, 2012, 34(11): 2274-2282&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-04-06T20:58:56+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-06</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-04-07T16:26:50+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-07</span>
       
         <br>
         创建日期:
