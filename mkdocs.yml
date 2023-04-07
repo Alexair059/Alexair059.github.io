@@ -26,10 +26,13 @@ theme:
     - navigation.tabs
     - navigation.top
     # - header.autohide
+    - content.action.edit
+    - content.action.view
 
 repo_url: https://github.com/Alexair059/Alexair059.github.io
 repo_name: Alexair059.github.io
 
+edit_uri: edit/main/docs/
 
 extra:
   social:
@@ -123,3 +126,6 @@ plugins:
       # password_button_text: 'unlock'
       input_class: input-form
       # button_class: confirm-button
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: timeago
