@@ -110,7 +110,7 @@ extra_javascript:
 
 所有配置的解释都可以在官网查找
 
-## 同步站点与项目
+## 同步站点与项目（手动）
 
 具体可参考官网Publishing your site介绍
 
@@ -123,3 +123,7 @@ mkdocs gh-deploy
 ```
 
 同步站点，再进行Git同步即可
+
+## 同步站点与项目（自动|基于Github Action）
+
+TBC
