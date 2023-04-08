@@ -23,7 +23,7 @@ pip install mkdocs-encryptcontent-plugin
 
 并在 mkdocs 的配置文件 `mkdocs.yml` 启用
 
-```
+```yaml
 plugins:
     - search: {}
     - encryptcontent: {}
@@ -33,7 +33,7 @@ plugins:
 
 在 `mkdocs.yml` 的 plugins 配置项中添加
 
-```
+```yaml
 - search: {}
   - encryptcontent: 
       title_prefix: '[限制]'
@@ -79,7 +79,7 @@ plugins:
 
 同时在 `mkdocs.yml` 中添加额外 css 类
 
-```
+```yaml
 extra_css:
   - css/custom.css
 ```
