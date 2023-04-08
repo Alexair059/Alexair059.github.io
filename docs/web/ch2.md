@@ -22,7 +22,7 @@ pip install uwsgi
 
 需要在项目根目录下创建 uwsgi_conf.ini 文件：
 
-```
+```ini
 [uwsgi]
 #监听端口
 socket = 127.0.0.1:5000

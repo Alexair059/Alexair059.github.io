@@ -14,11 +14,11 @@ comments: true
 
 但我很喜欢，因为我写字很慢，打字尚可。配合 latex 与 markdown ，我能一点点把自己在现实与网络的收获记录下来，这样在很久很久之后，我想拿点东西装逼时，好歹还有个这个
 
-人生不能少了装逼，很多人对此有个高级说法，叫做实现人生价值
+关于装逼，很多人对此有个高级说法，叫做实现人生价值
 
 ## 前置知识
 - 基本的命令行操作
-- git使用
+- Git使用
 - 任意代码编辑器的使用
 - Github基本使用
 
@@ -46,18 +46,21 @@ comments: true
 
 除开官网参考的设置
 
-```shell
+```yaml
 theme:
   name: material
 ```
 
-有相当多的设置可以自行调节，下为个人Blog的 `mkdocs.yml` 部分界面设置：
+有相当多的设置可以自行调节，下为个人习惯的的 `mkdocs.yml` 设置
 
-```
+### 基础界面
+
+```yaml
 site_name: MZY Blog
 
 theme:
   name: material
+  custom_dir: overrides
   language: zh
   logo: assets/logo.png
   favicon: assets/favicon.png
@@ -84,11 +87,24 @@ theme:
 
 repo_url: https://github.com/Alexair059/Alexair059.github.io
 repo_name: Alexair059.github.io
+
+edit_uri: edit/main/docs/
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Alexair059
+      name: My Github
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:alexair059@gmail.com
+      name: My Email
+
+copyright: Copyright &copy; 2020 - 2023 Alexair
 ```
 
-以及语法支持
+### 语法支持
 
-```
+```yaml
 markdown_extensions:
   # Python Markdown
   - abbr
@@ -100,15 +116,57 @@ markdown_extensions:
   - toc:
       permalink: true
 
-···
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.details
+  - pymdownx.highlight:
+      auto_title: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.smartsymbols
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+```
 
+### 自定义CSS类与JS类
+
+```yaml
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - css/custom.css
 ```
 
-所有配置的解释都可以在官网查找
+### 自定义插件
+
+```yaml
+plugins:
+  - search: {}
+  - encryptcontent: 
+      title_prefix: '[限制]'
+      summary: '[该内容已被加密保护]'
+      encryption_info_message: '联系博主以获得权限'
+      placeholder: 'Password'
+      decryption_failure_message: '密码错误'
+      # password_button: True
+      # password_button_text: 'unlock'
+      input_class: input-form
+      # button_class: confirm-button
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: timeago
+```
 
 ## 同步站点与项目（手动）
 
@@ -124,6 +182,10 @@ mkdocs gh-deploy
 
 同步站点，再进行Git同步即可
 
-## 同步站点与项目（自动|基于Github Action）
+## 同步站点与项目（自动 | 基于Github Action）
 
-TBC
+通过Github Action设定工作流，可以仅需同步repo而不用自己编译，并在mkdocs-material上还提供网页编辑的功能，可以说相当友好了
+
+具体可参考官网Publishing your site介绍
+
+> https://squidfunk.github.io/mkdocs-material/publishing-your-site/

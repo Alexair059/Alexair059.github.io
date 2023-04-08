@@ -16,7 +16,7 @@ Nginx配置文件路径：`/usr/local/nginx/conf`，文件名：`nginx.conf`
 
 单纯静态资源代理
 
-```
+```conf
    server {
         listen       80;
         server_name  localhost;
@@ -46,7 +46,8 @@ Nginx配置文件路径：`/usr/local/nginx/conf`，文件名：`nginx.conf`
 ```
 
 反向代理至uWSGI，公网端口为8000，内部端口为5000
-```
+
+```conf
     server {
         listen       8000;
         server_name  localhost;
