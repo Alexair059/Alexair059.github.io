@@ -1,5 +1,7 @@
 ---
 password: 4pect
+hide:
+  - toc
 ---
 
 # 琐碎
