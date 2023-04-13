@@ -59,7 +59,8 @@ nav:
           - SLIC Pixelation: ai/ch2_1.md
       - NLP: ai/todo2.md
       - KG: ai/todo3.md
-      - DL: ai/todo4.md
+      - DL:
+          - 变分自编码器|VAE: ai/ch5_1.md
       - RL: ai/todo5.md
   - CTF:
       - 乱数假文&LSB隐写: ctf/ch1.md

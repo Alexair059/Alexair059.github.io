@@ -6,6 +6,7 @@ comments: true
 
 ### 2023-4
 
+- 变分自编码器 | VAE
 - mkdocs加密
 
 ### 2023-3
