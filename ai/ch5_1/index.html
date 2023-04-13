@@ -1133,6 +1133,7 @@
 <p>但这又带来一个问题：如何让现有的encoder层结果参与后续的重建过程（decoder层）呢？</p>
 <p>VAE设计了一个很神奇的操作，在论文中被称作“重参数技巧（reparameterization trick）”。简单来说，就是模拟采样：从 <span class="arithmatex">\(\mathcal{N}(\mu, \sigma^2)\)</span> 中采样一个 <span class="arithmatex">\(Z\)</span>，等同于从 <span class="arithmatex">\(\mathcal{N}(0, I)\)</span> 中采样一个 <span class="arithmatex">\(\epsilon\)</span>，并使 <span class="arithmatex">\(Z=\mu + \sigma \times \epsilon\)</span></p>
 <p>于是隐变量 <span class="arithmatex">\(Z\)</span> 得到，我们便能送入decoder层进行重建过程了</p>
+<p><img alt="" src="../pre.assets/vae.jpg" /></p>
 <h3 id="_5">策略<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>VAE的策略很直观，主要为两点：</p>
 <ul>
@@ -1143,6 +1144,7 @@
 <p>其实以更宽泛的视角来看，引入KL散度等同于对隐空间变量分布进行正则，如果隐空间分布真有某种“模式”可以学习，我们是否可以设计其他的策略对其进行约束，甚至，动态更新这种约束策略？</p>
 <h2 id="_6">代码实现<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>这里给出<a href="https://github.com/bojone/vae/blob/master/vae_keras.py">苏神的代码</a>，基于keras：</p>
+<p>感觉keras比pytorch好用（碎碎念</p>
 <div class="highlight"><span class="filename">Python</span><pre><span></span><code><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1248,7 +1250,6 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">figure</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greys_r&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
-<p>感觉keras比pytorch好用（碎碎念</p>
 <div class="footnote">
 <hr />
 <ol>
@@ -1269,7 +1270,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-04-13T17:59:31+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-13</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-04-13T19:06:15+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-13</span>
       
         <br>
         创建日期:
@@ -1424,7 +1425,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.expand", "navigation.top", "toc.follow", "content.action.edit"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.expand", "navigation.top", "toc.follow"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
