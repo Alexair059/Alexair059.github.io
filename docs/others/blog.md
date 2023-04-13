@@ -86,7 +86,7 @@ theme:
     - navigation.top
     - toc.follow
     # - header.autohide
-    - content.action.edit
+    # - content.action.edit
     # - content.action.view
 
 repo_url: https://github.com/Alexair059/Alexair059.github.io
