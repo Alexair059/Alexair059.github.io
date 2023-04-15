@@ -51,31 +51,25 @@ copyright: Copyright &copy; 2020 - 2023 Alexair
 nav:
   - Home: index.md
   - AI:
-      - ML:
-          - 感知机: ai/ch1_2.md
-          - 朴素贝叶斯: ai/ch1_4.md
-          - SVM(updating): ai/ch1_7.md
-      - CV: 
-          - SLIC Pixelation: ai/ch2_1.md
-      - NLP: ai/todo2.md
-      - KG: ai/todo3.md
-      - DL:
-          - 变分自编码器|VAE: ai/ch5_1.md
-      - RL: ai/todo5.md
+      - SLIC Pixelation: ai/ch2_1.md
+      - 变分自编码器|VAE: ai/ch5_1.md
+      - 朴素贝叶斯: ai/ch1_4.md
+      - 感知机: ai/ch1_2.md
+      - SVM(未完成): ai/ch1_7.md
+  - Web:
+      # - 网络服务:
+      - Nginx: web/ch1.md
+      - uWSGI: web/ch2.md
+          # - TencentCloud: web/todo.md
+      # - 后端:
+      #     - Flask: web/todo3.md
+      # - 前端:
+      #     - Vue2&3: web/todo4.md
   - CTF:
       - 乱数假文&LSB隐写: ctf/ch1.md
       - FGSM攻击: ctf/ch2.md
-  - Web:
-      - 网络服务:
-          - Nginx: web/ch1.md
-          - uWSGI: web/ch2.md
-          - TencentCloud: web/todo.md
-      - 后端:
-          - Flask: web/todo3.md
-      - 前端:
-          - Vue2&3: web/todo4.md
   - Others:
-      - Blog: others/blog.md
+      - Blog搭建: others/blog.md
       - mkdocs加密: others/mkdocs_encrypt.md
       - 琐碎: others/time.md
 
