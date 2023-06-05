@@ -51,7 +51,7 @@ theme:
   name: material
 ```
 
-有相当多的设置可以自行调节，下为个人习惯的的 `mkdocs.yml` 设置
+有相当多的设置可以自行调节，下为个人习惯的的 `mkdocs.yml` 设置，完整源文件为 [mkdocs.yml](https://github.com/Alexair059/Alexair059.github.io/blob/main/mkdocs.yml)
 
 ### 基础界面
 
