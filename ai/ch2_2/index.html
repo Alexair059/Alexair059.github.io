@@ -13,7 +13,7 @@
     
     
       
-        <title>Todo2 - MZY Blog</title>
+        <title>网络结构可视化 - MZY Blog</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#todo" class="md-skip">
+        <a href="#gradio-hugging-face" class="md-skip">
           跳转至
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Todo2
+              网络结构可视化
             
           </span>
         </div>
@@ -210,13 +210,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../ch2_1/" class="md-tabs__link">
+      <a href="../ch2_1/" class="md-tabs__link md-tabs__link--active">
         AI
       </a>
     </li>
@@ -335,12 +337,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -408,6 +412,102 @@
       <a href="../ch1_2/" class="md-nav__link">
         感知机
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          网络结构可视化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        网络结构可视化
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    展示内容
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    代码实现
+  </a>
+  
+    <nav class="md-nav" aria-label="代码实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    网络结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asl" class="md-nav__link">
+    平均路径长度（ASL）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acc" class="md-nav__link">
+    平均聚类系数（ACC）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gradio" class="md-nav__link">
+    Gradio 部署体验
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -650,6 +750,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -658,9 +760,50 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#todo" class="md-nav__link">
-    Todo
+  <a href="#_1" class="md-nav__link">
+    展示内容
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    代码实现
+  </a>
+  
+    <nav class="md-nav" aria-label="代码实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    网络结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asl" class="md-nav__link">
+    平均路径长度（ASL）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acc" class="md-nav__link">
+    平均聚类系数（ACC）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gradio" class="md-nav__link">
+    Gradio 部署体验
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -678,26 +821,90 @@
                 
                   
 
-  <a href="https://github.com/Alexair059/Alexair059.github.io/edit/main/docs/ai/todo2.md" title="编辑此页" class="md-content__button md-icon">
+  <a href="https://github.com/Alexair059/Alexair059.github.io/edit/main/docs/ai/ch2_2.md" title="编辑此页" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-  <h1>Todo2</h1>
+<h1 id="gradio-hugging-face">Gradio &amp; Hugging Face 实现网络结构可视化及部署<a class="headerlink" href="#gradio-hugging-face" title="Permanent link">&para;</a></h1>
+<p>基于Hugging Face平台的可视化工具，不仅能将交互界面当做Web应用快速部署，甚至在Hugging Face上托管的程序提供了更加快捷的嵌入接口，这样我便能将可视化代码嵌入式的展示在个人静态博客中，效果也相当好</p>
+<h2 id="_1">展示内容<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>为一些基本网络结构的可视化：</p>
+<ul>
+<li>全局耦合网络（Globally Coupled Network）</li>
+<li>最近邻耦合网络（Nearest-neighbor Coupled Network）</li>
+<li>NW小世界模型 （Newman&amp;Watts World）</li>
+</ul>
+<p>以及相关的性质计算：</p>
+<ul>
+<li>平均路径长度（ASL）</li>
+<li>平均聚类系数（ACC）</li>
+</ul>
+<h2 id="_2">代码实现<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">网络结构<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>采取邻接矩阵的方式表示与存储，因为设定为无向图，因此矩阵为对称的方阵</p>
+<h3 id="asl">平均路径长度（ASL）<a class="headerlink" href="#asl" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="../pre.assets/ASL.jpg" /></p>
+<p>利用 Floyd 算法计算每个节点的最短路径长度，最后取平均值</p>
+<div class="highlight"><span class="filename">Python</span><pre><span></span><code><span class="k">def</span> <span class="nf">ASL</span><span class="p">(</span><span class="n">adj_matrix</span><span class="p">):</span>
+    <span class="n">num_nodes</span> <span class="o">=</span> <span class="n">adj_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>    
+    <span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">adj_matrix</span><span class="p">)</span>         
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_nodes</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_nodes</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span><span class="p">:</span>
+                <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
 
-<h3 id="todo">Todo<a class="headerlink" href="#todo" title="Permanent link">&para;</a></h3>
+    <span class="c1"># Floyd</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_nodes</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_nodes</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_nodes</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">dist</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]:</span>
+                    <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">dist</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+
+    <span class="n">total_shortest_path</span> <span class="o">=</span> <span class="mi">0</span>                               
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_nodes</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_nodes</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">total_shortest_path</span> <span class="o">+=</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>          
+    <span class="n">avg_shortest_path</span> <span class="o">=</span> <span class="n">total_shortest_path</span> <span class="o">/</span> <span class="p">(</span><span class="n">num_nodes</span> <span class="o">*</span> <span class="p">(</span><span class="n">num_nodes</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> 
+    <span class="k">return</span> <span class="n">avg_shortest_path</span>
+</code></pre></div>
+<h3 id="acc">平均聚类系数（ACC）<a class="headerlink" href="#acc" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="../pre.assets/ACC.jpg" /></p>
+<p>便历直接计数得出</p>
+<div class="highlight"><span class="filename">Python</span><pre><span></span><code><span class="k">def</span> <span class="nf">ACC</span><span class="p">(</span><span class="n">input_matrix</span><span class="p">):</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="n">input_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+        <span class="n">node_neigh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">input_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">n_links</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">node_neigh</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">n_links</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_links</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_links</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">input_matrix</span><span class="p">[</span><span class="n">node_neigh</span><span class="p">[</span><span class="n">j</span><span class="p">]][</span><span class="n">node_neigh</span><span class="p">[</span><span class="n">l</span><span class="p">]]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">k</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_links</span> <span class="o">*</span> <span class="p">(</span><span class="n">n_links</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="gradio">Gradio 部署体验<a class="headerlink" href="#gradio" title="Permanent link">&para;</a></h3>
+<p>最后可视化采用Gradio &amp; Matplotlib实现，分别在个人站点（Nginx部署）与本文下方（Hugging Face部署嵌入）实现展示</p>
+<p>由于个人站点暂无域名，安全考虑只提供本文下方的可视化体验</p>
+<p><gradio-app src="https://alexair-multi-agent-network-visualization.hf.space"></gradio-app></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-02-28T09:28:46+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-28</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-06-11T06:31:16+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-06-11</span>
       
         <br>
         创建日期:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-02-28T09:28:46+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-28</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-06-11T06:31:16+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-06-11</span>
       
     
   </small>
@@ -706,6 +913,54 @@
 
 
 
+
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+  data-repo="alexair059/githubio-comments"
+  data-repo-id="R_kgDOJTmV_g"
+  data-category="githubio"
+  data-category-id="DIC_kwDOJTmV_s4CVmEz"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async>
+  </script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
                 
               </article>
@@ -722,6 +977,42 @@
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../ch1_2/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 感知机" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              感知机
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../ch1_7/" class="md-footer__link md-footer__link--next" aria-label="下一页: SVM(未完成)" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              SVM(未完成)
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
