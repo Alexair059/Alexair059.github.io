@@ -87,11 +87,13 @@ $$
 #### 基本运算
 
 $$
-a\equiv b \pmod{m} \\
-c\equiv d \pmod{m} \\
-\Downarrow \\
-a\pm c\equiv b\pm d \pmod{m} \\
-ac\equiv bd \pmod{m}
+\begin{aligned}
+a\equiv b &\pmod{m} \\
+c\equiv d &\pmod{m} \\
+&\Downarrow \\
+a\pm c\equiv b\pm d &\pmod{m} \\
+ac\equiv bd &\pmod{m}
+\end{aligned}
 $$
 
 #### 等量加减法
@@ -103,9 +105,11 @@ $$
 #### 等量乘法
 
 $$
-a\equiv b \pmod{m} \Longrightarrow ka\equiv kb \pmod{m},\quad \forall k \in Z \\
-a\equiv b \pmod{m} \Longrightarrow a^n\equiv b^n \pmod{m}, \quad \forall n \in N \\
-a\equiv b \pmod{m} \Longrightarrow P(a)\equiv P(b) \pmod{m},\quad P(x)为任意整系数多项式
+\begin{aligned}
+a\equiv b \pmod{m} &\Longrightarrow ka\equiv kb \pmod{m},\quad \forall k \in Z \\
+a\equiv b \pmod{m} &\Longrightarrow a^n\equiv b^n \pmod{m}, \quad \forall n \in N \\
+a\equiv b \pmod{m} &\Longrightarrow P(a)\equiv P(b) \pmod{m},\quad P(x)为任意整系数多项式
+\end{aligned}
 $$
 
 #### 放大缩小底数
@@ -141,9 +145,11 @@ $$
 结合算术基本定理，我们有
 
 $$
-n = p_1^{k_1}p_2^{k_2}···p_r^{k_r} \\
-\Downarrow \\
-\varphi(n) = \prod_{i=1}^rp_i^{k_{i-1}}(p_i-1)
+\begin{aligned}
+n &= p_1^{k_1}p_2^{k_2}···p_r^{k_r} \\
+&\Downarrow \\
+\varphi(n) &= \prod_{i=1}^rp_i^{k_{i-1}}(p_i-1)
+\end{aligned}
 $$
 
 ## 欧拉定理 | 费马小定理
