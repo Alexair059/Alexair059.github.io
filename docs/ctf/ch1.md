@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 乱数假文&LSB隐写
+# 乱数假文 & LSB隐写
 
 ### 乱数假文（Lorem ipsum）
 

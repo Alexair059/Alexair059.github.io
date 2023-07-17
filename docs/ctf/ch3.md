@@ -66,15 +66,36 @@ def gcd(a, b):
 
 ## 模运算
 
-$a$ 除以 $m$ 所得的余数记作 $a\bmod m$
+$a$ 除以 $m$ 所得的余数记作 $a\bmod m$，称为模运算
+
+> 模运算中的模为`\bmod`
+
+### 基本性质
+
+#### 恒等式
+
+$$
+(a\bmod n)\bmod n = a\bmod n
+$$
+
+#### 分配律
+
+$$
+\begin{aligned}
+(a+b)\bmod n &= [(a\bmod n)+(b\bmod n)]\bmod n \\
+ab\bmod n &= [(a\bmod n)\cdot (b\bmod n)]\bmod n
+\end{aligned}
+$$
+
+## 同余
 
 若 $a\bmod m = b\bmod m$，即 $a$ ，$b$ 除以 $m$ 所得的余数相等，我们可以记作
 
 $$
-a \equiv b \pmod{m}
+a\bmod m = b\bmod m \Longleftrightarrow a \equiv b \pmod{m}
 $$
 
-> 同余式中的模为`\pmod{m}`，模运算中的模为`\bmod`
+> 同余式中的全等为`\equiv`，模为`\pmod{m}`
 
 ### 基本性质
 
@@ -118,14 +139,14 @@ $$
 (km\pm a)^n\equiv (\pm a)^n \pmod{m} \quad (k \in Z, n \in N)
 $$
 
-### 剩余系
+## 剩余系
 
-#### 完全剩余系
+### 完全剩余系
 
 比 $n$ 小的非负数集合为 $Z_n=\{0,1,…,(n−1)\}$
 ，称为模 $n$ 的完全剩余系，记作 $Z_n$
 
-#### 简化剩余系
+### 简化剩余系
 
 完全剩余系中与 $n$ 互质的元素的集合，记作$Z_n^*$
 

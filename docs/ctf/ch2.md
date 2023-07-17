@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# FGSM简易生成MNIST对抗样本
+# FGSM攻击
 
 记录一次图对抗攻击，尝试快速梯度符号攻击（FGSM）迷惑MNIST分类器
 

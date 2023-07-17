@@ -67,9 +67,9 @@ nav:
       # - 前端:
       #     - Vue2&3: web/todo4.md
   - CTF:
+      - 数论笔记: ctf/ch3.md
       - 乱数假文&LSB隐写: ctf/ch1.md
       - FGSM攻击: ctf/ch2.md
-      - 数论笔记: ctf/ch3.md
   - Others:
       - Blog搭建: others/blog.md
       - mkdocs加密: others/mkdocs_encrypt.md
