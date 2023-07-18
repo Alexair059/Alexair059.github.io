@@ -6,6 +6,7 @@ comments: true
 
 ### 2023-6
 
+- [RSA](https://alexair059.github.io/ctf/ch4/)
 - [数论笔记](https://alexair059.github.io/ctf/ch3/)
 
 ### 2023-5
@@ -14,7 +15,7 @@ comments: true
 
 ### 2023-4
 
-- [变分自编码器 & VAE](https://alexair059.github.io/ai/ch5_1/)
+- [变分自编码器 | VAE](https://alexair059.github.io/ai/ch5_1/)
 - [mkdocs加密](https://alexair059.github.io/others/mkdocs_encrypt/)
 
 ### 2023-3
@@ -34,6 +35,6 @@ comments: true
 
 ### 2022-11
 
-- [SLIC算法&像素美术素材生成](https://alexair059.github.io/ai/ch2_1/)
+- [SLIC算法 & 像素美术素材生成](https://alexair059.github.io/ai/ch2_1/)
 - [FGSM攻击](https://alexair059.github.io/ctf/ch2/)
-- [乱数假文&LSB隐写](https://alexair059.github.io/ctf/ch1/)
+- [乱数假文 & LSB隐写](https://alexair059.github.io/ctf/ch1/)
