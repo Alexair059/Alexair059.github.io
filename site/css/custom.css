@@ -20,4 +20,20 @@
 
 .confirm-button:hover {
     background-color: #3e8e41;
-  }
+}
+
+.heimu,
+.heimu a,
+a .heimu,
+.heimu a.new {
+    background-color: rgb(85, 85, 85);
+    color: rgb(85, 85, 85);
+    text-shadow: none;
+}
+
+.heimu:hover,
+.heimu:active,
+.heimu:hover .heimu,
+.heimu:active .heimu {
+    color: white !important;
+}
