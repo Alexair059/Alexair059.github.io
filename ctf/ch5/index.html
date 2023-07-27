@@ -1047,7 +1047,7 @@
 
 <h1 id="encode">编码 | Encode<a class="headerlink" href="#encode" title="Permanent link">&para;</a></h1>
 <p>编码（encode）的目的不是为了加密，而是代表信息的另外一种表达方式。将原始信息转化为编码信息进行传输，可以解决一些特殊字符、不可见字符的传输问题</p>
-<p>接收者将编码信息再转化为原始信息，转化的过程称之为解码（Decode）</p>
+<p>接收者将编码信息再转化为原始信息，转化的过程称之为解码（decode）</p>
 <h2 id="_1">进制转换<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>进制转换在密码学中十分常见，因为不同进制下的字符集大小不同，所以这是一种天然的编码方式</p>
 <h3 id="102816">10进制转2/8/16进制<a class="headerlink" href="#102816" title="Permanent link">&para;</a></h3>
@@ -1176,7 +1176,9 @@
 <p>Base32，Base64 的函数写法类似，不再赘述</p>
 <p><strong>Pycryptodome</strong></p>
 <p>该库提供一个方便快捷的函数 <code>bytes_to_long()</code>，接收一个 <code>bytes</code>，并返回十进制下的 Base16 编码值 <code>int</code></p>
-<div class="highlight"><span class="filename">Python</span><pre><span></span><code><span class="n">bytes_to_long</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;crypto</span><span class="si">{4da_1s_7he_K3y}</span><span class="s1">&#39;</span><span class="p">)</span>    <span class="c1"># 37207601978879818689532919055604181433045365814425981</span>
+<div class="highlight"><span class="filename">Python</span><pre><span></span><code><span class="kn">from</span> <span class="nn">Crypto.Util.number</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">bytes_to_long</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;crypto</span><span class="si">{4da_1s_7he_K3y}</span><span class="s1">&#39;</span><span class="p">)</span>    <span class="c1"># 37207601978879818689532919055604181433045365814425981</span>
 
 <span class="n">bytes_to_long</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;crypto</span><span class="si">{4da_1s_7he_K3y}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b16encode</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;crypto</span><span class="si">{4da_1s_7he_K3y}</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span> <span class="mi">16</span><span class="p">)</span>    <span class="c1"># True</span>
 </code></pre></div>
@@ -1186,11 +1188,11 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-07-27T14:13:45+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-07-27</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-07-27T14:23:29+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-07-27</span>
       
         <br>
         创建日期:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-07-27T14:13:45+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-07-27</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-07-27T14:23:29+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-07-27</span>
       
     
   </small>
