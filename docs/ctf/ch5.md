@@ -6,7 +6,7 @@ comments: true
 
 编码（encode）的目的不是为了加密，而是代表信息的另外一种表达方式。将原始信息转化为编码信息进行传输，可以解决一些特殊字符、不可见字符的传输问题
 
-接收者将编码信息再转化为原始信息，转化的过程称之为解码（Decode）
+接收者将编码信息再转化为原始信息，转化的过程称之为解码（decode）
 
 ## 进制转换
 
@@ -224,6 +224,8 @@ Base32，Base64 的函数写法类似，不再赘述
 该库提供一个方便快捷的函数 `bytes_to_long()`，接收一个 `bytes`，并返回十进制下的 Base16 编码值 `int`
 
 ```python
+from Crypto.Util.number import *
+
 bytes_to_long(b'crypto{4da_1s_7he_K3y}')    # 37207601978879818689532919055604181433045365814425981
 
 bytes_to_long(b'crypto{4da_1s_7he_K3y}') == int(base64.b16encode(b'crypto{4da_1s_7he_K3y}').decode(), 16)    # True
