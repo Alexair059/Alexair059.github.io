@@ -6,8 +6,9 @@ comments: true
 
 ### 2023-6
 
+- [编码 | Encode](https://alexair059.github.io/ctf/ch5/)
 - [RSA](https://alexair059.github.io/ctf/ch4/)
-- [数论笔记](https://alexair059.github.io/ctf/ch3/)
+- [初等数论](https://alexair059.github.io/ctf/ch3/)
 
 ### 2023-5
 

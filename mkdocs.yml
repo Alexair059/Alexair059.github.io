@@ -67,8 +67,9 @@ nav:
       # - 前端:
       #     - Vue2&3: web/todo4.md
   - CTF:
-      - 数论笔记: ctf/ch3.md
       - RSA: ctf/ch4.md
+      - 编码|Encode: ctf/ch5.md
+      - 初等数论: ctf/ch3.md
       - 乱数假文&LSB隐写: ctf/ch1.md
       - FGSM攻击: ctf/ch2.md
   - Others:
