@@ -706,13 +706,20 @@
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    特点
+    字符集
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
+    特点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     工具
   </a>
   
@@ -1008,13 +1015,20 @@
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    特点
+    字符集
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
+    特点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     工具
   </a>
   
@@ -1105,12 +1119,14 @@
 </code></pre></div>
 <p><code>bytes</code> 类型</p>
 <div class="highlight"><span class="filename">Python</span><pre><span></span><code><span class="nb">list</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;crypto</span><span class="si">{4da_1s_7he_K3y}</span><span class="s1">&#39;</span><span class="p">)</span>    <span class="c1"># [99,114,121,112,116,···,121,125]</span>
+
+<span class="nb">bytes</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;crypto</span><span class="si">{4da_1s_7he_K3y}</span><span class="s1">&#39;</span><span class="p">))</span>    <span class="c1"># b&#39;crypto{4da_1s_7he_K3y}&#39;</span>
 </code></pre></div>
 <h3 id="str-bytes"><code>str</code> 与 <code>bytes</code> 类型的转换<a class="headerlink" href="#str-bytes" title="Permanent link">&para;</a></h3>
 <p><strong>字面值转换</strong></p>
 <p><code>str</code> 的字面值与 <code>bytes</code> 的字面值展示内容是一样的，只需要添加前缀 <code>b</code></p>
 <div class="highlight"><span class="filename">Python</span><pre><span></span><code><span class="nb">type</span><span class="p">(</span><span class="s1">&#39;crypto</span><span class="si">{4da_1s_7he_K3y}</span><span class="s1">&#39;</span><span class="p">)</span>    <span class="c1"># str</span>
-<span class="nb">type</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;crypto</span><span class="si">{4da_1s_7he_K3y}</span><span class="s1">&#39;</span><span class="p">)</span>    <span class="c1">#bytes</span>
+<span class="nb">type</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;crypto</span><span class="si">{4da_1s_7he_K3y}</span><span class="s1">&#39;</span><span class="p">)</span>    <span class="c1"># bytes</span>
 </code></pre></div>
 <p><strong>变量转换</strong></p>
 <p><code>str</code> 类型下有 <code>.encode()</code> 函数，<code>bytes</code> 类型下有对应的 <code>.decode()</code> 函数</p>
@@ -1121,7 +1137,7 @@
 <h2 id="ascii">ASCII<a class="headerlink" href="#ascii" title="Permanent link">&para;</a></h2>
 <p>一种 7 位编码标准，使用整数 0-127 来表示对应字符，其字符集便是 ASCII 码表</p>
 <p>Python 的内置函数 <code>ord()</code> 接收单个 <code>str</code> / <code>chr</code>，返回 <code>int</code> 为其对应的 ASCII 码值</p>
-<div class="highlight"><span class="filename">Python</span><pre><span></span><code><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>    <span class="c1">#65</span>
+<div class="highlight"><span class="filename">Python</span><pre><span></span><code><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>    <span class="c1"># 65</span>
 </code></pre></div>
 <p>Python 的内置函数 <code>chr()</code> 接收 <code>int</code>，返回 <code>str</code> 作为对应的 ASCII 码</p>
 <div class="highlight"><span class="filename">Python</span><pre><span></span><code><span class="nb">chr</span><span class="p">(</span><span class="mi">65</span><span class="p">)</span>    <span class="c1"># &#39;A&#39;</span>
@@ -1129,8 +1145,8 @@
 <h2 id="hex-base16">Hex | Base16<a class="headerlink" href="#hex-base16" title="Permanent link">&para;</a></h2>
 <p>Hex 即 Base16 编码，Base16 指的是其字符集为 0-9、A-F 共16个字符，类似的还有 Base32，Base64编码（除开补位的 '='）</p>
 <h3 id="_2">原理<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>ASCII 编码下，一般的英文字符大小均为 1byte，即 8bit，于是我们可以将其切分为两个 4bit 看待，而对于一个 占位 4bit 的信息，我们只需要 <span class="arithmatex">\(2^4=16\)</span> 个字符组成的集合便能一一对应，这就是 Base16 的原理</p>
-<p>实际编码中，我们首先将 ASCII 编码下的信息，即原始信息取 ASCII 码值并二进制展开，对不足 8 位的进行高位补 0 ，得到代表原信息的二进制串，其位数必为 8 的倍数</p>
+<p>ASCII 编码下，一般的英文字符大小均为 1byte，即 8bit，于是可以将其切分为两个 4bit 看待，而对于一个 占位 4bit 的信息，我们只需要 <span class="arithmatex">\(2^4=16\)</span> 个字符组成的集合便能一一对应，这就是 Base16 的原理</p>
+<p>实际编码中，首先将 ASCII 编码下的信息，即原始信息取 ASCII 码值并二进制展开，对不足 8 位的进行高位补 0 ，得到代表原信息的二进制串，其位数必为 8 的倍数</p>
 <p>接着我们将该二进制串按 4bit 划分为小节，每一小节代表的值便对应 Base16 码表下相应的字符</p>
 <h3 id="_3">特点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>由于 ASCII 码 8bit 代表一个字符，Base16 码 4bit 代表一个字符，即每 1 个 ASCII 字符一定可以用 2 个Base16 字符表示，因此我们可知 Base16 编码的信息字符数一般为偶数，并且很少需要 '=' 补位</p>
@@ -1157,10 +1173,16 @@
 </code></pre></div>
 <h2 id="base32-base64">Base32 &amp; Base64<a class="headerlink" href="#base32-base64" title="Permanent link">&para;</a></h2>
 <p>与 Base16 编码类似，Base32 与 Base64 分别用 32 个字符（占位 5bit）与 64 个字符（占位 6bit）表示原始字符</p>
-<h3 id="_5">特点<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>这意味着每 5/3 个原始字符一定能用 8/4个 Base32/64 字符表示</p>
+<h3 id="_5">字符集<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Base16：0-9，A-F 共 16 个以及补位的 '='</li>
+<li>Base32：2-7，A-Z 共 32 个以及补位的 '='</li>
+<li>Base64：0-9，A-Z，a-z，+，/ 共 64 个以及补位的 '='</li>
+</ul>
+<h3 id="_6">特点<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>每 5/3 个原始字符一定能用 8/4个 Base32/64 字符表示</p>
 <p>Base32 编码长度常常是 8 的倍数，Base64 编码长度常常是 4 的倍数，且时常有 '=' 补位</p>
-<h3 id="_6">工具<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_7">工具<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p><strong>内置函数</strong></p>
 <p>Python 的标准库 <code>base64</code> 提供一系列 Base 编码函数</p>
 <p><code>base64.b16encode()</code> 接收 <code>bytes</code>，并返回 Base16 编码后的 <code>bytes</code></p>
@@ -1188,7 +1210,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-07-27T14:23:29+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-07-27</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-07-27T16:42:53+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-07-27</span>
       
         <br>
         创建日期:
