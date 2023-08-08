@@ -1154,7 +1154,7 @@
 <p><strong>个人实现</strong></p>
 <p>虽然一般的 Base 编码都需要码表，但 Base16 码值对应的字符便是其 16 进制下的表达，所以我们可以直接借助前文的进制转换函数实现 Base16 编码</p>
 <div class="highlight"><span class="filename">Python</span><pre><span></span><code><span class="k">def</span> <span class="nf">my_hex</span><span class="p">(</span><span class="n">input_str</span><span class="p">):</span>
-    <span class="n">bstream</span> <span class="o">=</span> <span class="p">[</span><span class="nb">bin</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">o</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>  <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">input_str</span><span class="p">]</span>
+    <span class="n">bstream</span> <span class="o">=</span> <span class="p">[</span><span class="nb">bin</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">o</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">input_str</span><span class="p">]</span>
     <span class="n">tmp</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">bstream</span><span class="p">:</span>
         <span class="n">tmp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">item</span><span class="p">[:</span><span class="mi">4</span><span class="p">],</span> <span class="mi">2</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
@@ -1210,7 +1210,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-07-27T16:42:53+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-07-27</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-07-28T15:07:00+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-07-28</span>
       
         <br>
         创建日期:
