@@ -157,7 +157,7 @@ ASCII 编码下，一般的英文字符大小均为 1byte，即 8bit，于是可
 
 ```python
 def my_hex(input_str):
-    bstream = [bin(ord(o))[2:].zfill(8)  for o in input_str]
+    bstream = [bin(ord(o))[2:].zfill(8) for o in input_str]
     tmp = []
     for item in bstream:
         tmp.append(hex(int(item[:4], 2))[2:])

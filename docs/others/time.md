@@ -4,14 +4,8 @@ hide:
   - toc
 ---
 
-# 琐碎
+# Todo
 
-## 实习
-
-- 面试问题（[百度飞桨](https://paddlepedia.readthedocs.io/en/latest/tutorials/interview_questions/index.html)）
-- Keras 贡献
-- MindSpore [开源实习](https://internship.mindspore.cn/zh/internship/)
-
-## 想要的书
-
-- 遗传算法与机器学习编程
+- SLIC DL改进（keras）
+- ML Algo复现（python & keras）
+- 密码学 | AI & 数据重建（keras）

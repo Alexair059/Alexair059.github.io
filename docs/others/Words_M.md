@@ -1,5 +1,5 @@
 ---
-password: 4pect
+password: w0rd
 hide:
   - toc
 ---
