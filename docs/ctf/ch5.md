@@ -201,6 +201,64 @@ Base32 编码长度常常是 8 的倍数，Base64 编码长度常常是 4 的倍
 
 ### 工具
 
+**个人实现 （Base64）**
+
+首先需要准备一个 Base64 码表
+
+```python
+index = [i for i in range(64)]
+val = [chr(i) for i in range(ord('A'), ord('A')+26)]+[chr(i) for i in range(ord('a'), ord('a')+26)]+[chr(i) for i in range(ord('0'), ord('0')+10)]+['+', '/']
+
+b64map = dict(zip(index, val))
+```
+
+这里也可以选用私有码表，即私有 Base64 编码
+
+```python
+def my_b64encode(input_str, dct):
+    bstream = ''.join([bin(ord(o))[2:].zfill(8) for o in input_str])
+    pad = 0
+    if len(bstream) % 24 == 8:
+        pad = 2
+    if len(bstream) % 24 == 16:
+        pad = 1
+    tmp = []
+    if len(bstream) % 6:
+        bstream = bstream.ljust(len(bstream) + 6 - len(bstream) % 6, '0')
+    for i in range(len(bstream) // 6):
+        tmp.append(dct[int(bstream[i*6:(i+1)*6],2)])
+    return ''.join(tmp) + pad * '='
+```
+
+`my_b64encode()` 接收 `str` 与一个 `dict`，返回编码后的 `str`
+
+```python
+def my_b64decode(input_str, dct):
+    offset = 0
+    if input_str.count('=') == 1:
+        offset = 2
+        input_str = input_str[:-1]
+    if input_str.count('=') == 2:
+        offset = 4
+        input_str = input_str[:-2]
+    if offset:
+        bstream = ''.join([bin(dct[o])[2:].zfill(6) for o in input_str])[:-offset]
+    else:
+        bstream = ''.join([bin(dct[o])[2:].zfill(6) for o in input_str])       
+    tmp = []
+    for i in range(len(bstream) // 8):
+        tmp.append(chr(int(bstream[i*8:(i+1)*8],2)))
+    return ''.join(tmp)
+```
+
+`my_b64decode()` 接收一个 `str` 与一个逆向的码表 `dict`，返回解码后的 `str`
+
+逆向码表可简单交换前面码表准备过程中的 `zip()` 参数顺序得到
+
+```python
+re_map = dict(zip(val, index))
+```
+
 **内置函数**
 
 Python 的标准库 `base64` 提供一系列 Base 编码函数
