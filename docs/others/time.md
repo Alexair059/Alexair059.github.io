@@ -6,6 +6,7 @@ hide:
 
 # Todo
 
+- ML Algo复现（也许用 numpy & keras）
+- Deep Leakage from Gradient 类似效果 keras复现（CV / NLP 方向攻击）
 - SLIC DL改进（keras）
-- ML Algo复现（python & keras）
-- 密码学 | AI & 数据重建（keras）
+- 密码学玩耍
