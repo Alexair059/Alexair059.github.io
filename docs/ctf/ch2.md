@@ -33,12 +33,21 @@ FGSM的思想十分直观且有效：利用神经网络的学习方式，即梯�
 
 从图中可以看出，$x$是被正确分类为“panda”的原始输入图像，$y$是$x$的真实标签，$\mathbf θ$代表模型参数，$J（\mathbfθ ，x，y）$是用于训练网络的损失。攻击将梯度反投影到输入数据，以计算$\nabla_{x}J（\mathbf θ，x，y）$。然后，它在方向（即$\nabla_{x}J（\mathbf θ，x ，y）$符号）上调整输入数据$x$一定步幅（ε或图中的0.007）。结果得到的扰动图像$x^{\prime}$然后被目标网络误分类为“gibbon”
 
-## 代码实现（基于Pytorch & MNIST）
+## Pytorch & Keras 代码实现
 
-### 训练集与模型准备
+### 数据集
 
-```python title="import modules"
-from __future__ import print_function
+均采用框架内置提供的 MNIST 手写数字数据集
+
+### 模型
+
+Torch 导入修改后的预训练 LeNet 模型；TensorFlow 直接训练得到 LeNet 模型
+
+### 实现
+
+=== "Torch"
+
+```python
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -47,189 +56,173 @@ from torchvision import datasets, transforms
 import numpy as np
 import matplotlib.pyplot as plt
 
-# NOTE: This is a hack to get around "User-agent" limitations when downloading MNIST datasets
-#       see, https://github.com/pytorch/vision/issues/3497 for more information
-from six.moves import urllib
-opener = urllib.request.build_opener()
-opener.addheaders = [('User-agent', 'Mozilla/5.0')]
-urllib.request.install_opener(opener)
-```
-
-```python title="constant"
+# configuration
 epsilons = [0, .05, .1, .15, .2, .25, .3]
-pretrained_model = "data/lenet_mnist_model.pth"
-use_cuda=True
-```
+pretrained_model = "./lenet_mnist_model.pth.pt"
+use_cuda= False
+device = torch.device("cuda" if use_cuda and torch.cuda.is_available() else "cpu")
 
-```python title="Network"
-# LeNet Model definition
+# Model under Attack
 class Net(nn.Module):
     def __init__(self):
         super(Net, self).__init__()
-        self.conv1 = nn.Conv2d(1, 10, kernel_size=5)
-        self.conv2 = nn.Conv2d(10, 20, kernel_size=5)
-        self.conv2_drop = nn.Dropout2d()
-        self.fc1 = nn.Linear(320, 50)
-        self.fc2 = nn.Linear(50, 10)
+        self.conv1 = nn.Conv2d(1, 32, 3, 1)
+        self.conv2 = nn.Conv2d(32, 64, 3, 1)
+        self.dropout1 = nn.Dropout(0.25)
+        self.dropout2 = nn.Dropout(0.5)
+        self.fc1 = nn.Linear(9216, 128)
+        self.fc2 = nn.Linear(128, 10)
 
     def forward(self, x):
-        x = F.relu(F.max_pool2d(self.conv1(x), 2))
-        x = F.relu(F.max_pool2d(self.conv2_drop(self.conv2(x)), 2))
-        x = x.view(-1, 320)
-        x = F.relu(self.fc1(x))
-        x = F.dropout(x, training=self.training)
+        x = self.conv1(x)
+        x = F.relu(x)
+        x = self.conv2(x)
+        x = F.relu(x)
+        x = F.max_pool2d(x, 2)
+        x = self.dropout1(x)
+        x = torch.flatten(x, 1)
+        x = self.fc1(x)
+        x = F.relu(x)
+        x = self.dropout2(x)
         x = self.fc2(x)
-        return F.log_softmax(x, dim=1)
+        output = F.log_softmax(x, dim=1)
+        return output
 
-# MNIST Test dataset and dataloader declaration
-test_loader = torch.utils.data.DataLoader(
-    datasets.MNIST('../data', train=False, download=True, transform=transforms.Compose([
-            transforms.ToTensor(),
-            ])),
-        batch_size=1, shuffle=True)
+# Sample Datas for FGSM
+MNIST_datasets = datasets.MNIST('./data',
+                                train=False,
+                                transform=transforms.Compose([transforms.ToTensor()]))
 
-# Define what device we are using
-print("CUDA Available: ",torch.cuda.is_available())
-device = torch.device("cuda" if (use_cuda and torch.cuda.is_available()) else "cpu")
+MNIST_loader = torch.utils.data.DataLoader(MNIST_datasets, batch_size=256, shuffle=True)
 
-# Initialize the network
+for item in MNIST_loader:
+    datas = item[0]
+    targets = item[1]
+    break
+
+# FGSM Attack
+datas.requires_grad = True
+
 model = Net().to(device)
-
-# Load the pretrained model
-model.load_state_dict(torch.load(pretrained_model, map_location='cpu'))
-
-# Set the model in evaluation mode. In this case this is for the Dropout layers
+model.load_state_dict(torch.load('./lenet_mnist_model.pth.pt', map_location=device))
 model.eval()
+
+outs = model(datas.to(device))
+loss = F.nll_loss(outs, targets)
+
+datas_grad = datas_grad[0]
+
+perturbed_datas = datas + epsilons[1] * datas_grad.sign()
+
+## Test after Drawing One Epsilon
+model(datas).argmax(axis=1) == model(perturbed_datas).argmax(axis=1)
+
+ex = datas[17].squeeze().detach().numpy()
+target = targets[17].numpy()
+adv = perturbed_datas[17].squeeze().detach().numpy()
+adv_target = model(perturbed_datas).argmax(axis=1)[17].numpy()
+
+plt.figure(figsize=(8,10))
+
+plt.subplot(1,2,1)
+plt.title(f'Label: {target}')
+plt.xticks([],[])
+plt.yticks([],[])
+plt.imshow(ex, cmap='gray')
+
+plt.subplot(1,2,2)
+plt.title(f'Attack: {adv_target}')
+plt.xticks([],[])
+plt.yticks([],[])
+plt.imshow(adv, cmap='gray')
+
+# plt.tight_layout()
 ```
 
-### FGSM实现
-
-```python title="FGSM attack"
-# FGSM attack code
-def fgsm_attack(image, epsilon, data_grad):
-    # Collect the element-wise sign of the data gradient
-    sign_data_grad = data_grad.sign()
-    # Create the perturbed image by adjusting each pixel of the input image
-    perturbed_image = image + epsilon*sign_data_grad
-    # Adding clipping to maintain [0,1] range
-    perturbed_image = torch.clamp(perturbed_image, 0, 1)
-    # Return the perturbed image
-    return perturbed_image
-```
-
-### 测试函数
-
-```python title="measurements"
-def test( model, device, test_loader, epsilon ):
-
-    # Accuracy counter
-    correct = 0
-    adv_examples = []
-
-    # Loop over all examples in test set
-    for data, target in test_loader:
-
-        # Send the data and label to the device
-        data, target = data.to(device), target.to(device)
-
-        # Set requires_grad attribute of tensor. Important for Attack
-        data.requires_grad = True
-
-        # Forward pass the data through the model
-        output = model(data)
-        init_pred = output.max(1, keepdim=True)[1] # get the index of the max log-probability
-
-        # If the initial prediction is wrong, dont bother attacking, just move on
-        if init_pred.item() != target.item():
-            continue
-
-        # Calculate the loss
-        loss = F.nll_loss(output, target)
-
-        # Zero all existing gradients
-        model.zero_grad()
-
-        # Calculate gradients of model in backward pass
-        loss.backward()
-
-        # Collect datagrad
-        data_grad = data.grad.data
-
-        # Call FGSM Attack
-        perturbed_data = fgsm_attack(data, epsilon, data_grad)
-
-        # Re-classify the perturbed image
-        output = model(perturbed_data)
-
-        # Check for success
-        final_pred = output.max(1, keepdim=True)[1] # get the index of the max log-probability
-        if final_pred.item() == target.item():
-            correct += 1
-            # Special case for saving 0 epsilon examples
-            if (epsilon == 0) and (len(adv_examples) < 5):
-                adv_ex = perturbed_data.squeeze().detach().cpu().numpy()
-                adv_examples.append( (init_pred.item(), final_pred.item(), adv_ex) )
-        else:
-            # Save some adv examples for visualization later
-            if len(adv_examples) < 5:
-                adv_ex = perturbed_data.squeeze().detach().cpu().numpy()
-                adv_examples.append( (init_pred.item(), final_pred.item(), adv_ex) )
-
-    # Calculate final accuracy for this epsilon
-    final_acc = correct/float(len(test_loader))
-    print("Epsilon: {}\tTest Accuracy = {} / {} = {}".format(epsilon, correct, len(test_loader), final_acc))
-
-    # Return the accuracy and an adversarial example
-    return final_acc, adv_examples
-```
-
-### 测试
-
-```python title="test"
-accuracies = []
-examples = []
-
-# Run test for each epsilon
-for eps in epsilons:
-    acc, ex = test(model, device, test_loader, eps)
-    accuracies.append(acc)
-    examples.append(ex)
-```
-
-### 可视化
-
-```python title="visualization"
-plt.figure(figsize=(5,5))
-plt.plot(epsilons, accuracies, "*-")
-plt.yticks(np.arange(0, 1.1, step=0.1))
-plt.xticks(np.arange(0, .35, step=0.05))
-plt.title("Accuracy vs Epsilon")
-plt.xlabel("Epsilon")
-plt.ylabel("Accuracy")
-plt.show()
-```
-
-![](pre.assets/fgsm_visual.png)
-
-### 对抗样本部分展示
+=== "TensorFlow"
 
 ```python
-# Plot several examples of adversarial samples at each epsilon
-cnt = 0
+import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+from keras import layers
+import matplotlib.pyplot as plt
+
+# Mix-Precision Boost
+tf.config.list_physical_devices('GPU')
+
+tf.keras.mixed_precision.set_global_policy("mixed_float16")
+
+# Configuration
+epsilon = [0, .1, .15, .2, .25, .30, .35]
+
+(train_images, train_labels), (test_images, test_labels) = keras.datasets.mnist.load_data()
+
+train_images = train_images.astype("float32") / 255
+test_images = test_images.astype("float32") / 255
+train_images = train_images.reshape((*train_images.shape, 1))
+test_images = test_images.reshape((*test_images.shape, 1))
+
+# Model under Attack
+input = keras.Input((28,28,1))
+x = layers.Conv2D(32, 3, strides=1, activation='relu')(input)
+x = layers.Conv2D(64, 3, strides=1, activation='relu')(x)
+x = layers.MaxPooling2D(2)(x)
+x = layers.Dropout(0.25)(x)
+x = layers.Flatten()(x)
+x = layers.Dense(128, activation='relu')(x)
+x = layers.Dropout(0.5)(x)
+output = layers.Dense(10, activation='softmax')(x)
+
+model = keras.Model(inputs=input, outputs=output)
+
+# Here We Have No Pre-trained Models So Train One
+model.compile(optimizer="rmsprop",
+              loss="sparse_categorical_crossentropy",
+              metrics=["accuracy"])
+
+model.fit(train_images, train_labels, epochs=20, batch_size=128, validation_split=0.2)
+
+# Sample Datas for FGSM
+datas = tf.constant(test_images[:256])
+targets = tf.constant(test_labels[:256].astype('float16'))
+
+# FGSM Attack
+with tf.GradientTape() as tape:
+    tape.watch(datas)
+    tape.watch(targets)
+    outs = model(datas)
+    sparse_crossentropy_loss = tf.losses.SparseCategoricalCrossentropy()
+    loss = sparse_crossentropy_loss(targets, outs)
+
+datas_grad = tape.gradient(loss, datas)
+
+perturbed_datas = datas + epsilon[1] * tf.sign(datas_grad)
+
+# Test after Drawing One Epsilon
+model(perturbed_datas).numpy().argmax(axis=1) == model(datas).numpy().argmax(axis=1)
+
+ex = tf.squeeze(datas[6]).numpy()
+target = targets[6].numpy().astype('int')
+
+adv = tf.squeeze(perturbed_datas[6]).numpy()
+adv_target = model(perturbed_datas).numpy().argmax(axis=1)[6]
+
 plt.figure(figsize=(8,10))
-for i in range(len(epsilons)):
-    for j in range(len(examples[i])):
-        cnt += 1
-        plt.subplot(len(epsilons),len(examples[0]),cnt)
-        plt.xticks([], [])
-        plt.yticks([], [])
-        if j == 0:
-            plt.ylabel("Eps: {}".format(epsilons[i]), fontsize=14)
-        orig,adv,ex = examples[i][j]
-        plt.title("{} -> {}".format(orig, adv))
-        plt.imshow(ex, cmap="gray")
-plt.tight_layout()
-plt.show()
+
+plt.subplot(1,2,1)
+plt.title(f'Label: {target}')
+plt.xticks([],[])
+plt.yticks([],[])
+plt.imshow(ex, cmap='binary')
+
+plt.subplot(1,2,2)
+plt.title(f'Attack: {adv_target}')
+plt.xticks([],[])
+plt.yticks([],[])
+plt.imshow(adv, cmap='binary')
 ```
 
-![](pre.assets/fgsm_sample.png)
+### 攻击展示（TensorFlow）
+
+![](./pre.assets/fgsm_keras.png)
