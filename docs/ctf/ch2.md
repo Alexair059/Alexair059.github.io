@@ -47,181 +47,181 @@ Torch 导入修改后的预训练 LeNet 模型；TensorFlow 直接训练得到 L
 
 === "Torch"
 
-```python
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import torch.optim as optim
-from torchvision import datasets, transforms
-import numpy as np
-import matplotlib.pyplot as plt
+    ```python
+    import torch
+    import torch.nn as nn
+    import torch.nn.functional as F
+    import torch.optim as optim
+    from torchvision import datasets, transforms
+    import numpy as np
+    import matplotlib.pyplot as plt
 
-# configuration
-epsilons = [0, .05, .1, .15, .2, .25, .3]
-pretrained_model = "./lenet_mnist_model.pth.pt"
-use_cuda= False
-device = torch.device("cuda" if use_cuda and torch.cuda.is_available() else "cpu")
+    # configuration
+    epsilons = [0, .05, .1, .15, .2, .25, .3]
+    pretrained_model = "./lenet_mnist_model.pth.pt"
+    use_cuda= False
+    device = torch.device("cuda" if use_cuda and torch.cuda.is_available() else "cpu")
 
-# Model under Attack
-class Net(nn.Module):
-    def __init__(self):
-        super(Net, self).__init__()
-        self.conv1 = nn.Conv2d(1, 32, 3, 1)
-        self.conv2 = nn.Conv2d(32, 64, 3, 1)
-        self.dropout1 = nn.Dropout(0.25)
-        self.dropout2 = nn.Dropout(0.5)
-        self.fc1 = nn.Linear(9216, 128)
-        self.fc2 = nn.Linear(128, 10)
+    # Model under Attack
+    class Net(nn.Module):
+        def __init__(self):
+            super(Net, self).__init__()
+            self.conv1 = nn.Conv2d(1, 32, 3, 1)
+            self.conv2 = nn.Conv2d(32, 64, 3, 1)
+            self.dropout1 = nn.Dropout(0.25)
+            self.dropout2 = nn.Dropout(0.5)
+            self.fc1 = nn.Linear(9216, 128)
+            self.fc2 = nn.Linear(128, 10)
 
-    def forward(self, x):
-        x = self.conv1(x)
-        x = F.relu(x)
-        x = self.conv2(x)
-        x = F.relu(x)
-        x = F.max_pool2d(x, 2)
-        x = self.dropout1(x)
-        x = torch.flatten(x, 1)
-        x = self.fc1(x)
-        x = F.relu(x)
-        x = self.dropout2(x)
-        x = self.fc2(x)
-        output = F.log_softmax(x, dim=1)
-        return output
+        def forward(self, x):
+            x = self.conv1(x)
+            x = F.relu(x)
+            x = self.conv2(x)
+            x = F.relu(x)
+            x = F.max_pool2d(x, 2)
+            x = self.dropout1(x)
+            x = torch.flatten(x, 1)
+            x = self.fc1(x)
+            x = F.relu(x)
+            x = self.dropout2(x)
+            x = self.fc2(x)
+            output = F.log_softmax(x, dim=1)
+            return output
 
-# Sample Datas for FGSM
-MNIST_datasets = datasets.MNIST('./data',
-                                train=False,
-                                transform=transforms.Compose([transforms.ToTensor()]))
+    # Sample Datas for FGSM
+    MNIST_datasets = datasets.MNIST('./data',
+                                    train=False,
+                                    transform=transforms.Compose([transforms.ToTensor()]))
 
-MNIST_loader = torch.utils.data.DataLoader(MNIST_datasets, batch_size=256, shuffle=True)
+    MNIST_loader = torch.utils.data.DataLoader(MNIST_datasets, batch_size=256, shuffle=True)
 
-for item in MNIST_loader:
-    datas = item[0]
-    targets = item[1]
-    break
+    for item in MNIST_loader:
+        datas = item[0]
+        targets = item[1]
+        break
 
-# FGSM Attack
-datas.requires_grad = True
+    # FGSM Attack
+    datas.requires_grad = True
 
-model = Net().to(device)
-model.load_state_dict(torch.load('./lenet_mnist_model.pth.pt', map_location=device))
-model.eval()
+    model = Net().to(device)
+    model.load_state_dict(torch.load('./lenet_mnist_model.pth.pt', map_location=device))
+    model.eval()
 
-outs = model(datas.to(device))
-loss = F.nll_loss(outs, targets)
+    outs = model(datas.to(device))
+    loss = F.nll_loss(outs, targets)
 
-datas_grad = datas_grad[0]
+    datas_grad = datas_grad[0]
 
-perturbed_datas = datas + epsilons[1] * datas_grad.sign()
+    perturbed_datas = datas + epsilons[1] * datas_grad.sign()
 
-## Test after Drawing One Epsilon
-model(datas).argmax(axis=1) == model(perturbed_datas).argmax(axis=1)
+    # Test after Drawing One Epsilon
+    model(datas).argmax(axis=1) == model(perturbed_datas).argmax(axis=1)
 
-ex = datas[17].squeeze().detach().numpy()
-target = targets[17].numpy()
-adv = perturbed_datas[17].squeeze().detach().numpy()
-adv_target = model(perturbed_datas).argmax(axis=1)[17].numpy()
+    ex = datas[17].squeeze().detach().numpy()
+    target = targets[17].numpy()
+    adv = perturbed_datas[17].squeeze().detach().numpy()
+    adv_target = model(perturbed_datas).argmax(axis=1)[17].numpy()
 
-plt.figure(figsize=(8,10))
+    plt.figure(figsize=(8,10))
 
-plt.subplot(1,2,1)
-plt.title(f'Label: {target}')
-plt.xticks([],[])
-plt.yticks([],[])
-plt.imshow(ex, cmap='gray')
+    plt.subplot(1,2,1)
+    plt.title(f'Label: {target}')
+    plt.xticks([],[])
+    plt.yticks([],[])
+    plt.imshow(ex, cmap='gray')
 
-plt.subplot(1,2,2)
-plt.title(f'Attack: {adv_target}')
-plt.xticks([],[])
-plt.yticks([],[])
-plt.imshow(adv, cmap='gray')
+    plt.subplot(1,2,2)
+    plt.title(f'Attack: {adv_target}')
+    plt.xticks([],[])
+    plt.yticks([],[])
+    plt.imshow(adv, cmap='gray')
 
-# plt.tight_layout()
-```
+    # plt.tight_layout()
+    ```
 
 === "TensorFlow"
 
-```python
-import tensorflow as tf
-from tensorflow import keras
-import numpy as np
-from keras import layers
-import matplotlib.pyplot as plt
+    ```python
+    import tensorflow as tf
+    from tensorflow import keras
+    import numpy as np
+    from keras import layers
+    import matplotlib.pyplot as plt
 
-# Mix-Precision Boost
-tf.config.list_physical_devices('GPU')
+    # Mix-Precision Boost
+    tf.config.list_physical_devices('GPU')
 
-tf.keras.mixed_precision.set_global_policy("mixed_float16")
+    tf.keras.mixed_precision.set_global_policy("mixed_float16")
 
-# Configuration
-epsilon = [0, .1, .15, .2, .25, .30, .35]
+    # Configuration
+    epsilon = [0, .1, .15, .2, .25, .30, .35]
 
-(train_images, train_labels), (test_images, test_labels) = keras.datasets.mnist.load_data()
+    (train_images, train_labels), (test_images, test_labels) = keras.datasets.mnist.load_data()
 
-train_images = train_images.astype("float32") / 255
-test_images = test_images.astype("float32") / 255
-train_images = train_images.reshape((*train_images.shape, 1))
-test_images = test_images.reshape((*test_images.shape, 1))
+    train_images = train_images.astype("float32") / 255
+    test_images = test_images.astype("float32") / 255
+    train_images = train_images.reshape((*train_images.shape, 1))
+    test_images = test_images.reshape((*test_images.shape, 1))
 
-# Model under Attack
-input = keras.Input((28,28,1))
-x = layers.Conv2D(32, 3, strides=1, activation='relu')(input)
-x = layers.Conv2D(64, 3, strides=1, activation='relu')(x)
-x = layers.MaxPooling2D(2)(x)
-x = layers.Dropout(0.25)(x)
-x = layers.Flatten()(x)
-x = layers.Dense(128, activation='relu')(x)
-x = layers.Dropout(0.5)(x)
-output = layers.Dense(10, activation='softmax')(x)
+    # Model under Attack
+    input = keras.Input((28,28,1))
+    x = layers.Conv2D(32, 3, strides=1, activation='relu')(input)
+    x = layers.Conv2D(64, 3, strides=1, activation='relu')(x)
+    x = layers.MaxPooling2D(2)(x)
+    x = layers.Dropout(0.25)(x)
+    x = layers.Flatten()(x)
+    x = layers.Dense(128, activation='relu')(x)
+    x = layers.Dropout(0.5)(x)
+    output = layers.Dense(10, activation='softmax')(x)
 
-model = keras.Model(inputs=input, outputs=output)
+    model = keras.Model(inputs=input, outputs=output)
 
-# Here We Have No Pre-trained Models So Train One
-model.compile(optimizer="rmsprop",
-              loss="sparse_categorical_crossentropy",
-              metrics=["accuracy"])
+    # Here We Have No Pre-trained Models So Train One
+    model.compile(optimizer="rmsprop",
+                loss="sparse_categorical_crossentropy",
+                metrics=["accuracy"])
 
-model.fit(train_images, train_labels, epochs=20, batch_size=128, validation_split=0.2)
+    model.fit(train_images, train_labels, epochs=20, batch_size=128, validation_split=0.2)
 
-# Sample Datas for FGSM
-datas = tf.constant(test_images[:256])
-targets = tf.constant(test_labels[:256].astype('float16'))
+    # Sample Datas for FGSM
+    datas = tf.constant(test_images[:256])
+    targets = tf.constant(test_labels[:256].astype('float16'))
 
-# FGSM Attack
-with tf.GradientTape() as tape:
-    tape.watch(datas)
-    tape.watch(targets)
-    outs = model(datas)
-    sparse_crossentropy_loss = tf.losses.SparseCategoricalCrossentropy()
-    loss = sparse_crossentropy_loss(targets, outs)
+    # FGSM Attack
+    with tf.GradientTape() as tape:
+        tape.watch(datas)
+        tape.watch(targets)
+        outs = model(datas)
+        sparse_crossentropy_loss = tf.losses.SparseCategoricalCrossentropy()
+        loss = sparse_crossentropy_loss(targets, outs)
 
-datas_grad = tape.gradient(loss, datas)
+    datas_grad = tape.gradient(loss, datas)
 
-perturbed_datas = datas + epsilon[1] * tf.sign(datas_grad)
+    perturbed_datas = datas + epsilon[1] * tf.sign(datas_grad)
 
-# Test after Drawing One Epsilon
-model(perturbed_datas).numpy().argmax(axis=1) == model(datas).numpy().argmax(axis=1)
+    # Test after Drawing One Epsilon
+    model(perturbed_datas).numpy().argmax(axis=1) == model(datas).numpy().argmax(axis=1)
 
-ex = tf.squeeze(datas[6]).numpy()
-target = targets[6].numpy().astype('int')
+    ex = tf.squeeze(datas[6]).numpy()
+    target = targets[6].numpy().astype('int')
 
-adv = tf.squeeze(perturbed_datas[6]).numpy()
-adv_target = model(perturbed_datas).numpy().argmax(axis=1)[6]
+    adv = tf.squeeze(perturbed_datas[6]).numpy()
+    adv_target = model(perturbed_datas).numpy().argmax(axis=1)[6]
 
-plt.figure(figsize=(8,10))
+    plt.figure(figsize=(8,10))
 
-plt.subplot(1,2,1)
-plt.title(f'Label: {target}')
-plt.xticks([],[])
-plt.yticks([],[])
-plt.imshow(ex, cmap='binary')
+    plt.subplot(1,2,1)
+    plt.title(f'Label: {target}')
+    plt.xticks([],[])
+    plt.yticks([],[])
+    plt.imshow(ex, cmap='binary')
 
-plt.subplot(1,2,2)
-plt.title(f'Attack: {adv_target}')
-plt.xticks([],[])
-plt.yticks([],[])
-plt.imshow(adv, cmap='binary')
-```
+    plt.subplot(1,2,2)
+    plt.title(f'Attack: {adv_target}')
+    plt.xticks([],[])
+    plt.yticks([],[])
+    plt.imshow(adv, cmap='binary')
+    ```
 
 ### 攻击展示（TensorFlow）
 
