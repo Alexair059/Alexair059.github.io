@@ -67,6 +67,7 @@ nav:
       # - 前端:
       #     - Vue2&3: web/todo4.md
   - CTF:
+      - SUSCTF2023: ctf/ch6.md
       - FGSM攻击: ctf/ch2.md
       - RSA: ctf/ch4.md
       - 编码|Encode: ctf/ch5.md
