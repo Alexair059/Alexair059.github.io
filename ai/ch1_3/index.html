@@ -922,7 +922,7 @@
 <h2 id="_3">基本形式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>假设样本写作增广后的列向量，即</p>
 <div class="arithmatex">\[
-\boldmath{x} = [1,x^{(1)},x^{(2)},···,x^{(p)}]^\mathrm{T}
+\mathbf{x} = [1,x^{(1)},x^{(2)},···,x^{(p)}]^\mathrm{T}
 \]</div>
 <p>即第一个对应参数的偏置项，剩下的即是样本的特征项，线性回归的模型相当简洁</p>
 <div class="arithmatex">\[
@@ -930,74 +930,74 @@ y = \theta_0+\theta_1x^{(1)}+\theta_2x^{(2)}+···\theta_px^{(p)}
 \]</div>
 <p>即</p>
 <div class="arithmatex">\[
-y = \boldmath{x}^\mathrm{T}\boldmath{\theta}
+y = \mathbf{x}^\mathrm{T}\boldsymbol{\theta}
 \]</div>
 <p>将整个样本写作矩阵形式，有</p>
 <div class="arithmatex">\[
 \begin{aligned}
-\boldmath{X} &amp;= [\boldmath{x_1},\boldmath{x_2},···,\boldmath{x_n}]^\mathrm{T}\\
-\boldmath{y} &amp;= [y_1,y_2,···,y_n]^\mathrm{T}\\
-\boldmath{\theta} &amp;= [\theta_0,\theta_1,···,\theta_p]^\mathrm{T}
+\mathbf{X} &amp;= [\mathbf{x_1},\mathbf{x_2},···,\mathbf{x_n}]^\mathrm{T}\\
+\mathbf{y} &amp;= [y_1,y_2,···,y_n]^\mathrm{T}\\
+\boldsymbol{\theta} &amp;= [\theta_0,\theta_1,···,\theta_p]^\mathrm{T}
 \end{aligned}
 \]</div>
 <p>则</p>
 <div class="arithmatex">\[
-\boldmath{y} = f(\boldmath{X};\boldmath{\theta}) = \boldmath{X}\boldmath{\theta}
+\mathbf{y} = f(\mathbf{X};\boldsymbol{\theta}) = \mathbf{X}\boldsymbol{\theta}
 \]</div>
 <h2 id="_4">损失策略<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>采取 SSE（sum of squared error），就是常见的平方损失，该函数是凸函数，这一优秀的性质是正规方程求最优解的基础</p>
 <div class="arithmatex">\[
 \begin{aligned}
-J(\boldmath{\theta}) &amp;= \frac{1}{2}\sum_{i=1}^{n}(\hat{y_i}-y_i)^2\\
-% &amp;= \frac{1}{2}\sum_{i=1}^{n}(\boldmath{x}_i^\mathrm{T}\boldmath{\theta}-y_i)^2\\
-&amp;= \frac{1}{2}(\hat{\boldmath{y}}-\boldmath{y})^\mathrm{T}(\hat{\boldmath{y}}-\boldmath{y})\\
-&amp;= \frac{1}{2}(\boldmath{X}\boldmath{\theta}-\boldmath{y})^\mathrm{T}(\boldmath{X}\boldmath{\theta}-\boldmath{y})\\
-&amp;= \frac{1}{2}(\boldmath{\theta}^\mathrm{T}\boldmath{X}^\mathrm{T}\boldmath{X}\boldmath{\theta}-\boldmath{y}^\mathrm{T}\boldmath{X}\boldmath{\theta}-\boldmath{\theta}^\mathrm{T}\boldmath{X}^\mathrm{T}\boldmath{y}+\boldmath{y}^\mathrm{T}\boldmath{y})
+J(\boldsymbol{\theta}) &amp;= \frac{1}{2}\sum_{i=1}^{n}(\hat{y_i}-y_i)^2\\
+% &amp;= \frac{1}{2}\sum_{i=1}^{n}(\mathbf{x}_i^\mathrm{T}\boldsymbol{\theta}-y_i)^2\\
+&amp;= \frac{1}{2}(\hat{\mathbf{y}}-\mathbf{y})^\mathrm{T}(\hat{\mathbf{y}}-\mathbf{y})\\
+&amp;= \frac{1}{2}(\mathbf{X}\boldsymbol{\theta}-\mathbf{y})^\mathrm{T}(\mathbf{X}\boldsymbol{\theta}-\mathbf{y})\\
+&amp;= \frac{1}{2}(\boldsymbol{\theta}^\mathrm{T}\mathbf{X}^\mathrm{T}\mathbf{X}\boldsymbol{\theta}-\mathbf{y}^\mathrm{T}\mathbf{X}\boldsymbol{\theta}-\boldsymbol{\theta}^\mathrm{T}\mathbf{X}^\mathrm{T}\mathbf{y}+\mathbf{y}^\mathrm{T}\mathbf{y})
 \end{aligned}
 \]</div>
 <h2 id="_5">求解学习<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <h3 id="_6">正规方程<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<p>为了得到学习的参数<span class="arithmatex">\(\boldmath{\theta}\)</span>，我们首先可以直接求解</p>
+<p>为了得到学习的参数<span class="arithmatex">\(\boldsymbol{\theta}\)</span>，我们首先可以直接求解</p>
 <div class="arithmatex">\[
-\boldmath{\theta}^*=\mathop{\arg\min}\limits_{\theta}J(\boldmath{\theta})
+\boldsymbol{\theta}^*=\mathop{\arg\min}\limits_{\theta}J(\boldsymbol{\theta})
 \]</div>
-<p>即求损失函数<span class="arithmatex">\(J(\boldmath{\theta})\)</span>的最小值点，先对其求一阶导</p>
+<p>即求损失函数<span class="arithmatex">\(J(\boldsymbol{\theta})\)</span>的最小值点，先对其求一阶导</p>
 <div class="arithmatex">\[
 \begin{aligned}
-\nabla_{\boldmath{\theta}}J(\boldmath{\theta}) &amp;= \frac{\partial J(\boldmath{\theta})}{\partial\boldmath{\theta}}\\
-&amp;= \frac{1}{2}(2\boldmath{X}^\mathrm{T}\boldmath{X}\boldmath{\theta}-2\boldmath{X}^\mathrm{T}\boldmath{y})\\
-&amp;= \boldmath{X}^\mathrm{T}\boldmath{X}\boldmath{\theta}-\boldmath{X}^\mathrm{T}\boldmath{y}
+\nabla_{\boldsymbol{\theta}}J(\boldsymbol{\theta}) &amp;= \frac{\partial J(\boldsymbol{\theta})}{\partial\boldsymbol{\theta}}\\
+&amp;= \frac{1}{2}(2\mathbf{X}^\mathrm{T}\mathbf{X}\boldsymbol{\theta}-2\mathbf{X}^\mathrm{T}\mathbf{y})\\
+&amp;= \mathbf{X}^\mathrm{T}\mathbf{X}\boldsymbol{\theta}-\mathbf{X}^\mathrm{T}\mathbf{y}
 \end{aligned}
 \]</div>
 <p>再有二阶导</p>
 <div class="arithmatex">\[
-\frac{\partial\nabla_{\boldmath{\theta}}J(\boldmath{\theta})}{\partial\boldmath{\theta}} = \boldmath{X}^\mathrm{T}\boldmath{X}
+\frac{\partial\nabla_{\boldsymbol{\theta}}J(\boldsymbol{\theta})}{\partial\boldsymbol{\theta}} = \mathbf{X}^\mathrm{T}\mathbf{X}
 \]</div>
-<p><strong>关于<span class="arithmatex">\(\boldmath{X}^\mathrm{T}\boldmath{X}\)</span></strong></p>
-<p><span class="arithmatex">\(\boldmath{H} = \boldmath{X}^\mathrm{T}\boldmath{X}\)</span>总是半正定的（PSD，positive semi-definite），因为对任意非零列向量<span class="arithmatex">\(\boldmath{a}\)</span>，总有</p>
+<p><strong>关于<span class="arithmatex">\(\mathbf{X}^\mathrm{T}\mathbf{X}\)</span></strong></p>
+<p><span class="arithmatex">\(\mathbf{H} = \mathbf{X}^\mathrm{T}\mathbf{X}\)</span>总是半正定的（PSD，positive semi-definite），因为对任意非零列向量<span class="arithmatex">\(\mathbf{a}\)</span>，总有</p>
 <div class="arithmatex">\[
-\boldmath{a}^\mathrm{T}\boldmath{H}\boldmath{a} = \boldmath{a}^\mathrm{T}\boldmath{X}^\mathrm{T}\boldmath{X}\boldmath{a} = \Vert\boldmath{X}\boldmath{a}\Vert_2^2 \geq 0
+\mathbf{a}^\mathrm{T}\mathbf{H}\mathbf{a} = \mathbf{a}^\mathrm{T}\mathbf{X}^\mathrm{T}\mathbf{X}\mathbf{a} = \Vert\mathbf{X}\mathbf{a}\Vert_2^2 \geq 0
 \]</div>
-<p>且当<span class="arithmatex">\(\boldmath{X}\)</span>列满秩时，<span class="arithmatex">\(\boldmath{H}\)</span>为正定的（PD，pisitive definite）,故<span class="arithmatex">\(\boldmath{H} = \boldmath{X}^\mathrm{T}\boldmath{X}\)</span>可逆</p>
+<p>且当<span class="arithmatex">\(\mathbf{X}\)</span>列满秩时，<span class="arithmatex">\(\mathbf{H}\)</span>为正定的（PD，pisitive definite）,故<span class="arithmatex">\(\mathbf{H} = \mathbf{X}^\mathrm{T}\mathbf{X}\)</span>可逆</p>
 <p><strong>回到函数</strong></p>
-<p>由<span class="arithmatex">\(J(\boldmath{\theta})\)</span>的二阶导，即 Hessian 矩阵可知，一般情况下，<span class="arithmatex">\(\boldmath{X}\)</span>的行数远大于列数（样本数远多于特征数），这意味着<span class="arithmatex">\(\boldmath{X}\)</span>是列满秩的，故<span class="arithmatex">\(J(\boldmath{\theta})\)</span>的二阶导正定可逆</p>
-<p>进一步我们知道，多元函数<span class="arithmatex">\(J(\boldmath{\theta})\)</span>是凸函数</p>
+<p>由<span class="arithmatex">\(J(\boldsymbol{\theta})\)</span>的二阶导，即 Hessian 矩阵可知，一般情况下，<span class="arithmatex">\(\mathbf{X}\)</span>的行数远大于列数（样本数远多于特征数），这意味着<span class="arithmatex">\(\mathbf{X}\)</span>是列满秩的，故<span class="arithmatex">\(J(\boldsymbol{\theta})\)</span>的二阶导正定可逆</p>
+<p>进一步我们知道，多元函数<span class="arithmatex">\(J(\boldsymbol{\theta})\)</span>是凸函数</p>
 <ul>
 <li>极值点便是最值点</li>
-<li>极值点<span class="arithmatex">\(\nabla_{\boldmath{\theta}}J(\boldmath{\theta}) = 0\)</span>是极小值点</li>
+<li>极值点<span class="arithmatex">\(\nabla_{\boldsymbol{\theta}}J(\boldsymbol{\theta}) = 0\)</span>是极小值点</li>
 </ul>
-<p>故我们可以直接写出<span class="arithmatex">\(\boldmath{\theta}^*\)</span>的解析解</p>
+<p>故我们可以直接写出<span class="arithmatex">\(\boldsymbol{\theta}^*\)</span>的解析解</p>
 <div class="arithmatex">\[
 \begin{aligned}
-\nabla_{\boldmath{\theta}}J(\boldmath{\theta}) &amp;= \boldmath{X}^\mathrm{T}\boldmath{X}\boldmath{\theta}-\boldmath{X}^\mathrm{T}\boldmath{y} = 0\\
-\boldmath{\theta}^*&amp;=  (\boldmath{X}^\mathrm{T}\boldmath{X})^{-1}\boldmath{X}^\mathrm{T}\boldmath{y}
+\nabla_{\boldsymbol{\theta}}J(\boldsymbol{\theta}) &amp;= \mathbf{X}^\mathrm{T}\mathbf{X}\boldsymbol{\theta}-\mathbf{X}^\mathrm{T}\mathbf{y} = 0\\
+\boldsymbol{\theta}^*&amp;=  (\mathbf{X}^\mathrm{T}\mathbf{X})^{-1}\mathbf{X}^\mathrm{T}\mathbf{y}
 \end{aligned}
 \]</div>
 <p><strong>计算开销粗估</strong></p>
 <div class="arithmatex">\[
-\boldmath{\theta}^* =  (\boldmath{X}^\mathrm{T}\boldmath{X})^{-1}\boldmath{X}^\mathrm{T}\boldmath{y}
+\boldsymbol{\theta}^* =  (\mathbf{X}^\mathrm{T}\mathbf{X})^{-1}\mathbf{X}^\mathrm{T}\mathbf{y}
 \]</div>
-<p><span class="arithmatex">\(\boldmath{X}^\mathrm{T}\boldmath{X}\)</span>：<span class="arithmatex">\(O(p^2n)\)</span>，<span class="arithmatex">\(\boldmath{X}^\mathrm{T}\boldmath{y}\)</span>：<span class="arithmatex">\(O(p^3)\)</span>，合起来<span class="arithmatex">\(O(p^2n+p^3)\)</span></p>
+<p><span class="arithmatex">\(\mathbf{X}^\mathrm{T}\mathbf{X}\)</span>：<span class="arithmatex">\(O(p^2n)\)</span>，<span class="arithmatex">\(\mathbf{X}^\mathrm{T}\mathbf{y}\)</span>：<span class="arithmatex">\(O(p^3)\)</span>，合起来<span class="arithmatex">\(O(p^2n+p^3)\)</span></p>
 <p>当<span class="arithmatex">\(n &gt;&gt; p\)</span>时，前一步乘积开销更大</p>
 <h3 id="_7">梯度下降<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 
@@ -1006,7 +1006,7 @@ J(\boldmath{\theta}) &amp;= \frac{1}{2}\sum_{i=1}^{n}(\hat{y_i}-y_i)^2\\
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-01-08T17:34:13+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-01-08</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-01-08T17:46:41+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-01-08</span>
       
         <br>
         创建日期:
