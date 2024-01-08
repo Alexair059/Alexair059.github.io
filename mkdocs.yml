@@ -56,6 +56,7 @@ nav:
       - 朴素贝叶斯: ai/ch1_4.md
       - 感知机: ai/ch1_2.md
       - 网络结构可视化: ai/ch2_2.md
+      - 线性回归: ai/ch1_3.md
       - SVM(未完成): ai/ch1_7.md
   - Web:
       # - 网络服务:

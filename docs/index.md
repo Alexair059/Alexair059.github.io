@@ -4,6 +4,10 @@ comments: true
 
 # Welcome To My Blog
 
+### 2024-1
+
+- [线性回归](https://alexair059.github.io/ctf/ch1_3/)
+
 ### 2023-6
 
 - [编码 | Encode](https://alexair059.github.io/ctf/ch5/)
