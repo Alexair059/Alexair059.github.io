@@ -6,7 +6,7 @@ comments: true
 
 ### 2024-1
 
-- [线性回归](https://alexair059.github.io/ctf/ch1_3/)
+- [线性回归](https://alexair059.github.io/ai/ch1_3/)
 
 ### 2023-6
 
