@@ -530,6 +530,33 @@
     正则化
   </a>
   
+    <nav class="md-nav" aria-label="正则化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ridge-regression-l-2" class="md-nav__link">
+    Ridge Regression | L-2 正则
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lasso-regression-l-1" class="md-nav__link">
+    Lasso Regression | L-1 正则
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elastic-regression-l-1-l-2" class="md-nav__link">
+    Elastic Regression | L-1 &amp; L-2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -917,6 +944,33 @@
     正则化
   </a>
   
+    <nav class="md-nav" aria-label="正则化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ridge-regression-l-2" class="md-nav__link">
+    Ridge Regression | L-2 正则
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lasso-regression-l-1" class="md-nav__link">
+    Lasso Regression | L-1 正则
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elastic-regression-l-1-l-2" class="md-nav__link">
+    Elastic Regression | L-1 &amp; L-2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1070,7 +1124,7 @@ J(\boldsymbol{\theta}) &amp;= \frac{1}{2}\sum_{i=1}^{n}(\hat{y_i}-y_i)^2\\
 </ul>
 <p>对于 SGD：</p>
 <ul>
-<li>对应数据集某一部分 $ \alpha\sum_{i=1}<sup>{B}(y_i-\mathbf{x}_i</sup>\mathrm{T}\boldsymbol{\theta}^{t})\mathbf{x}_i$ 形式（Mini-Batch），存储开销适中</li>
+<li>对应数据集某一部分 <span class="arithmatex">\(\alpha\sum_{i=1}^{B}(y_i-\mathbf{x}_i^\mathrm{T}\boldsymbol{\theta}^{t})\mathbf{x}_i\)</span> 形式（Mini-Batch），存储开销适中</li>
 <li>一次 Epoch 经过 <span class="arithmatex">\(\frac{n}{B}\)</span> 次参数更新</li>
 <li>某些情况只需单一样本 <span class="arithmatex">\(\mathbf{x}\)</span>（Single-Sample），存储开销小</li>
 <li>一次 Epoch 经过 <span class="arithmatex">\(n\)</span> 次参数更新</li>
@@ -1094,13 +1148,64 @@ J(\boldsymbol{\theta}) &amp;= \frac{1}{2}\sum_{i=1}^{n}(\hat{y_i}-y_i)^2\\
 <li>缺点：不能保证全局最优</li>
 </ul>
 <h2 id="_9">正则化<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>我们从正规方程求解的视角引入</p>
+<div class="arithmatex">\[
+\boldsymbol{\theta}^* =  (\mathbf{X}^\mathrm{T}\mathbf{X})^{-1}\mathbf{X}^\mathrm{T}\mathbf{y}
+\]</div>
+<p>能得到的前提是 <span class="arithmatex">\(\mathbf{X}^\mathrm{T}\mathbf{X}\)</span> 可逆，但如果不可逆怎么办？</p>
+<h3 id="ridge-regression-l-2">Ridge Regression | L-2 正则<a class="headerlink" href="#ridge-regression-l-2" title="Permanent link">&para;</a></h3>
+<p>一个很经典的方法是添加正值的对角矩阵</p>
+<div class="arithmatex">\[
+\boldsymbol{\theta}_{ridge}^* =  (\mathbf{X}^\mathrm{T}\mathbf{X} + \lambda \mathbf{I})^{-1}\mathbf{X}^\mathrm{T}\mathbf{y}
+\]</div>
+<p>于是可以看作</p>
+<div class="arithmatex">\[
+\boldsymbol{\theta}_{ridge} = \mathop{\arg\min}\limits_{\theta}(\mathbf{X}\boldsymbol{\theta}-\mathbf{y})^\mathrm{T}(\mathbf{X}\boldsymbol{\theta}-\mathbf{y})+\lambda\boldsymbol{\theta}^\mathrm{T}\boldsymbol{\theta}
+\]</div>
+<p>求解，并求一阶导令为 0 的情形，联系 KKT 条件，可以等价于</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\boldsymbol{\theta}_{ridge} &amp;= \mathop{\arg\min}\limits_{\theta}(\mathbf{X}\boldsymbol{\theta}-\mathbf{y})^\mathrm{T}(\mathbf{X}\boldsymbol{\theta}-\mathbf{y})\\
+s.t. &amp;\quad \boldsymbol{\theta}^\mathrm{T}\boldsymbol{\theta}\leq s^2
+\end{aligned}
+\]</div>
+<p>其实就是在 <span class="arithmatex">\(\boldsymbol{\theta}^\mathrm{T}\boldsymbol{\theta}\leq s^2\)</span> 的条件下，求原线性回归的解</p>
+<p><strong>参数收缩</strong></p>
+<p>简化起见，假设 <span class="arithmatex">\(\mathbf{X}^\mathrm{T}\mathbf{X} = \mathbf{I}\)</span></p>
+<div class="arithmatex">\[
+\begin{aligned}
+\boldsymbol{\theta}^* &amp;=  \mathbf{X}^\mathrm{T}\mathbf{y}\\
+\boldsymbol{\theta}_{ridge}^* &amp;=  \frac{1}{1+\lambda}\mathbf{X}^\mathrm{T}\mathbf{y}
+\end{aligned}
+\]</div>
+<p>故有 <span class="arithmatex">\(\boldsymbol{\theta}_{ridge}^* = \frac{1}{1+\lambda}\boldsymbol{\theta}^*\)</span>，起到参数收缩的作用，当 <span class="arithmatex">\(\lambda\)</span> 为 0 时，变为正常线性回归</p>
+<h3 id="lasso-regression-l-1">Lasso Regression | L-1 正则<a class="headerlink" href="#lasso-regression-l-1" title="Permanent link">&para;</a></h3>
+<p>类似 L-2 正则，Lasso 回归只不过将惩罚项由 <span class="arithmatex">\(\lambda\boldsymbol{\theta}^\mathrm{T}\boldsymbol{\theta}\)</span> 平方项变为绝对值，也就是 L-1 范数</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\boldsymbol{\theta}_{lasso} &amp;= \mathop{\arg\min}\limits_{\theta}(\mathbf{X}\boldsymbol{\theta}-\mathbf{y})^\mathrm{T}(\mathbf{X}\boldsymbol{\theta}-\mathbf{y})+\lambda\sum_{i=1}^n\vert\theta_i\vert\\
+\boldsymbol{\theta}_{lasso} &amp;= \mathop{\arg\min}\limits_{\theta}(\mathbf{X}\boldsymbol{\theta}-\mathbf{y})^\mathrm{T}(\mathbf{X}\boldsymbol{\theta}-\mathbf{y})\\
+s.t. &amp;\quad \sum_{i=1}^n\vert\theta_i\vert\leq s
+\end{aligned}
+\]</div>
+<p><strong>特征选择</strong></p>
+<p>可以看出，当参数值不大时，L-1 正则倾向于将一些不重要的参数置为 0，起到特征选择的作用</p>
+<h3 id="elastic-regression-l-1-l-2">Elastic Regression | L-1 &amp; L-2<a class="headerlink" href="#elastic-regression-l-1-l-2" title="Permanent link">&para;</a></h3>
+<p>一起用</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\boldsymbol{\theta}_{elastic} = &amp;\mathop{\arg\min}\limits_{\theta}(\mathbf{X}\boldsymbol{\theta}-\mathbf{y})^\mathrm{T}(\mathbf{X}\boldsymbol{\theta}-\mathbf{y})+\lambda_1\sum_{i=1}^n\vert\theta_i\vert+\lambda_2\boldsymbol{\theta}^\mathrm{T}\boldsymbol{\theta}\\
+\boldsymbol{\theta}_{elastic} &amp;= \mathop{\arg\min}\limits_{\theta}(\mathbf{X}\boldsymbol{\theta}-\mathbf{y})^\mathrm{T}(\mathbf{X}\boldsymbol{\theta}-\mathbf{y})\\
+s.t. &amp;\quad \sum_{i=1}^n\vert\theta_i\vert\leq s; \quad \boldsymbol{\theta}^\mathrm{T}\boldsymbol{\theta}\leq s^2
+\end{aligned}
+\]</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-01-08T18:22:48+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-01-08</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-01-09T02:34:21+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-01-09</span>
       
         <br>
         创建日期:
