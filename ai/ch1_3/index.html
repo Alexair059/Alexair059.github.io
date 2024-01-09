@@ -493,15 +493,15 @@
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    求解学习
+    优化学习
   </a>
   
-    <nav class="md-nav" aria-label="求解学习">
+    <nav class="md-nav" aria-label="优化学习">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    正规方程
+    正规方程直接求解
   </a>
   
 </li>
@@ -513,8 +513,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    优化方法总结
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    正则化
+  </a>
   
 </li>
       
@@ -866,15 +880,15 @@
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    求解学习
+    优化学习
   </a>
   
-    <nav class="md-nav" aria-label="求解学习">
+    <nav class="md-nav" aria-label="优化学习">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    正规方程
+    正规方程直接求解
   </a>
   
 </li>
@@ -886,8 +900,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    优化方法总结
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    正则化
+  </a>
   
 </li>
       
@@ -955,13 +983,13 @@ J(\boldsymbol{\theta}) &amp;= \frac{1}{2}\sum_{i=1}^{n}(\hat{y_i}-y_i)^2\\
 &amp;= \frac{1}{2}(\boldsymbol{\theta}^\mathrm{T}\mathbf{X}^\mathrm{T}\mathbf{X}\boldsymbol{\theta}-\mathbf{y}^\mathrm{T}\mathbf{X}\boldsymbol{\theta}-\boldsymbol{\theta}^\mathrm{T}\mathbf{X}^\mathrm{T}\mathbf{y}+\mathbf{y}^\mathrm{T}\mathbf{y})
 \end{aligned}
 \]</div>
-<h2 id="_5">求解学习<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<h3 id="_6">正规方程<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<p>为了得到学习的参数<span class="arithmatex">\(\boldsymbol{\theta}\)</span>，我们首先可以直接求解</p>
+<h2 id="_5">优化学习<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="_6">正规方程直接求解<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>为了得到学习的参数 <span class="arithmatex">\(\boldsymbol{\theta}\)</span> ，我们首先可以直接求解</p>
 <div class="arithmatex">\[
 \boldsymbol{\theta}^*=\mathop{\arg\min}\limits_{\theta}J(\boldsymbol{\theta})
 \]</div>
-<p>即求损失函数<span class="arithmatex">\(J(\boldsymbol{\theta})\)</span>的最小值点，先对其求一阶导</p>
+<p>即求损失函数 <span class="arithmatex">\(J(\boldsymbol{\theta})\)</span> 的最小值点，先对其求一阶导</p>
 <div class="arithmatex">\[
 \begin{aligned}
 \nabla_{\boldsymbol{\theta}}J(\boldsymbol{\theta}) &amp;= \frac{\partial J(\boldsymbol{\theta})}{\partial\boldsymbol{\theta}}\\
@@ -974,19 +1002,19 @@ J(\boldsymbol{\theta}) &amp;= \frac{1}{2}\sum_{i=1}^{n}(\hat{y_i}-y_i)^2\\
 \frac{\partial\nabla_{\boldsymbol{\theta}}J(\boldsymbol{\theta})}{\partial\boldsymbol{\theta}} = \mathbf{X}^\mathrm{T}\mathbf{X}
 \]</div>
 <p><strong>关于<span class="arithmatex">\(\mathbf{X}^\mathrm{T}\mathbf{X}\)</span></strong></p>
-<p><span class="arithmatex">\(\mathbf{H} = \mathbf{X}^\mathrm{T}\mathbf{X}\)</span>总是半正定的（PSD，positive semi-definite），因为对任意非零列向量<span class="arithmatex">\(\mathbf{a}\)</span>，总有</p>
+<p><span class="arithmatex">\(\mathbf{H} = \mathbf{X}^\mathrm{T}\mathbf{X}\)</span> 总是半正定的（PSD，positive semi-definite），因为对任意非零列向量 <span class="arithmatex">\(\mathbf{a}\)</span>，总有</p>
 <div class="arithmatex">\[
 \mathbf{a}^\mathrm{T}\mathbf{H}\mathbf{a} = \mathbf{a}^\mathrm{T}\mathbf{X}^\mathrm{T}\mathbf{X}\mathbf{a} = \Vert\mathbf{X}\mathbf{a}\Vert_2^2 \geq 0
 \]</div>
-<p>且当<span class="arithmatex">\(\mathbf{X}\)</span>列满秩时，<span class="arithmatex">\(\mathbf{H}\)</span>为正定的（PD，pisitive definite）,故<span class="arithmatex">\(\mathbf{H} = \mathbf{X}^\mathrm{T}\mathbf{X}\)</span>可逆</p>
+<p>且当 <span class="arithmatex">\(\mathbf{X}\)</span> 列满秩时，<span class="arithmatex">\(\mathbf{H}\)</span> 为正定的（PD，pisitive definite），故 <span class="arithmatex">\(\mathbf{H} = \mathbf{X}^\mathrm{T}\mathbf{X}\)</span> 可逆</p>
 <p><strong>回到函数</strong></p>
-<p>由<span class="arithmatex">\(J(\boldsymbol{\theta})\)</span>的二阶导，即 Hessian 矩阵可知，一般情况下，<span class="arithmatex">\(\mathbf{X}\)</span>的行数远大于列数（样本数远多于特征数），这意味着<span class="arithmatex">\(\mathbf{X}\)</span>是列满秩的，故<span class="arithmatex">\(J(\boldsymbol{\theta})\)</span>的二阶导正定可逆</p>
-<p>进一步我们知道，多元函数<span class="arithmatex">\(J(\boldsymbol{\theta})\)</span>是凸函数</p>
+<p>由 <span class="arithmatex">\(J(\boldsymbol{\theta})\)</span> 的二阶导，即 Hessian 矩阵可知，一般情况下，<span class="arithmatex">\(\mathbf{X}\)</span> 的行数远大于列数（样本数远多于特征数），这意味着 <span class="arithmatex">\(\mathbf{X}\)</span> 是列满秩的，故 <span class="arithmatex">\(J(\boldsymbol{\theta})\)</span> 的二阶导正定可逆</p>
+<p>进一步我们知道，多元函数 <span class="arithmatex">\(J(\boldsymbol{\theta})\)</span> 是凸函数</p>
 <ul>
 <li>极值点便是最值点</li>
-<li>极值点<span class="arithmatex">\(\nabla_{\boldsymbol{\theta}}J(\boldsymbol{\theta}) = 0\)</span>是极小值点</li>
+<li>极值点 <span class="arithmatex">\(\nabla_{\boldsymbol{\theta}}J(\boldsymbol{\theta}) = 0\)</span> 是极小值点</li>
 </ul>
-<p>故我们可以直接写出<span class="arithmatex">\(\boldsymbol{\theta}^*\)</span>的解析解</p>
+<p>故我们可以直接写出 <span class="arithmatex">\(\boldsymbol{\theta}^*\)</span> 的解析解</p>
 <div class="arithmatex">\[
 \begin{aligned}
 \nabla_{\boldsymbol{\theta}}J(\boldsymbol{\theta}) &amp;= \mathbf{X}^\mathrm{T}\mathbf{X}\boldsymbol{\theta}-\mathbf{X}^\mathrm{T}\mathbf{y} = 0\\
@@ -998,15 +1026,81 @@ J(\boldsymbol{\theta}) &amp;= \frac{1}{2}\sum_{i=1}^{n}(\hat{y_i}-y_i)^2\\
 \boldsymbol{\theta}^* =  (\mathbf{X}^\mathrm{T}\mathbf{X})^{-1}\mathbf{X}^\mathrm{T}\mathbf{y}
 \]</div>
 <p><span class="arithmatex">\(\mathbf{X}^\mathrm{T}\mathbf{X}\)</span>：<span class="arithmatex">\(O(p^2n)\)</span>，<span class="arithmatex">\(\mathbf{X}^\mathrm{T}\mathbf{y}\)</span>：<span class="arithmatex">\(O(p^3)\)</span>，合起来<span class="arithmatex">\(O(p^2n+p^3)\)</span></p>
-<p>当<span class="arithmatex">\(n &gt;&gt; p\)</span>时，前一步乘积开销更大</p>
+<p>当 <span class="arithmatex">\(n &gt;&gt; p\)</span> 时，前一步乘积开销更大</p>
 <h3 id="_7">梯度下降<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><strong>一般的情形</strong></p>
+<p>对任意可得到一阶导的函数<span class="arithmatex">\(f(\mathbf{x})\)</span></p>
+<ul>
+<li>初始化<span class="arithmatex">\(k = 0\)</span>，随机或专门选取起始点<span class="arithmatex">\(\mathbf{x}_0\)</span></li>
+<li>
+<p>当 <span class="arithmatex">\(k &lt; k_{max}\)</span> 时，即设定迭代 <span class="arithmatex">\(k_{max}\)</span> 次：</p>
+<div class="arithmatex">\[
+\mathbf{x}_{t+1} = \mathbf{x}_t - \alpha \nabla_{\mathbf{x}}f(\mathbf{x}_t)
+\]</div>
+</li>
+</ul>
+<p>其学习率 <span class="arithmatex">\(\alpha\)</span>，起始点 <span class="arithmatex">\(\mathbf{x}_0\)</span>（若 <span class="arithmatex">\(f(\mathbf{x})\)</span> 为凸则能避免收敛到局部极值）以及优化对象 <span class="arithmatex">\(f(\mathbf{x})\)</span> 都会对梯度下降效果有影响</p>
+<p><strong>线性回归的情形</strong></p>
+<p>之前推导中我们已经有了凸函数 <span class="arithmatex">\(J(\boldsymbol{\theta})\)</span> 的一阶导</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\boldsymbol{\theta}^{t+1} &amp;= \boldsymbol{\theta}^{t} - \alpha \nabla_{\boldsymbol{\theta}}J(\boldsymbol{\theta}^{t})\\
+\boldsymbol{\theta}^{t+1} &amp;= \boldsymbol{\theta}^{t} - \alpha (\mathbf{X}^\mathrm{T}\mathbf{X}\boldsymbol{\theta}^{t}-\mathbf{X}^\mathrm{T}\mathbf{y})\\
+\boldsymbol{\theta}^{t+1} &amp;= \boldsymbol{\theta}^{t} + \alpha\mathbf{X}^\mathrm{T}(\mathbf{y}-\mathbf{X}\boldsymbol{\theta}^{t})
+\end{aligned}
+\]</div>
+<p>这里我们将样本 <span class="arithmatex">\(\mathbf{X}\)</span> 写成了整体矩阵的形式，代表我们能一次获取大量数据，也叫做批量梯度下降（BGD，Batch Gradient Descent）</p>
+<p>但实际应用时，我们不一定能随时获取大批量的样本信息（例如在线学习）。因此我们考虑改写形式</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\boldsymbol{\theta}^{t+1} &amp;= \boldsymbol{\theta}^{t} + \alpha\mathbf{X}^\mathrm{T}(\mathbf{y}-\mathbf{X}\boldsymbol{\theta}^{t})\\
+\boldsymbol{\theta}^{t+1} &amp;= \boldsymbol{\theta}^{t} + \alpha\sum_{i=1}^{n}(y_i-\mathbf{x}_i^\mathrm{T}\boldsymbol{\theta}^{t})\mathbf{x}_i
+\end{aligned}
+\]</div>
+<p>极端情况下，对单独 <span class="arithmatex">\(\mathbf{x}\)</span>，我们有</p>
+<div class="arithmatex">\[
+\boldsymbol{\theta}^{t+1} = \boldsymbol{\theta}^{t} + \alpha (y-\mathbf{x}^\mathrm{T}\boldsymbol{\theta}^{t})\mathbf{x}
+\]</div>
+<p>于是将 <span class="arithmatex">\(\mathbf{X}\)</span> 写成了单个样本 <span class="arithmatex">\(\mathbf{x}\)</span> 的形式，代表我们仅凭少量甚至单个数据信息也能进行梯度下降，即随机梯度下降（SGD，Stochastic Gradient Descent）</p>
+<p><strong>各自特点</strong></p>
+<p>对于 BGD：</p>
+<ul>
+<li>对应整个数据集 <span class="arithmatex">\(\mathbf{X}\)</span> 形式，存储开销大</li>
+<li>一次 Epoch 经过 1 次参数更新</li>
+</ul>
+<p>对于 SGD：</p>
+<ul>
+<li>对应数据集某一部分 $ \alpha\sum_{i=1}<sup>{B}(y_i-\mathbf{x}_i</sup>\mathrm{T}\boldsymbol{\theta}^{t})\mathbf{x}_i$ 形式（Mini-Batch），存储开销适中</li>
+<li>一次 Epoch 经过 <span class="arithmatex">\(\frac{n}{B}\)</span> 次参数更新</li>
+<li>某些情况只需单一样本 <span class="arithmatex">\(\mathbf{x}\)</span>（Single-Sample），存储开销小</li>
+<li>一次 Epoch 经过 <span class="arithmatex">\(n\)</span> 次参数更新</li>
+<li>可以看作非全局优化的 BGD，引入了随机噪声，被认为不容易落入局部极值，在非凸优化中很流行</li>
+</ul>
+<p>可以看出 SGD 相对于 BGD 更新频率更高，适用于高度冗余的数据集，但注意观测损失可能要归一化（采用 MSE 而不是 SSE）</p>
+<h3 id="_8">优化方法总结<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>正规方程求解：<span class="arithmatex">\(\boldsymbol{\theta}^* =  (\mathbf{X}^\mathrm{T}\mathbf{X})^{-1}\mathbf{X}^\mathrm{T}\mathbf{y}\)</span></p>
+<ul>
+<li>优点：一步到位，容易实现</li>
+<li>缺点：需要求解 <span class="arithmatex">\((\mathbf{X}^\mathrm{T}\mathbf{X})^{-1}\)</span>，成本高昂，也不一定有解（例如 <span class="arithmatex">\(\mathbf{X}^\mathrm{T}\mathbf{X}\)</span> 是不可逆的）</li>
+</ul>
+<p>GD / BGD：<span class="arithmatex">\(\boldsymbol{\theta}^{t+1} = \boldsymbol{\theta}^{t} + \alpha\mathbf{X}^\mathrm{T}(\mathbf{y}-\mathbf{X}\boldsymbol{\theta}^{t})\)</span></p>
+<ul>
+<li>优点：容易实现，形式简洁，在 LR 情形下能保证收敛</li>
+<li>缺点：大批量，收敛慢</li>
+</ul>
+<p>SGD / Mini-SGD：<span class="arithmatex">\(\boldsymbol{\theta}^{t+1} = \boldsymbol{\theta}^{t} + \alpha\sum_{i=1}^{B}(y_i-\mathbf{x}_i^\mathrm{T}\boldsymbol{\theta}^{t})\mathbf{x}_i\)</span></p>
+<ul>
+<li>优点：更新频率高，收敛快；不容易落入局部极值</li>
+<li>缺点：不能保证全局最优</li>
+</ul>
+<h2 id="_9">正则化<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-01-08T17:46:41+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-01-08</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-01-08T18:22:48+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-01-08</span>
       
         <br>
         创建日期:
