@@ -6,6 +6,7 @@ comments: true
 
 ### 2024-1
 
+- [SVM（补完）](https://alexair059.github.io/ai/ch1_7/)
 - [线性回归](https://alexair059.github.io/ai/ch1_3/)
 
 ### 2023-6
@@ -25,7 +26,7 @@ comments: true
 
 ### 2023-3
 
-- [SVM（未完成）](https://alexair059.github.io/ai/ch1_7/)
+- [SVM](https://alexair059.github.io/ai/ch1_7/)
 - [基于 mkdocs-material 的 Blog 工作流](https://alexair059.github.io/others/blog/)
 
 ### 2023-1

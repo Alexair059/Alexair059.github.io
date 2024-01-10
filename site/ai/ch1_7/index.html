@@ -13,7 +13,7 @@
     
     
       
-        <title>SVM(未完成) - MZY Blog</title>
+        <title>SVM - MZY Blog</title>
       
     
     
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SVM(未完成)
+              SVM
             
           </span>
         </div>
@@ -218,7 +218,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../ch2_1/" class="md-tabs__link md-tabs__link--active">
+      <a href="../ch1_2/" class="md-tabs__link md-tabs__link--active">
         AI
       </a>
     </li>
@@ -367,64 +367,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch2_1/" class="md-nav__link">
-        SLIC Pixelation
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ch5_1/" class="md-nav__link">
-        变分自编码器|VAE
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ch1_4/" class="md-nav__link">
-        朴素贝叶斯
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../ch1_2/" class="md-nav__link">
         感知机
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ch2_2/" class="md-nav__link">
-        网络结构可视化
       </a>
     </li>
   
@@ -461,12 +405,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          SVM(未完成)
+          SVM
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        SVM(未完成)
+        SVM
       </a>
       
         
@@ -493,23 +437,29 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    线性可分支持向量机 | 硬间隔最大化
+    基本形式
   </a>
   
-    <nav class="md-nav" aria-label="线性可分支持向量机 | 硬间隔最大化">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    线性可分支持向量机
+    损失策略
   </a>
   
-    <nav class="md-nav" aria-label="线性可分支持向量机">
+    <nav class="md-nav" aria-label="损失策略">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    线性可分支持向量机
+  <a href="#hard-svm" class="md-nav__link">
+    线性可分 | hard SVM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#soft-svm" class="md-nav__link">
+    非线性可分 | soft SVM
   </a>
   
 </li>
@@ -518,9 +468,38 @@
     </nav>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    优化学习
+  </a>
+  
+    <nav class="md-nav" aria-label="优化学习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lagrange-duality" class="md-nav__link">
+    拉格朗日对偶 | Lagrange Duality
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#svm_1" class="md-nav__link">
+    SVM 优化的情形
+  </a>
+  
+</li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#svm_2" class="md-nav__link">
+    对偶形式的 SVM
+  </a>
   
 </li>
       
@@ -528,6 +507,62 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch1_4/" class="md-nav__link">
+        朴素贝叶斯
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch5_1/" class="md-nav__link">
+        变分自编码器|VAE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch2_1/" class="md-nav__link">
+        SLIC Pixelation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch2_2/" class="md-nav__link">
+        网络结构可视化
+      </a>
     </li>
   
 
@@ -844,23 +879,29 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    线性可分支持向量机 | 硬间隔最大化
+    基本形式
   </a>
   
-    <nav class="md-nav" aria-label="线性可分支持向量机 | 硬间隔最大化">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    线性可分支持向量机
+    损失策略
   </a>
   
-    <nav class="md-nav" aria-label="线性可分支持向量机">
+    <nav class="md-nav" aria-label="损失策略">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    线性可分支持向量机
+  <a href="#hard-svm" class="md-nav__link">
+    线性可分 | hard SVM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#soft-svm" class="md-nav__link">
+    非线性可分 | soft SVM
   </a>
   
 </li>
@@ -869,9 +910,38 @@
     </nav>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    优化学习
+  </a>
+  
+    <nav class="md-nav" aria-label="优化学习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lagrange-duality" class="md-nav__link">
+    拉格朗日对偶 | Lagrange Duality
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#svm_1" class="md-nav__link">
+    SVM 优化的情形
+  </a>
+  
+</li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#svm_2" class="md-nav__link">
+    对偶形式的 SVM
+  </a>
   
 </li>
       
@@ -896,35 +966,203 @@
 
 
 <h1 id="svm">SVM<a class="headerlink" href="#svm" title="Permanent link">&para;</a></h1>
-<p>支持向量机（support vector machines，SVM）是一种二分类模型。其基本模型是定义在特征空间上间隔最大的线性分类器，间隔最大使它区别于感知机</p>
-<p>SVM还包括核技巧，这使它能够对线性不可分的数据集进行分类</p>
-<p>SVM的学习策略为间隔最大化，可形式化为一个求解凸二次规划的问题，也等价于正则化的合页损失函数最小化问题。其学习算法是求解凸二次规划的最优化算法</p>
+<p>支持向量机（SVM, support vector machine）一般是二分类模型。其基本形式是定义在特征空间上间隔最大的线性分类器。它在感知机的基础上增加了间隔最大的策略损失，也是主要区别</p>
+<p>SVM 是核技巧应用的一个经典案例，用于处理非线性的数据集；除此之外它在很多方面的使用效果也相当出色（CV，NLP，推荐系统，时序分析等等）</p>
+<p>SVM 的损失策略为间隔最大化，可形式化为一个求解凸二次规划的问题。其学习算法是凸二次规划的最优化算法，转化为拉格朗日对偶问题联系 KKT 条件求解</p>
 <h2 id="_1">分类<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li>监督学习方法</li>
 <li>非概率模型</li>
 <li>参数化模型</li>
 <li>判别学习方法</li>
-<li>二分类方法</li>
 </ul>
-<h2 id="_2">线性可分支持向量机 | 硬间隔最大化<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="_3">线性可分支持向量机<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>设训练数据集 <span class="arithmatex">\(T\)</span> 是线性可分的</p>
+<h2 id="_2">基本形式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>SVM 的基本形式与感知机类似，但随着后面优化求解，可以推导出更适合的推理形式</p>
+<p>假设样本写作列向量，即</p>
 <div class="arithmatex">\[
-T=\{(x_1,y_1),(x_2,y_2),···,(x_N,y_N)\},\quad x\in \mathcal{X},y\in \mathcal{Y}
+\mathbf{x} = [x^{(1)},x^{(2)},···,x^{(p)}]^\mathrm{T}
 \]</div>
-<p>其中 <span class="arithmatex">\(\mathcal{X}\subseteq R^n\)</span> ，<span class="arithmatex">\(\mathcal{Y}=\{+1,-1\}\)</span></p>
-<p>对于感知机，可利用误分类最小的策略，求得分离超平面，解有无穷多个；对于线性可分支持向量机，可利用硬间隔最大化的策略，求得分离超平面，解是唯一的</p>
-<h4 id="_4">线性可分支持向量机<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
-<p>给定线性可分训练数据集，通过间隔最大化或等价求解相应的凸二次规划问题学习得到的分离超平面为</p>
+<p>SVM 有</p>
 <div class="arithmatex">\[
-w^* \cdot x + b =0
+y = f(\mathbf{x};\mathbf{w},b) = sgn(\mathbf{w}^\mathrm{T}\mathbf{x}+b)
 \]</div>
-<p>已经相应的决策函数</p>
+<h2 id="_3">损失策略<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>首先是核心目标：最大化一个叫做间隔的东西，我们可以推导出它与参数 <span class="arithmatex">\(\mathbf{w}\)</span> <span class="arithmatex">\(b\)</span> 之间的关系</p>
+<p>间隔直观上就是 SVM 在样本空间意味的超平面在法向量指向上能自由移动的“多少”，且能对数据分布有较好的分割。当超平面移动时，最先遇到并“顶住”的样本点被称为“支持向量（support vector）”，它们某种程度上决定了 SVM 学习收敛的最后形式，也是 SVM 名字的由来</p>
+<p>类似于感知机，对于二分类样本点 <span class="arithmatex">\(y_i=1\)</span> 与 $ y_j=-1$，我们自然希望</p>
 <div class="arithmatex">\[
-f(x)=sgn(w^* \cdot x + b^*)
+\begin{aligned}
+&amp;\mathbf{w}^\mathrm{T}\mathbf{x}_i+b \geq 1, \quad y_i = 1\\
+&amp;\mathbf{w}^\mathrm{T}\mathbf{x}_j+b \leq -1, \quad y_j = -1
+\end{aligned}
 \]</div>
-<p>称为线性可分支持向量机</p>
+<p>于是我们可以定义间隔 <span class="arithmatex">\(M\)</span> 为 超平面 <span class="arithmatex">\(\mathbf{w}^\mathrm{T}\mathbf{x}+b=1\)</span> 与 <span class="arithmatex">\(\mathbf{w}^\mathrm{T}\mathbf{x}+b=-1\)</span> 之间的距离，设 <span class="arithmatex">\(\mathbf{x}^+\)</span> 与 <span class="arithmatex">\(\mathbf{x}^-\)</span> 分别是两平面上的点，且 <span class="arithmatex">\(\mathbf{x}^+ - \mathbf{x}^-\)</span> 与 <span class="arithmatex">\(\mathbf{w}\)</span> 平行，则有</p>
+<div class="arithmatex">\[
+\begin{aligned}
+M = \Vert&amp;\mathbf{x}^+ - \mathbf{x}^-\Vert\\
+\Downarrow\\
+M = \Vert&amp;\lambda\mathbf{w}\Vert = \lambda\Vert\mathbf{w}\Vert
+\end{aligned}
+\]</div>
+<p>我们需要求出 <span class="arithmatex">\(\lambda\)</span></p>
+<div class="arithmatex">\[
+\begin{aligned}
+\mathbf{w}^\mathrm{T}\mathbf{x}^++b &amp;= 1\\
+\mathbf{w}^\mathrm{T}\mathbf{x}^-+b &amp;= -1\\
+\Downarrow\\
+\mathbf{w}^\mathrm{T}(\mathbf{x}^+ - \mathbf{x}^-) &amp;= 2\\
+\Downarrow\\
+\lambda\mathbf{w}^\mathrm{T}\mathbf{w} &amp;= 2
+\end{aligned}
+\]</div>
+<p>故 <span class="arithmatex">\(\lambda = 2 / \mathbf{w}^\mathrm{T}\mathbf{w}\)</span>，反代回 <span class="arithmatex">\(M\)</span> 表达式</p>
+<div class="arithmatex">\[
+M = \frac{2\Vert\mathbf{w}\Vert}{\mathbf{w}^\mathrm{T}\mathbf{w}} = \frac{2}{\sqrt{\mathbf{w}^\mathrm{T}\mathbf{w}}}
+\]</div>
+<p>到此我们已经获得了需要优化的策略目标，最小化 <span class="arithmatex">\(M\)</span> 即最大化 <span class="arithmatex">\(\mathbf{w}^\mathrm{T}\mathbf{w}\)</span></p>
+<p>但仅有间隔最大是不行的，我们还需要让 SVM 能正确分类，因此需要添加各种约束，从数据集上看，大致可分为 hard SVM（线性可分），soft SVM（线性不可分）以及核方法使用的情形（非线性）</p>
+<h3 id="hard-svm">线性可分 | hard SVM<a class="headerlink" href="#hard-svm" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;\min \frac{1}{2}\mathbf{w}^\mathrm{T}\mathbf{w}\\
+s.t. \quad &amp;y_i(\mathbf{w}^\mathrm{T}\mathbf{x}_i+b)\geq1, \quad i = 0,1,··,n
+\end{aligned}
+\]</div>
+<h3 id="soft-svm">非线性可分 | soft SVM<a class="headerlink" href="#soft-svm" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;\min \frac{1}{2}\mathbf{w}^\mathrm{T}\mathbf{w}+C\sum_{i=1}^n\varepsilon_i\\
+s.t. \quad &amp;\mathbf{w}^\mathrm{T}\mathbf{x}_i+b\geq1-\varepsilon_i, \quad y_i = 1;\\
+&amp;\mathbf{w}^\mathrm{T}\mathbf{x}_j+b\leq-1+\varepsilon_j, \quad y_j = -1;\\
+&amp;\varepsilon_i, \quad \varepsilon_j \geq 0
+\end{aligned}
+\]</div>
+<h2 id="_4">优化学习<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>正式进入 SVM 优化推导前，补一点凸优化的知识</p>
+<h3 id="lagrange-duality">拉格朗日对偶 | Lagrange Duality<a class="headerlink" href="#lagrange-duality" title="Permanent link">&para;</a></h3>
+<p>在优化问题中，原始问题通常会带有很多约束条件，直接求解很困难，常常考虑将原始问题转化为它的对偶问题，通过求解对偶问题来得到原始问题的解</p>
+<p><strong>原始问题（Primal Problem）</strong></p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;\min_x f_0(x)\\
+s.t. \quad &amp;f_i(x)\leq0, \quad i = 1,2,···,m;\\
+&amp;h_j(x)=0, \quad j = 1,2,···,p
+\end{aligned}
+\]</div>
+<p>原始问题不一定是凸问题， <span class="arithmatex">\(f\)</span> 与 <span class="arithmatex">\(h\)</span> 可以是一般函数</p>
+<p><strong>拉格朗日函数（Lagrangian function）</strong></p>
+<p>原始问题的拉格朗日函数为：</p>
+<div class="arithmatex">\[
+L(x,\boldsymbol{\lambda},\mathbf{v}) = f_0(x)+\sum_{i=1}^m\lambda_if_i(x)+\sum_{i=1}^pv_ih_i(x)
+\]</div>
+<p>其中 <span class="arithmatex">\(x\in\mathcal{R}^n,\boldsymbol{\lambda}\in\mathcal{R}^m,\mathbf{v}\in\mathcal{R}^p\)</span></p>
+<p>可以看到，拉格朗日函数相对于原始问题引入了两个新变量（向量），称为拉格朗日乘子</p>
+<p>拉格朗日函数 <span class="arithmatex">\(L\)</span> 如果看成是关于 <span class="arithmatex">\(x\)</span> 的函数，那它其实就是对原始问题中目标函数与约束条件进行线性加权，目标函数的权系数是 1，约束条件的权系数是 <span class="arithmatex">\(\lambda_i\)</span> 或 <span class="arithmatex">\(v_i\)</span></p>
+<p>如果看成是关于 <span class="arithmatex">\(\lambda_i\)</span> 或 <span class="arithmatex">\(v_i\)</span> 的函数，则其余部分可看成常数，<span class="arithmatex">\(L\)</span> 就可看作是一个关于 <span class="arithmatex">\(\lambda_i\)</span> 或 <span class="arithmatex">\(v_i\)</span> 的仿射函数（即最高次幂为1的多项式函数）</p>
+<p><strong>拉格朗日对偶函数（Lagrange dual function）</strong></p>
+<p>拉格朗日对偶函数（简称对偶函数）通过对拉格朗日函数关于 <span class="arithmatex">\(x\)</span> 取下确界得到:</p>
+<div class="arithmatex">\[
+g(\boldsymbol{\lambda},\mathbf{v}) = \inf_xL(x,\boldsymbol{\lambda},\mathbf{v})
+\]</div>
+<p>求解析式可先将 <span class="arithmatex">\(L\)</span> 看成是关于 <span class="arithmatex">\(x\)</span> 的函数，而将拉格朗日乘子看作常数，求出 <span class="arithmatex">\(L\)</span> 的极小值点，再将该点回代，得到的关于 <span class="arithmatex">\(\boldsymbol{\lambda}\)</span> 和 <span class="arithmatex">\(\mathbf{v}\)</span> 的表达式就是对偶函数</p>
+<p>对偶函数具有两条重要性质：</p>
+<ul>
+<li>
+<p>对偶函数一定是<strong>凹函数</strong>，其凹性与原目标函数和约束函数凹凸与否<strong>无关</strong></p>
+<blockquote>
+<p>证明：<span class="arithmatex">\(L(x,\boldsymbol{\lambda},\mathbf{v})\)</span> 可以看作是一个无限的函数集，这个函数集中每个元素是 <span class="arithmatex">\(L(x_i,\boldsymbol{\lambda},\mathbf{v})\)</span>，<span class="arithmatex">\(x\)</span> 取遍其在定义域上的所有值得到不同的 <span class="arithmatex">\(x_i\)</span>。针对不同的 <span class="arithmatex">\(x_i\)</span>，<span class="arithmatex">\(L(x_i,\boldsymbol{\lambda},\mathbf{v})\)</span> 都是关于 <span class="arithmatex">\(\boldsymbol{\lambda}\)</span> 和 <span class="arithmatex">\(\mathbf{v}\)</span> 的仿射函数，故有</p>
+<div class="arithmatex">\[
+g(\boldsymbol{\lambda},\mathbf{v}) = \inf_x\{L(x_1,\boldsymbol{\lambda},\mathbf{v}),L(x_2,\boldsymbol{\lambda},\mathbf{v}),···\}
+\]</div>
+<p>对仿射函数集取下界，得到的函数是凹函数</p>
+</blockquote>
+</li>
+<li>
+<p>对 <span class="arithmatex">\(\forall \lambda_i\geq0,\forall v\)</span>，如果原问题最优解对应的目标函数值为 <span class="arithmatex">\(p^*\)</span>，则 <span class="arithmatex">\(g(\boldsymbol{\lambda},\mathbf{v})\leq p^*\)</span></p>
+<blockquote>
+<p>证明：设原问题最优解为 <span class="arithmatex">\(x^*\)</span>，有</p>
+<div class="arithmatex">\[
+\begin{aligned}
+L(x^*,\boldsymbol{\lambda},\mathbf{v}) &amp;= f_0(x^*)+\sum_{i=1}^m\lambda_if_i(x^*)+\sum_{i=1}^pv_ih_i(x^*)\\
+&amp;\leq f_0(x^*) = p^*
+\end{aligned}
+\]</div>
+<p>又由 <span class="arithmatex">\(g(\boldsymbol{\lambda},\mathbf{v})\)</span> 的定义，总有</p>
+<div class="arithmatex">\[
+g(\boldsymbol{\lambda},\mathbf{v}) \leq L(x^*,\boldsymbol{\lambda},\mathbf{v}) \leq p^*
+\]</div>
+</blockquote>
+</li>
+</ul>
+<p><strong>拉格朗日对偶问题（Lagrange dual problem）</strong></p>
+<p>根据对偶函数的重要性质，对 <span class="arithmatex">\(\forall \lambda_i\geq0,\forall v\)</span>，<span class="arithmatex">\(g(\boldsymbol{\lambda},\mathbf{v})\)</span> 是原问题最优值 <span class="arithmatex">\(p^*\)</span> 的一个下界，最好的下界就是最大化对偶函数，因此构造原问题的对偶问题：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\max_{\boldsymbol{\lambda},\mathbf{v}} g(\boldsymbol{\lambda},\mathbf{v})\\
+s.t. \quad \lambda_i\geq0
+\end{aligned}
+\]</div>
+<p>因为 <span class="arithmatex">\(g(\boldsymbol{\lambda},\mathbf{v})\)</span> 是凹函数，故拉格朗日对偶问题一定是凸问题，其对应的最优解为 <span class="arithmatex">\(\boldsymbol{\lambda}^*\)</span>，<span class="arithmatex">\(\mathbf{v}^*\)</span>（最优拉格朗日乘子），若对应的最优值为 <span class="arithmatex">\(d^*\)</span>，则总有 <span class="arithmatex">\(d^* \leq p^*\)</span></p>
+<ul>
+<li><span class="arithmatex">\(d^* \leq p^*\)</span> 时，称为弱对偶（weak duality）</li>
+<li><span class="arithmatex">\(d^* = p^*\)</span> 时，称为强对偶（strong duality）</li>
+<li><span class="arithmatex">\(p^* - d^*\)</span> 称为对偶间隙（duality gap）</li>
+</ul>
+<p>当原问题是凸问题时，KKT 条件是 <span class="arithmatex">\(x^*\)</span>，<span class="arithmatex">\(\boldsymbol{\lambda}^*\)</span>，<span class="arithmatex">\(\mathbf{v}^*\)</span> 为最优解的充要条件</p>
+<h3 id="svm_1">SVM 优化的情形<a class="headerlink" href="#svm_1" title="Permanent link">&para;</a></h3>
+<p><strong>线性可分 | hard SVM</strong></p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;\min \frac{1}{2}\mathbf{w}^\mathrm{T}\mathbf{w}\\
+s.t. \quad &amp;y_i(\mathbf{w}^\mathrm{T}\mathbf{x}_i+b)\geq1, \quad i = 0,1,··,n
+\end{aligned}
+\]</div>
+<p>好在原问题是凸问题，并且强对偶，这意味着我们转化为对偶问题后的最优解也能保证在原问题上是最优解</p>
+<p>首先得到原始问题的拉格朗日函数</p>
+<div class="arithmatex">\[
+L(\mathbf{w},b,\boldsymbol{\alpha}) = \frac{1}{2}\mathbf{w}^\mathrm{T}\mathbf{w}+\sum_{i=1}^n\alpha_i(1-y_i(\mathbf{w}^\mathrm{T}\mathbf{x}_i+b))
+\]</div>
+<p>将拉格朗日乘子 <span class="arithmatex">\(\boldsymbol{\alpha}\)</span> 视为常数，求极小值</p>
+<p>对 <span class="arithmatex">\(\mathbf{w}\)</span>，<span class="arithmatex">\(b\)</span> 分别求一阶导零点</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\nabla_{\mathbf{w}}L(\mathbf{w},b,\boldsymbol{\alpha}) = \mathbf{w}-\sum_{i=1}^n\alpha_iy_i\mathbf{x}_i = 0\\
+\nabla_bL(\mathbf{w},b,\boldsymbol{\alpha}) = -\sum_{i=1}^n\alpha_iy_i = 0
+\end{aligned}
+\]</div>
+<p>回代进 <span class="arithmatex">\(L(\mathbf{w},b,\boldsymbol{\alpha})\)</span>，有拉格朗日对偶函数</p>
+<div class="arithmatex">\[
+\begin{aligned}
+g(\boldsymbol{\alpha}) &amp;= \frac{1}{2}(\sum_{i=1}^n\alpha_iy_i\mathbf{x}_i)^\mathrm{T}(\sum_{j=1}^n\alpha_jy_j\mathbf{x}_j)-\sum_{i=1}^n\alpha_iy_i(\sum_{j=1}^n\alpha_jy_j\mathbf{x}_j)^\mathrm{T}\mathbf{x}_i+\sum_{i=1}^n\alpha_i\\
+&amp;= \frac{1}{2}\sum_{i=1}^n\alpha_iy_i\mathbf{x}_i^\mathrm{T}\sum_{j=1}^n\alpha_jy_j\mathbf{x}_j-\sum_{i=1}^n\alpha_iy_i(\sum_{j=1}^n\alpha_jy_j\mathbf{x}_j^\mathrm{T}\mathbf{x}_i)+\sum_{i=1}^n\alpha_i\\
+&amp;= \frac{1}{2}\sum_{i=1}^n\sum_{j=1}^n\alpha_i\alpha_jy_iy_j\mathbf{x}_i^\mathrm{T}\mathbf{x}_j-\sum_{i=1}^n\sum_{j=1}^n\alpha_i\alpha_jy_iy_j\mathbf{x}_i^\mathrm{T}\mathbf{x}_j+\sum_{i=1}^n\alpha_i\\
+&amp;= -\frac{1}{2}\sum_{i=1}^n\sum_{j=1}^n\alpha_i\alpha_jy_iy_j\mathbf{x}_i^\mathrm{T}\mathbf{x}_j+\sum_{i=1}^n\alpha_i\\
+\end{aligned}
+\]</div>
+<p>故</p>
+<div class="arithmatex">\[
+g(\boldsymbol{\alpha}) = \sum_{i=1}^n\alpha_i-\frac{1}{2}\sum_{i=1}^n\sum_{j=1}^n\alpha_i\alpha_jy_iy_j\mathbf{x}_i^\mathrm{T}\mathbf{x}_j
+\]</div>
+<p>于是我们得到拉格朗日对偶问题</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\max &amp;\sum_{i=1}^n\alpha_i-\frac{1}{2}\sum_{i=1}^n\sum_{j=1}^n\alpha_i\alpha_jy_iy_j\mathbf{x}_i^\mathrm{T}\mathbf{x}_j\\
+s.t. \quad &amp;\sum_{i=1}^n\alpha_iy_i = 0;\\
+&amp;\alpha_i\geq0, \quad i=1,2···,n
+\end{aligned}
+\]</div>
+<p>该形式比原始问题更好求解，因为存在有效的算法找到 <span class="arithmatex">\(\alpha_i\)</span></p>
+<p><strong>非线性可分 | soft SVM</strong></p>
+<p>与线性可分形式相近</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\max &amp;\sum_{i=1}^n\alpha_i-\frac{1}{2}\sum_{i=1}^n\sum_{j=1}^n\alpha_i\alpha_jy_iy_j\mathbf{x}_i^\mathrm{T}\mathbf{x}_j\\
+s.t. \quad &amp;\sum_{i=1}^n\alpha_iy_i = 0;\\
+&amp;C\geq\alpha_i\geq0, \quad i=1,2···,n
+\end{aligned}
+\]</div>
+<p>其中 <span class="arithmatex">\(C\)</span> 为超参</p>
+<h2 id="svm_2">对偶形式的 SVM<a class="headerlink" href="#svm_2" title="Permanent link">&para;</a></h2>
 
   <hr>
 <div class="md-source-file">
@@ -1029,13 +1267,13 @@ f(x)=sgn(w^* \cdot x + b^*)
       
       
         
-        <a href="../../web/ch1/" class="md-footer__link md-footer__link--next" aria-label="下一页: Nginx" rel="next">
+        <a href="../ch1_4/" class="md-footer__link md-footer__link--next" aria-label="下一页: 朴素贝叶斯" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              Nginx
+              朴素贝叶斯
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -1050,7 +1288,7 @@ f(x)=sgn(w^* \cdot x + b^*)
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2020 - 2023 Alexair
+      Copyright &copy; 2020 - 2024 Alexair
     </div>
   
   
