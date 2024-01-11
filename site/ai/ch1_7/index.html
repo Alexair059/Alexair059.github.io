@@ -501,6 +501,26 @@
     对偶形式的 SVM
   </a>
   
+    <nav class="md-nav" aria-label="对偶形式的 SVM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    支持向量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#svm_3" class="md-nav__link">
+    对偶 SVM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -943,6 +963,26 @@
     对偶形式的 SVM
   </a>
   
+    <nav class="md-nav" aria-label="对偶形式的 SVM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    支持向量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#svm_3" class="md-nav__link">
+    对偶 SVM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -989,7 +1029,7 @@ y = f(\mathbf{x};\mathbf{w},b) = sgn(\mathbf{w}^\mathrm{T}\mathbf{x}+b)
 <h2 id="_3">损失策略<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>首先是核心目标：最大化一个叫做间隔的东西，我们可以推导出它与参数 <span class="arithmatex">\(\mathbf{w}\)</span> <span class="arithmatex">\(b\)</span> 之间的关系</p>
 <p>间隔直观上就是 SVM 在样本空间意味的超平面在法向量指向上能自由移动的“多少”，且能对数据分布有较好的分割。当超平面移动时，最先遇到并“顶住”的样本点被称为“支持向量（support vector）”，它们某种程度上决定了 SVM 学习收敛的最后形式，也是 SVM 名字的由来</p>
-<p>类似于感知机，对于二分类样本点 <span class="arithmatex">\(y_i=1\)</span> 与 $ y_j=-1$，我们自然希望</p>
+<p>类似于感知机，对于二分类样本点 <span class="arithmatex">\(y_i=1\)</span> 与 <span class="arithmatex">\(y_j=-1\)</span>，我们自然希望</p>
 <div class="arithmatex">\[
 \begin{aligned}
 &amp;\mathbf{w}^\mathrm{T}\mathbf{x}_i+b \geq 1, \quad y_i = 1\\
@@ -1108,7 +1148,7 @@ s.t. \quad \lambda_i\geq0
 <li><span class="arithmatex">\(d^* = p^*\)</span> 时，称为强对偶（strong duality）</li>
 <li><span class="arithmatex">\(p^* - d^*\)</span> 称为对偶间隙（duality gap）</li>
 </ul>
-<p>当原问题是凸问题时，KKT 条件是 <span class="arithmatex">\(x^*\)</span>，<span class="arithmatex">\(\boldsymbol{\lambda}^*\)</span>，<span class="arithmatex">\(\mathbf{v}^*\)</span> 为最优解的充要条件</p>
+<p>当原问题是凸问题且强对偶时，KKT 条件是 <span class="arithmatex">\(x^*\)</span>，<span class="arithmatex">\(\boldsymbol{\lambda}^*\)</span>，<span class="arithmatex">\(\mathbf{v}^*\)</span> 为最优解的充要条件</p>
 <h3 id="svm_1">SVM 优化的情形<a class="headerlink" href="#svm_1" title="Permanent link">&para;</a></h3>
 <p><strong>线性可分 | hard SVM</strong></p>
 <div class="arithmatex">\[
@@ -1117,7 +1157,7 @@ s.t. \quad \lambda_i\geq0
 s.t. \quad &amp;y_i(\mathbf{w}^\mathrm{T}\mathbf{x}_i+b)\geq1, \quad i = 0,1,··,n
 \end{aligned}
 \]</div>
-<p>好在原问题是凸问题，并且强对偶，这意味着我们转化为对偶问题后的最优解也能保证在原问题上是最优解</p>
+<p>好在<strong>原问题是凸问题，并且强对偶</strong>，这意味着我们转化为对偶问题后的最优解也能保证在原问题上是最优解</p>
 <p>首先得到原始问题的拉格朗日函数</p>
 <div class="arithmatex">\[
 L(\mathbf{w},b,\boldsymbol{\alpha}) = \frac{1}{2}\mathbf{w}^\mathrm{T}\mathbf{w}+\sum_{i=1}^n\alpha_i(1-y_i(\mathbf{w}^\mathrm{T}\mathbf{x}_i+b))
@@ -1151,7 +1191,23 @@ s.t. \quad &amp;\sum_{i=1}^n\alpha_iy_i = 0;\\
 &amp;\alpha_i\geq0, \quad i=1,2···,n
 \end{aligned}
 \]</div>
-<p>该形式比原始问题更好求解，因为存在有效的算法找到 <span class="arithmatex">\(\alpha_i\)</span></p>
+<p>该形式比原始问题更好求解，因为存在有效的算法找到最优解 <span class="arithmatex">\(\alpha_i^*\)</span></p>
+<p>求出 <span class="arithmatex">\(\alpha_i^*\)</span> 后，由之前一阶导条件，我们可以得到 <span class="arithmatex">\(\mathbf{w}\)</span> 的训练结果</p>
+<div class="arithmatex">\[
+\mathbf{w}^* = \sum_{i=1}^n\alpha_i^*y_i\mathbf{x}_i
+\]</div>
+<p>对于偏置项 <span class="arithmatex">\(b\)</span>，我在网上初步搜索得到的讲解也比较少，普遍思路是根据 SVM 以及样本反代</p>
+<div class="arithmatex">\[
+\begin{aligned}
+b^* &amp;= y'-(\mathbf{w}^*)^\mathrm{T}\mathbf{x}'\\
+&amp;= y'-\sum_{i=1}^n\alpha_i^*y_i\mathbf{x}_i^\mathrm{T}\mathbf{x}'
+\end{aligned}
+\]</div>
+<p>注意这里样本选取有要求，可以看出该样本 <span class="arithmatex">\((\mathbf{x}',y')\)</span>满足</p>
+<div class="arithmatex">\[
+(\mathbf{w}^*)^\mathrm{T}\mathbf{x}'+b^* = y'
+\]</div>
+<p><span class="arithmatex">\(y'\)</span> 取值要么 +1 要么 -1，即该样本应该是在我们之前定义 <span class="arithmatex">\(M\)</span> 设的两个超平面上。换句话说，它应该是支持向量之一</p>
 <p><strong>非线性可分 | soft SVM</strong></p>
 <p>与线性可分形式相近</p>
 <div class="arithmatex">\[
@@ -1163,13 +1219,51 @@ s.t. \quad &amp;\sum_{i=1}^n\alpha_iy_i = 0;\\
 \]</div>
 <p>其中 <span class="arithmatex">\(C\)</span> 为超参</p>
 <h2 id="svm_2">对偶形式的 SVM<a class="headerlink" href="#svm_2" title="Permanent link">&para;</a></h2>
+<h3 id="_5">支持向量<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>讨论一下 <span class="arithmatex">\(\alpha_i\)</span> 与对应样本 <span class="arithmatex">\((\mathbf{x}_i,y_i)\)</span> 之间关系，并说明支持向量到底是什么</p>
+<p>对于 hard SVM 原问题以及其拉格朗日函数</p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;\min \frac{1}{2}\mathbf{w}^\mathrm{T}\mathbf{w}\\
+s.t. \quad &amp;y_i(\mathbf{w}^\mathrm{T}\mathbf{x}_i+b)\geq1, \quad i = 0,1,··,n
+\end{aligned}
+\]</div>
+<div class="arithmatex">\[
+L(\mathbf{w},b,\boldsymbol{\alpha}) = \frac{1}{2}\mathbf{w}^\mathrm{T}\mathbf{w}+\sum_{i=1}^n\alpha_i(1-y_i(\mathbf{w}^\mathrm{T}\mathbf{x}_i+b))
+\]</div>
+<p>如果我们不考虑对偶形式，单纯从拉格朗日乘子法的视角观察，对于任一个样本带来的约束条件</p>
+<div class="arithmatex">\[
+1-y_i(\mathbf{w}^\mathrm{T}\mathbf{x}_i+b)\leq0
+\]</div>
+<p>若最优解在边界处取到，即 <span class="arithmatex">\(1-y_i(\mathbf{w}^\mathrm{T}\mathbf{x}_i+b) = 0\)</span>，为满足解存在的必要条件，必有其对应的拉格朗日乘子 <span class="arithmatex">\(\alpha_i &gt; 0\)</span>，而对应的样本情况恰好是样本，在定义间隔 <span class="arithmatex">\(M\)</span> 的超平面之一上，即样本为支持向量</p>
+<p>相对应的，若最优解在内部取到，即 <span class="arithmatex">\(1-y_i(\mathbf{w}^\mathrm{T}\mathbf{x}_i+b) &lt; 0\)</span>，为满足接存在的必要条件，必有其对应的拉格朗日乘子 <span class="arithmatex">\(\alpha_i = 0\)</span>，对应的样本情况是样本落在定义间隔 <span class="arithmatex">\(M\)</span> 的超平面两边，不为支持向量</p>
+<p>于是我们可以知道支持向量就是具有如下特征的样本点：</p>
+<ul>
+<li>落在定义间隔 <span class="arithmatex">\(M\)</span> 设定的两个超平面之一上，负责“顶住” SVM</li>
+<li>对应的拉格朗日乘子 <span class="arithmatex">\(\alpha_i &gt; 0\)</span>，其余 <span class="arithmatex">\(\alpha_i\)</span> 均为 0</li>
+<li>真正对 SVM 最后收敛起决定作用</li>
+</ul>
+<p>另外有用的是，整个样本集中， 支持向量往往占少部分（大部分 <span class="arithmatex">\(\alpha_i = 0\)</span>），当我们采用对偶形式表达 SVM 时，在推理等方面可以获得方便</p>
+<h3 id="svm_3">对偶 SVM<a class="headerlink" href="#svm_3" title="Permanent link">&para;</a></h3>
+<p>联系支持向量与拉格朗日乘子的关系，我们可以改写 SVM 的基本形式</p>
+<div class="arithmatex">\[
+\begin{aligned}
+y &amp;= sgn(\mathbf{w}^\mathrm{T}\mathbf{x}+b)\\
+y &amp;= sgn((\sum_{i=1}^n\alpha_iy_i\mathbf{x}_i)^\mathrm{T}\mathbf{x}+b)\\
+y &amp;= sgn(\sum_{i=1}^n\alpha_iy_i\mathbf{x}_i^\mathrm{T}\mathbf{x}+b)
+\end{aligned}
+\]</div>
+<p>因为大部分 <span class="arithmatex">\(\alpha_i = 0\)</span>，我们可以只让支持向量参与推理</p>
+<div class="arithmatex">\[
+y = sgn(\sum_{i\in SV}\alpha_iy_i\mathbf{x}_i^\mathrm{T}\mathbf{x}+b)
+\]</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-04-06T19:32:19+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-06</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-01-10T10:01:24+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-01-10</span>
       
         <br>
         创建日期:
