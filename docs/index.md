@@ -6,6 +6,7 @@ comments: true
 
 ### 2024-1
 
+- [逻辑回归](https://alexair059.github.io/ai/ch1_5/)
 - [SVM（补完）](https://alexair059.github.io/ai/ch1_7/)
 - [线性回归](https://alexair059.github.io/ai/ch1_3/)
 
