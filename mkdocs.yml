@@ -56,6 +56,7 @@ nav:
       - SVM: ai/ch1_7.md
       - 朴素贝叶斯: ai/ch1_4.md
       - 逻辑回归: ai/ch1_5.md
+      - PCA: ai/ch1_8.md
       - 变分自编码器|VAE: ai/ch5_1.md
       - SLIC Pixelation: ai/ch2_1.md
       - 网络结构可视化: ai/ch2_2.md
