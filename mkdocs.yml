@@ -79,8 +79,6 @@ nav:
   - Others:
       - Blog搭建: others/blog.md
       - mkdocs加密: others/mkdocs_encrypt.md
-      - 琐碎: others/time.md
-      - 单词: others/Words_M.md
 
 markdown_extensions:
   # Python Markdown
