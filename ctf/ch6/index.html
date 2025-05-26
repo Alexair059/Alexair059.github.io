@@ -8,8 +8,15 @@
       
       
       
+      
+        <link rel="prev" href="../../web/ch2/">
+      
+      
+        <link rel="next" href="../ch2/">
+      
+      
       <link rel="icon" href="../../assets/data.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
@@ -17,15 +24,17 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.472b142f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.08040f6c.min.css">
-        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
+
     
+    
+      
     
     
       
@@ -41,7 +50,7 @@
     
       <link rel="stylesheet" href="../../css/custom.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -60,9 +69,6 @@
     
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple">
   
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -90,7 +96,8 @@
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -109,71 +116,83 @@
       </div>
     </div>
     
-      <form class="md-header__option" data-md-component="palette">
-        
-          
-          
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
-          
-            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
-            </label>
-          
-        
-          
-          
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
-          
-            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
-            </label>
-          
-        
-      </form>
+      
+        <form class="md-header__option" data-md-component="palette">
+  
     
     
     
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="查找">
         
         <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             正在初始化搜索引擎
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
   </div>
 </div>
+      
     
     
       <div class="md-header__source">
         <a href="https://github.com/Alexair059/Alexair059.github.io" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
   </div>
   <div class="md-source__repository">
     Alexair059.github.io
@@ -192,66 +211,23 @@
           
             
 <nav class="md-tabs" aria-label="标签" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
+  <div class="md-grid">
     <ul class="md-tabs__list">
       
         
   
   
-
-
-  <li class="md-tabs__item">
-    <a href="../.." class="md-tabs__link">
-      Home
-    </a>
-  </li>
-
-      
-        
-  
-  
-
-
-  
   
   
     <li class="md-tabs__item">
-      <a href="../../ai/ch1_2/" class="md-tabs__link">
-        AI
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../web/ch1/" class="md-tabs__link">
-        Web
-      </a>
-    </li>
-  
-
-      
+      <a href="../.." class="md-tabs__link">
         
   
   
     
   
+  Home
 
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
-        CTF
       </a>
     </li>
   
@@ -260,16 +236,82 @@
         
   
   
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ai/ch1_2/" class="md-tabs__link">
+          
+  
+  
+  AI
 
+        </a>
+      </li>
+    
+  
 
+      
+        
   
   
   
-    <li class="md-tabs__item">
-      <a href="../../others/blog/" class="md-tabs__link">
-        Others
-      </a>
-    </li>
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../web/ch1/" class="md-tabs__link">
+          
+  
+  
+  Web
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  CTF
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../others/blog/" class="md-tabs__link">
+          
+  
+  
+  Others
+
+        </a>
+      </li>
+    
   
 
       
@@ -289,6 +331,7 @@
                   <div class="md-sidebar__inner">
                     
 
+
   
 
 
@@ -306,7 +349,7 @@
       <a href="https://github.com/Alexair059/Alexair059.github.io" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
   </div>
   <div class="md-source__repository">
     Alexair059.github.io
@@ -318,14 +361,21 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../.." class="md-nav__link">
-        Home
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
       </a>
     </li>
   
@@ -333,278 +383,442 @@
     
       
       
-      
-
+  
   
   
   
     
+    
+    
+    
+      
+      
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2">
-          AI
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="AI" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
-          <span class="md-nav__icon md-icon"></span>
-          AI
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
           
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            AI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../ai/ch1_2/" class="md-nav__link">
-        感知机
+        
+  
+  
+  <span class="md-ellipsis">
+    感知机
+    
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../ai/ch1_3/" class="md-nav__link">
-        线性回归
+        
+  
+  
+  <span class="md-ellipsis">
+    线性回归
+    
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../ai/ch1_7/" class="md-nav__link">
-        SVM
+        
+  
+  
+  <span class="md-ellipsis">
+    SVM
+    
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../ai/ch1_4/" class="md-nav__link">
-        朴素贝叶斯
+        
+  
+  
+  <span class="md-ellipsis">
+    朴素贝叶斯
+    
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../ai/ch1_5/" class="md-nav__link">
-        逻辑回归
+        
+  
+  
+  <span class="md-ellipsis">
+    逻辑回归
+    
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../ai/ch1_8/" class="md-nav__link">
-        PCA
+        
+  
+  
+  <span class="md-ellipsis">
+    PCA
+    
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../ai/ch5_1/" class="md-nav__link">
-        变分自编码器|VAE
+        
+  
+  
+  <span class="md-ellipsis">
+    变分自编码器|VAE
+    
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../ai/ch2_1/" class="md-nav__link">
-        SLIC Pixelation
+        
+  
+  
+  <span class="md-ellipsis">
+    SLIC Pixelation
+    
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../ai/ch2_2/" class="md-nav__link">
-        网络结构可视化
+        
+  
+  
+  <span class="md-ellipsis">
+    网络结构可视化
+    
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
+  
   
   
   
     
+    
+    
+    
+      
+      
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3">
-          Web
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Web" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          Web
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
           
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Web
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Web
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../web/ch1/" class="md-nav__link">
-        Nginx
+        
+  
+  
+  <span class="md-ellipsis">
+    Nginx
+    
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../web/ch2/" class="md-nav__link">
-        uWSGI
+        
+  
+  
+  <span class="md-ellipsis">
+    uWSGI
+    
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
   
   
     
   
   
+  
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+    
+      
+        
+        
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
-      
-      
-      
-        <label class="md-nav__link" for="__nav_4">
-          CTF
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="CTF" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
-          CTF
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
           
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    CTF
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            CTF
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
   
   
     
+  
   
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          [限制]SUSCTF2023
+          
+  
+  
+  <span class="md-ellipsis">
+    [限制]SUSCTF2023
+    
+  </span>
+  
+
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        [限制]SUSCTF2023
+        
+  
+  
+  <span class="md-ellipsis">
+    [限制]SUSCTF2023
+    
+  </span>
+  
+
       </a>
       
         
@@ -624,7 +838,9 @@
       
         <li class="md-nav__item">
   <a href="#qa" class="md-nav__link">
-    Q&amp;A
+    <span class="md-ellipsis">
+      Q&amp;A
+    </span>
   </a>
   
 </li>
@@ -636,170 +852,222 @@
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../ch2/" class="md-nav__link">
-        FGSM攻击
+        
+  
+  
+  <span class="md-ellipsis">
+    FGSM攻击
+    
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../ch4/" class="md-nav__link">
-        RSA
+        
+  
+  
+  <span class="md-ellipsis">
+    RSA
+    
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../ch5/" class="md-nav__link">
-        编码|Encode
+        
+  
+  
+  <span class="md-ellipsis">
+    编码|Encode
+    
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../ch3/" class="md-nav__link">
-        初等数论
+        
+  
+  
+  <span class="md-ellipsis">
+    初等数论
+    
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../ch1/" class="md-nav__link">
-        乱数假文&LSB隐写
+        
+  
+  
+  <span class="md-ellipsis">
+    乱数假文&LSB隐写
+    
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
+  
   
   
   
     
+    
+    
+    
+      
+      
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_5">
-          Others
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Others" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
-          Others
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
           
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Others
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Others
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../others/blog/" class="md-nav__link">
-        Blog搭建
+        
+  
+  
+  <span class="md-ellipsis">
+    Blog搭建
+    
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../others/mkdocs_encrypt/" class="md-nav__link">
-        [限制]mkdocs加密
+        
+  
+  
+  <span class="md-ellipsis">
+    mkdocs加密
+    
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
-            
               
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../others/time/" class="md-nav__link">
-        [限制]琐碎
-      </a>
-    </li>
-  
-
             
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../others/Words_M/" class="md-nav__link">
-        [限制]单词
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -832,7 +1100,9 @@
       
         <li class="md-nav__item">
   <a href="#qa" class="md-nav__link">
-    Q&amp;A
+    <span class="md-ellipsis">
+      Q&amp;A
+    </span>
   </a>
   
 </li>
@@ -851,51 +1121,77 @@
                 
                   
 
-  <a href="https://github.com/Alexair059/Alexair059.github.io/edit/main/docs/ctf/ch6.md" title="编辑此页" class="md-content__button md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
-  </a>
+
+  
+  
 
 
-<div id="mkdocs-encrypted-content" style="display:none">NnF9/48+GHOC/KWEgbeQKg==;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;^</div>
+<div id="mkdocs-encrypted-content" style="display:none">6IVhVXwwJOFim/ZkNaqVTw==;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</div>
 <div id="mkdocs-decrypted-content">
-    <form id="mkdocs-decrypt-form">
+    <form id="mkdocs-decrypt-form" class="md-content__inner md-typeset">
         <h1>[该内容已被加密保护]</h1>
         <p>联系博主以获得权限</p>
-        <input class="input-form" type="password" id="mkdocs-content-password" placeholder="Password" />
+        <input class="input-form" type="password" id="mkdocs-content-password" placeholder="Password">
         
         <p id="mkdocs-decrypt-msg"></p>
     </form>
 </div>
 
 <script type="text/javascript">
+var encryptcontent_id = "encryptcontent_1";
 var encryptcontent_path = "ctf/ch6/";
 var decryption_failure_message = "\u5bc6\u7801\u9519\u8bef";
-</script>
+var encryptcontent_keystore = ["o+mpyWJ4/Ym7BCafpnOH2w==;rC0CbonnXyQWei/qOFwx65yn9GJuF9Tky7S9aL0hQWRFl9h36v6GPnxD5upfLzj1zVjhrudVABX/kwrnwfhq4oQTcZLstUdY9D8zWRqoQeFnvpnKC+MogXxGDb2SjZFX;6Ngq2HhwIWXkbi6Rry98hA=="];
+var encryptcontent_obfuscate = 0;
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/enc-base64.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/cipher-core.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/pad-nopadding.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/aes.js"></script>
+</script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/enc-base64.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/cipher-core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/sha256.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/hmac.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/pbkdf2.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/aes.js"></script>
 <script type="text/javascript" src="../../assets/javascripts/decrypt-contents.js" defer></script>
 
 
-  <hr>
-<div class="md-source-file">
-  <small>
+
+
+
+
+
+  
     
-      最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-09-15T15:38:34+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-09-15</span>
-      
-        <br>
-        创建日期:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-09-15T15:38:34+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-09-15</span>
-      
+  
+  
     
-  </small>
-</div>
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2023年9月15日 15:38:34 UTC"><span class="timeago" datetime="2023-09-15T15:38:34+00:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2023年9月15日 15:38:34 UTC">2023-09-15</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2023年9月15日 15:38:34 UTC"><span class="timeago" datetime="2023-09-15T15:38:34+00:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2023年9月15日 15:38:34 UTC">2023-09-15</span>
+  </span>
+
+    
+    
+    
+  </aside>
 
 
 
@@ -954,52 +1250,18 @@ var decryption_failure_message = "\u5bc6\u7801\u9519\u8bef";
             </div>
           
           
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
-            回到页面顶部
-          </a>
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
         
       </main>
       
         <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="页脚" >
-      
-        
-        <a href="../../web/ch2/" class="md-footer__link md-footer__link--prev" aria-label="上一页: uWSGI" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                上一页
-              </span>
-              uWSGI
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../ch2/" class="md-footer__link md-footer__link--next" aria-label="下一页: FGSM攻击" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              FGSM攻击
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1021,14 +1283,18 @@ var decryption_failure_message = "\u5bc6\u7801\u9519\u8bef";
   
     
     
+    
+    
     <a href="https://github.com/Alexair059" target="_blank" rel="noopener" title="My Github" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
     </a>
   
     
     
+    
+    
     <a href="mailto:alexair059@gmail.com" target="_blank" rel="noopener" title="My Email" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6l-126.3-52.5-40.1 74.5c-5.2 9.7-16.3 14.6-27 11.9S192 499 192 488v-96c0-5.3 1.8-10.5 5.1-14.7l165.3-212.6c2.5-7.1-6.5-14.3-13-8.4l-179 161.9-32 28.9c-9.2 8.3-22.3 10.6-33.8 5.8l-85-35.4C8.4 312.8.8 302.2.1 290s5.5-23.7 16.1-29.8l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480v-83.6c0-4 1.5-7.8 4.2-10.8l167.6-182.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8l-88.3-44.2C7.1 311.3.3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4"/></svg>
     </a>
   
 </div>
@@ -1042,10 +1308,13 @@ var decryption_failure_message = "\u5bc6\u7801\u9519\u8bef";
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.expand", "navigation.top", "toc.follow"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.expand", "navigation.top", "toc.follow"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
         <script src="../../js/timeago.min.js"></script>
       
