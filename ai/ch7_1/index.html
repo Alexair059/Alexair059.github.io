@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../ch5_1/">
+        <link rel="prev" href="../..">
       
       
-        <link rel="next" href="../ch2_2/">
+        <link rel="next" href="../ch1_2/">
       
       
       <link rel="icon" href="../../assets/data.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>SLIC Pixelation - MZY Blog</title>
+        <title>变分自编码器|VAE(2026) - MZY Blog</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slic" class="md-skip">
+        <a href="#vae-2026" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SLIC Pixelation
+              变分自编码器|VAE(2026)
             
           </span>
         </div>
@@ -243,7 +243,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../ch7_1/" class="md-tabs__link">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -431,10 +431,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../ch7_1/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    变分自编码器|VAE(2026)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -445,6 +467,95 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      分类
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ae-vae" class="md-nav__link">
+    <span class="md-ellipsis">
+      从 AE 到 VAE
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      概率模型与目标
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="概率模型与目标">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elbo" class="md-nav__link">
+    <span class="md-ellipsis">
+      ELBO 推导
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elbo_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ELBO：统一重建误差与潜在近似误差
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      重参数技巧
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vae" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成与采样：VAE 的好处
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -615,32 +726,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    SLIC Pixelation
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../ch2_1/" class="md-nav__link">
         
   
   
@@ -651,146 +740,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#superpixel" class="md-nav__link">
-    <span class="md-ellipsis">
-      超像素（SuperPixel）
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#slic_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      简单线性迭代聚类（SLIC）
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="简单线性迭代聚类（SLIC）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 图像预处理
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 初始化聚类中心
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. 优化初始聚类中心
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. 计算像素点与聚类中心的距离
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. 计算像素点与聚类中心的距离">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. 像素点分类
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. 重新计算聚类中心
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-4-6" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. 迭代4-6的过程
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      像素化生成：聚类优化
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      项目部署：图片像素化风格生成器
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1233,106 +1182,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#superpixel" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      超像素（SuperPixel）
+      分类
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#slic_1" class="md-nav__link">
+  <a href="#ae-vae" class="md-nav__link">
     <span class="md-ellipsis">
-      简单线性迭代聚类（SLIC）
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="简单线性迭代聚类（SLIC）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 图像预处理
+      从 AE 到 VAE
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 初始化聚类中心
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. 优化初始聚类中心
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. 计算像素点与聚类中心的距离
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. 计算像素点与聚类中心的距离">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. 像素点分类
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. 重新计算聚类中心
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-4-6" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. 迭代4-6的过程
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      像素化生成：聚类优化
+      概率模型与目标
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="概率模型与目标">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elbo" class="md-nav__link">
+    <span class="md-ellipsis">
+      ELBO 推导
     </span>
   </a>
   
@@ -1340,13 +1220,31 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elbo_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ELBO：统一重建误差与潜在近似误差
+    </span>
+  </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      项目部署：图片像素化风格生成器
+      重参数技巧
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vae" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成与采样：VAE 的好处
     </span>
   </a>
   
@@ -1371,77 +1269,117 @@
   
 
 
-<h1 id="slic">SLIC算法 &amp; 像素美术素材生成<a class="headerlink" href="#slic" title="Permanent link">&para;</a></h1>
-<p>实现超像素领域经典算法SLIC，项目已放至<a href="https://alexair059.github.io/SLIC-Pixelation/">Github</a></p>
-<h2 id="superpixel">超像素（SuperPixel）<a class="headerlink" href="#superpixel" title="Permanent link">&para;</a></h2>
-<p>超像素是 2003 年 Xiaofeng Ren<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> 提出和发展起来的图像分割技术，是指具有相似纹理、颜色、亮度等特征的相邻像素构成的有一定视觉意义的不规则像素块</p>
-<p>它利用像素之间特征的相似性将像素分组，用少量的超像素代替大量的像素来表达图片特征，很大程度上降低了图像后处理的复杂度，所以通常作为分割算法的预处理步骤</p>
-<h2 id="slic_1">简单线性迭代聚类（SLIC）<a class="headerlink" href="#slic_1" title="Permanent link">&para;</a></h2>
-<p>超像素点分割的方法包括了提取轮廓、聚类、梯度上升等多种</p>
-<p>SLIC<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> 是基于K-means聚类的超像素分割算法，具有简单灵活、效果好、处理速度快等优势</p>
-<h3 id="1">1. 图像预处理<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>将图像从 RGB 颜色空间转换到 CIE-Lab 颜色空间，Lab 颜色空间更符合人类对颜色的视觉感知。这个空间里的距离能反映人感觉到的颜色差别，相关计算更为准确</p>
-<h3 id="2">2. 初始化聚类中心<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>根据参数确定超像素的数目，也就是需要划分为多少个区域。假设图片有<span class="arithmatex">\(N\)</span>个像素点，预计分割为<span class="arithmatex">\(K\)</span>个超像素，每个超像素大小为<span class="arithmatex">\(N/K\)</span>，相邻中心距离为<span class="arithmatex">\(S=Sqr(N/K)\)</span>，得到<span class="arithmatex">\(K\)</span>个聚类坐标</p>
-<h3 id="3">3. 优化初始聚类中心<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<p>聚类中心的<span class="arithmatex">\(3\times3\)</span>邻域内选择梯度最小的像素点作为新的聚类中心</p>
-<p>把图像看成二维离散函数，梯度也就是这个函数的求导，当相邻像素值有变化就会存在梯度，而在边缘上的像素点的梯度最大。将聚类中心挪到梯度最小的地方可以避免其落到边缘轮廓上，影响聚类效果</p>
-<p>离散梯度的梯度计算考虑到计算量，一般会简化为用绝对值来近似平方和平方根的操作</p>
-<h3 id="4">4. 计算像素点与聚类中心的距离<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
-<p>在聚类中心距离S的区域内<span class="arithmatex">\(2S\times2S\)</span>的邻域内计算像素点与每个聚类中心的距离</p>
-<p>使用的是欧式距离，总距离<span class="arithmatex">\(D\)</span>由<span class="arithmatex">\(d_c\)</span>颜色距离与<span class="arithmatex">\(d_s\)</span>空间距离两部分组成：</p>
+<h1 id="vae-2026">变分自编码器 | VAE (2026)<a class="headerlink" href="#vae-2026" title="Permanent link">&para;</a></h1>
+<p>变分自编码器（Variational Autoencoder，VAE）是一种无监督的生成式模型。它沿用了自编码器（Autoencoder，AE）的 encoder-decoder 架构，但在概率视角下将“编码”从确定性的低维向量，变成了对隐变量后验分布的近似，并具备可以从先验中采样生成新样本的生成能力。</p>
+<h2 id="_1">分类<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>无监督学习方法
+概率模型
+参数化模型
+生成学习方法</p>
+<h2 id="ae-vae">从 AE 到 VAE<a class="headerlink" href="#ae-vae" title="Permanent link">&para;</a></h2>
+<p>自编码器的基本形式很直观：encoder 将输入 <span class="arithmatex">\(x\)</span> 映射为隐向量 <span class="arithmatex">\(z\)</span>，decoder 再从 <span class="arithmatex">\(z\)</span> 重建 <span class="arithmatex">\(x\)</span></p>
+<div class="arithmatex">\[z = f_\phi(x), x = g_\theta(z)\]</div>
+<p>训练目标通常是最小化重建误差，例如均方误差或二元交叉熵</p>
+<p>但 AE 学习到的隐空间没有明确的概率结构。它只是把样本映射到某些点上，却没有定义“隐空间应该服从什么分布”。因此如果直接从隐空间随机采样一个 <span class="arithmatex">\(z\)</span>，再送入 decoder，得到的结果往往没有意义</p>
+<p>VAE 的区别是：不再把输入映射为一个确定向量，而是映射为一个分布。具体地，VAE 假设数据由隐变量生成。这也可以视为概率图模型上的描述观测数据的因果关系（causal）</p>
+<div class="arithmatex">\[z \sim p(z), x \sim p_\theta(x|z)\]</div>
+<p>其中 <span class="arithmatex">\(p(z)\)</span> 是先验分布，通常取标准正态分布</p>
+<div class="arithmatex">\[p(z) = N(z; 0, I)\]</div>
+<p>而 encoder 不再直接输出 z，而是输出近似后验分布 <span class="arithmatex">\(q_\phi(z|x)\)</span> 的参数。最常见的情形是</p>
+<div class="arithmatex">\[q_\phi(z|x) = N(z; μ_\theta(x), diag(σ_\phi^2(x)))\]</div>
+<p>于是 VAE 的“编码”变成了学习一个分布，“解码”则是在给定隐变量 z 的条件下生成样本</p>
+<h2 id="_2">概率模型与目标<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>从生成模型视角看，我们希望最大化数据边际似然</p>
+<div class="arithmatex">\[p_\theta(x) = \int p_\theta(x|z) p(z) dz\]</div>
+<p>对应地，训练目标就是最大化对数似然</p>
+<div class="arithmatex">\[log p_\theta(x)\]</div>
+<p>但这里有两个困难：</p>
+<p>积分 <span class="arithmatex">\(\int p_\theta(x|z) p(z) dz\)</span> 通常不可解，潜在变量 <span class="arithmatex">\(z\)</span> 常常是巨大维数</p>
+<p>真实后验 pθ(z|x) 通常也不可解</p>
+<p>因此 VAE 引入变分推断，用一个可学习的分布 <span class="arithmatex">\(q_\phi(z|x)\)</span> 去近似真实后验 <span class="arithmatex">\(p_\theta(z|x)\)</span>，并通过优化一个下界来间接最大化 <span class="arithmatex">\(log p_\theta(x)\)</span></p>
+<p>这个下界就是 ELBO（Evidence Lower Bound）</p>
+<h3 id="elbo">ELBO 推导<a class="headerlink" href="#elbo" title="Permanent link">&para;</a></h3>
+<p>从对数边际似然出发：</p>
 <div class="arithmatex">\[
 \begin{aligned}
-\mathrm{d}_c &amp;=\sqrt{\left(l_j-l_i\right)^2+\left(a_j-a_i\right)^2+\left(b_j-b_i\right)^2} \\
-\mathrm{~d}_s &amp;=\sqrt{\left(x_j-x_k\right)^2+\left(y_j-y_k\right)^2} \\
-D &amp;=\sqrt{\left(\frac{\mathrm{d}_c}{N_c}\right)^2+\left(\frac{\mathrm{d}_s}{N_s}\right)^2}
+log p_θ(x)
+=&amp; log ∫ p_θ(x, z) dz\\
+=&amp; log ∫ q_φ(z|x)  \frac{p_θ(x, z)}{q_φ(z|x)}   dz
 \end{aligned}
 \]</div>
-<p>如果直接将<span class="arithmatex">\(l\)</span>，<span class="arithmatex">\(a\)</span>，<span class="arithmatex">\(b\)</span>，<span class="arithmatex">\(x\)</span>，<span class="arithmatex">\(y\)</span>拼接成一个矢量计算距离，当超像素的大小变化时，<span class="arithmatex">\(x\)</span>，<span class="arithmatex">\(y\)</span>的值可以取到非常大 ，比如一张<span class="arithmatex">\(1000\times1000\)</span>的图，空间距离可以达到<span class="arithmatex">\(1000\times Sqr(2)\)</span>，而颜色距离最大仅<span class="arithmatex">\(10\times Sqr(2)\)</span>，导致最终计算得到的距离值中，空间距离<span class="arithmatex">\(d_s\)</span>权重占比过大</p>
-<p>所以需要进行归一化，除以最大值即超像素点的初始宽度<span class="arithmatex">\(S\)</span>，将值映射到<span class="arithmatex">\([0,1]\)</span></p>
-<p>而颜色空间距离也会由一个固定的值<span class="arithmatex">\(m\)</span>来调节颜色距离与空间距离的影响权重，<span class="arithmatex">\(m\)</span>取值范围为<span class="arithmatex">\([1,40]\)</span></p>
+<p>由 Jensen 不等式有：
+$$
+log \mathbb{E}_q\left[ \frac{p_θ(x, z)}{q_φ(z|x)}  \right]
+\geq \mathbb{E}_q\left[ log\frac{  p_θ(x, z)}{q_φ(z|x)}  \right]
+$$</p>
+<p>于是得到：
+$$
+log p_θ(x)
+\geq \mathbb{E}_{q_φ(z|x)}\left[ log \frac{p_θ(x, z)}{q_φ(z|x)}    \right]
+= L(x; θ, φ)
+$$</p>
+<p>其中 L(x; θ, φ) 即为 ELBO</p>
+<p>进一步展开联合分布 <span class="arithmatex">\(p_θ(x, z) = p_θ(x|z) p(z)\)</span>，有：</p>
 <div class="arithmatex">\[
 \begin{aligned}
-D^{\prime} &amp;=\sqrt{\left(\frac{\mathrm{d}_c}{m}\right)^2+\left(\frac{\mathrm{d}_s}{S}\right)^2}
+L(x; θ, φ)
+=&amp; \mathbb{E}_{q_φ(z|x)}[ log p_θ(x|z) + log p(z) - log q_φ(z|x) ]\\
+=&amp; E_{q_φ(z|x)}[ log p_θ(x|z) ] - D_{KL}( q_φ(z|x) || p(z) )
 \end{aligned}
 \]</div>
-<p>当<span class="arithmatex">\(m\)</span>越大，颜色空间除以<span class="arithmatex">\(m\)</span>后的值越小，即空间距离的权重越大，生成的像素会更为形状规则，当<span class="arithmatex">\(m\)</span>越小，颜色距离权重更大，超像素会在边缘更为紧凑，而形状大小较为不规则</p>
-<h4 id="_1">总结<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
-<p>SLIC基于K-means，主要做了两点优化：</p>
-<ul>
-<li>调整了<strong>搜索范围</strong>，由全局缩小为<span class="arithmatex">\(2S \times 2S\)</span>空间</li>
-<li>调整了<strong>距离定义</strong>，选用CIE-Lab色域，并引入了超参数以调节色彩距离与空间距离的权重</li>
-</ul>
-<h3 id="5">5. 像素点分类<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
-<p>标记每个像素点的类别为距离其最小的聚类中心的类别</p>
-<h3 id="6">6. 重新计算聚类中心<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
-<p>计算属于同一个聚类的所有像素点的平均向量值，重新得到聚类中心</p>
-<h3 id="7-4-6">7. 迭代4-6的过程<a class="headerlink" href="#7-4-6" title="Permanent link">&para;</a></h3>
-<p>直到旧聚类中心与新聚类中心的距离小于一定阈值或者达到一定迭代次数，一般来说，当迭代次数到达<span class="arithmatex">\(10\)</span>，算法能够达到收敛</p>
-<h3 id="_2">像素化生成：聚类优化<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>迭代到最后，可能会出现与聚类中心不属于同一连通域的孤立像素点</p>
-<p>在SLIC论文中，作者将其视为需要进行强制连通的去空洞任务，可以使用到连通算法将其分配到最近的聚类标签</p>
-<p>在本文中，由于应用场景是图片像素化，会对像素进行下取样，并不会细化到每个像素，因此不做聚类优化处理</p>
-<p>在对图片进行SLIC分割后，我们已经获得每个像素对应的超像素标记，设定一定步长<code>stride</code>，每隔<code>stride</code>个像素，将像素赋值为其聚类中心的颜色，即得到最终的像素化结果</p>
-<h2 id="_3">项目部署：图片像素化风格生成器<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>应用部署在<a href="https://alexair059.github.io/SLIC-Pixelation/demo.html">Github</a>，相关参数如下：</p>
-<ul>
-<li>迭代次数<code>iters</code>；<code>iters</code>越大，分割结果更精准，计算时间越长</li>
-<li>超像素点大小<code>blocksize</code>；<code>blocksize</code>越小，超像素点分割越细腻</li>
-<li>取像素点步长<code>stride</code>；<code>stride</code>越小，生成的像素图越接近超像素点，也就越细腻</li>
-<li>颜色空间权重<code>weight</code>；<code>weight</code>越大，颜色对于分割结果的影响越大</li>
-</ul>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>Ren, Malik. Learning a classification model for segmentation[C]. international conference on computer vision, 2003: 10-17.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p>Achanta R, Shaji A, Smith K, et al. SLIC superpixels compared to state-of-the-art superpixel methods[J]. IEEE transactions on pattern analysis and machine intelligence, 2012, 34(11): 2274-2282&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
+<p>这就是 VAE 最核心的目标函数</p>
+<h2 id="elbo_1">ELBO：统一重建误差与潜在近似误差<a class="headerlink" href="#elbo_1" title="Permanent link">&para;</a></h2>
+<p>ELBO 的第一项：</p>
+<div class="arithmatex">\[\mathbb{E}_{q_φ(z|x)}[ log p_θ(x|z) ]\]</div>
+<p>表示在近似后验下，隐变量 <span class="arithmatex">\(z\)</span> 能够多好地重建原始样本 <span class="arithmatex">\(x\)</span>。最大化它，等价于最小化重建误差</p>
+<p>第二项：</p>
+<div class="arithmatex">\[D_{KL}( q_φ(z|x) || p(z) )\]</div>
+<p>则要求近似后验 <span class="arithmatex">\(q_φ(z|x)\)</span> 不要偏离先验 <span class="arithmatex">\(p(z)\)</span> 太远。它可以看作潜在空间上的正则项，也可以理解为潜在近似误差</p>
+<p>于是最大化 ELBO：</p>
+<div class="arithmatex">\[\max_{θ, φ} L(x; θ, φ)\]</div>
+<p>等价于：</p>
+<div class="arithmatex">\[\max_{θ, φ} \left[ E_{q_φ(z|x)}[ log p_θ(x|z) ] - D_{KL}( q_φ(z|x) || p(z) ) \right]\]</div>
+<p>等价于最小化损失负 ELBO，它把两个目标统一在一个损失函数中，形式上很优美</p>
+<p>只有重建误差时，模型会倾向于把每个样本编码成孤立的点，隐空间没有连续性，采样没有意义</p>
+<p>只有潜在近似误差时，模型会忽略输入信息，把后验都压向先验，重建效果很差</p>
+<p>ELBO 同时约束两者：既要保留足够信息用于重建，又要让隐空间分布接近先验，便于生成和采样。</p>
+<p>事实上通过边际似然完全分解可以得到 ELBO 和 KL 散度</p>
+<div class="arithmatex">\[log p_θ(x)
+= L(x; θ, φ) + D_{KL}( q_φ(z|x) || p_θ(z|x) )\]</div>
+<p>因为 KL 散度非负，所以 ELBO 确实是 <span class="arithmatex">\(log p_θ(x)\)</span> 的下界。最大化 ELBO，一方面提升数据对数似然的下界，另一方面也在最小化近似后验与真实后验之间的 KL 散度</p>
+<h2 id="_3">重参数技巧<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>ELBO 中第一项需要从 <span class="arithmatex">\(q_φ(z|x)\)</span> 中采样 <span class="arithmatex">\(z\)</span>，再计算 <span class="arithmatex">\(log p_θ(x|z)\)</span></p>
+<p>但采样操作本身是随机的，梯度无法穿过这个随机节点反传到 encoder 参数 <span class="arithmatex">\(φ\)</span>。在工程上对反向传播和随机梯度下降都不友好</p>
+<p>VAE 的做法是另设一个变量，以高斯分布为例：</p>
+<div class="arithmatex">\[q_φ(z|x) = N(z; μ_φ(x), diag(σ_φ^2(x)))\]</div>
+<p>我们可以把采样拆成两部分：先从一个固定的标准正态分布中采样噪声，再做确定变换</p>
+<div class="arithmatex">\[ε \sim N(0, I)\\
+z = μ_φ(x) + σ_φ(x) ⊙ ε\]</div>
+<p>其中 ⊙ 表示逐元素相乘</p>
+<p>这样一来，随机性被转移到了变量 <span class="arithmatex">\(ε\)</span> 上，而 <span class="arithmatex">\(z\)</span> 对 <span class="arithmatex">\(μ\)</span> 和 <span class="arithmatex">\(σ\)</span> 是可导的。于是梯度可以正常传播更新</p>
+<p>实际实现时，为了保证方差为正，encoder 通常输出 <span class="arithmatex">\(log σ^2\)</span>，然后令：</p>
+<div class="arithmatex">\[σ = \exp( \frac{1}{2} log σ^2 )\]</div>
+<p>在高斯先验 <span class="arithmatex">\(p(z) = N(0, I)\)</span> 下，KL 项有闭式解：</p>
+<div class="arithmatex">\[D_{KL}( N(μ, diag(σ^2)) || N(0, I) )
+= -\frac{1}{2} \sum_j ( 1 + log σ_j^2 - μ_j^2 - σ_j^2 )\]</div>
+<p>重建项则常用 Monte Carlo 估计：</p>
+<div class="arithmatex">\[\mathbb{E}_{q_φ(z|x)}[ log p_θ(x|z) ]
+≈ \frac{1}{L} \sum_{l=1}^L log p_θ(x|z^{(l)})\]</div>
+<p>其中 <span class="arithmatex">\(z^(l)\)</span> 通过重参数技巧采样得到。这样整个 VAE 就可以端到端训练了</p>
+<h2 id="vae">生成与采样：VAE 的好处<a class="headerlink" href="#vae" title="Permanent link">&para;</a></h2>
+<p>AE 的 encoder 是确定性的：</p>
+<div class="arithmatex">\[z = f_φ(x)\]</div>
+<p>它只告诉我们在隐空间里“这个样本在哪里”，却没有定义隐空间的概率分布。因此从 AE 的隐空间随意采样，通常不能生成合理的新样本。</p>
+<p>VAE 则显式定义了先验：</p>
+<div class="arithmatex">\[p(z) = N(0, I)\]</div>
+<p>并通过 KL 项让 <span class="arithmatex">\(q_φ(z|x)\)</span> 向先验靠拢。训练完成后，隐空间不再是一堆无结构的点，而是一个接近先验的连续概率空间</p>
+<p>于是生成一个新样本可以这样做：</p>
+<div class="arithmatex">\[z \sim p(z), x \sim p_θ(x|z)\]</div>
+<p>先从标准正态分布中采样一个隐变量，再送入 decoder 生成样本</p>
+<p>VAE 还能在隐空间中进行插值：将两个样本编码后的均值 <span class="arithmatex">\(μ_1\)</span>、<span class="arithmatex">\(μ_2\)</span> 线性插值，再解码，往往能得到平滑过渡的生成结果</p>
+<p>从概率角度看，VAE 优化的是边际似然 <span class="arithmatex">\(log p_θ(x)\)</span> 的下界，因此从概率图模型角度看是在学习一个生成模型：</p>
+<div class="arithmatex">\[p_θ(x) = ∫ p_θ(x|z) p(z) dz\]</div>
+<p>虽然这个积分通常无法直接计算，但通过最大化 ELBO，我们仍然可以训练出一个能够近似该生成分布的模型</p>
 
 
 
@@ -1464,7 +1402,7 @@ D^{\prime} &amp;=\sqrt{\left(\frac{\mathrm{d}_c}{m}\right)^2+\left(\frac{\mathrm
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2023年7月17日 19:45:08 UTC"><span class="timeago" datetime="2023-07-17T19:45:08+00:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2023年7月17日 19:45:08 UTC">2023-07-17</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2026年10月6日 16:08:41 UTC"><span class="timeago" datetime="2026-10-06T16:08:41+00:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2026年10月6日 16:08:41 UTC">2026-10-06</span>
   </span>
 
     
@@ -1474,7 +1412,7 @@ D^{\prime} &amp;=\sqrt{\left(\frac{\mathrm{d}_c}{m}\right)^2+\left(\frac{\mathrm
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2023年2月28日 09:28:46 UTC"><span class="timeago" datetime="2023-02-28T09:28:46+00:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2023年2月28日 09:28:46 UTC">2023-02-28</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2026年10月6日 16:08:41 UTC"><span class="timeago" datetime="2026-10-06T16:08:41+00:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2026年10月6日 16:08:41 UTC">2026-10-06</span>
   </span>
 
     
